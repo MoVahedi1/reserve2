@@ -1,0 +1,2072 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>رزرو آنلاین | گالری زیبایی لوکس بانو</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Marcellus&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css">
+    <style>
+        :root {
+            --primary-gold: #D4AF37;
+            --primary-gold-light: #F4E4A6;
+            --primary-gold-dark: #B8860B;
+            --primary-rose: #E8B4B8;
+            --primary-rose-light: #F9E5E6;
+            --primary-rose-dark: #C780A2;
+            --primary-cream: #FAF3E0;
+            --primary-champagne: #F7E7CE;
+            --dark-text: #3A2C35;
+            --medium-text: #6D5D6B;
+            --light-text: #9E8BA5;
+            --white: #FFFFFF;
+            --black: #1A1A1A;
+            --shadow-soft: 0 10px 25px rgba(0, 0, 0, 0.05);
+            --shadow-medium: 0 15px 35px rgba(0, 0, 0, 0.08);
+            --shadow-strong: 0 20px 40px rgba(0, 0, 0, 0.12);
+            --radius-xl: 24px;
+            --radius-lg: 16px;
+            --radius-md: 10px;
+            --radius-sm: 6px;
+            --transition-slow: all 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+            --transition-medium: all 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+            --transition-fast: all 0.2s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--dark-text);
+            background-color: var(--primary-cream);
+            overflow-x: hidden;
+            line-height: 1.7;
+        }
+        
+        h1, h2, h3, h4, .logo-text {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 600;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 30px;
+        }
+        
+        /* هدر ریسپانسیو با انیمیشن اسکرول */
+        .exquisite-header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 2000;
+            background: rgba(250, 243, 224, 0.97);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+            transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+            padding: 20px 0;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        }
+        
+        /* حالت کوچک شده هدر هنگام اسکرول */
+        .exquisite-header.scrolled {
+            padding: 10px 0;
+            background: rgba(250, 243, 224, 0.98);
+            backdrop-filter: blur(15px);
+            box-shadow: 0 6px 25px rgba(0, 0, 0, 0.1);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.15);
+        }
+        
+        .exquisite-header.scrolled .logo-icon {
+            width: 45px;
+            height: 45px;
+            font-size: 18px;
+        }
+        
+        .exquisite-header.scrolled .logo-text {
+            font-size: 1.8rem;
+        }
+        
+        .exquisite-header.scrolled .logo-subtitle {
+            font-size: 0.7rem;
+            letter-spacing: 1.5px;
+        }
+        
+        .exquisite-header.scrolled .nav-link {
+            font-size: 0.95rem;
+            padding: 6px 0;
+        }
+        
+        .exquisite-header.scrolled .header-cta {
+            padding: 10px 20px;
+            font-size: 0.9rem;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+        }
+        
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+        }
+        
+        .logo-icon {
+            width: 55px;
+            height: 55px;
+            background: linear-gradient(135deg, var(--primary-gold) 0%, var(--primary-gold-dark) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 22px;
+            box-shadow: var(--shadow-soft);
+            transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+        }
+        
+        .logo-text {
+            font-size: 2.2rem;
+            background: linear-gradient(to right, var(--primary-gold), var(--primary-rose-dark));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            letter-spacing: 0.5px;
+            transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+        }
+        
+        .logo-subtitle {
+            font-family: 'Marcellus', serif;
+            font-size: 0.8rem;
+            color: var(--medium-text);
+            letter-spacing: 2px;
+            margin-top: -3px;
+            transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+        }
+        
+        .exquisite-nav ul {
+            display: flex;
+            list-style: none;
+            gap: 35px;
+            transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+        }
+        
+        .nav-item {
+            position: relative;
+        }
+        
+        .nav-link {
+            text-decoration: none;
+            color: var(--dark-text);
+            font-weight: 500;
+            font-size: 1rem;
+            padding: 8px 0;
+            transition: all 0.3s ease;
+            position: relative;
+            display: block;
+        }
+        
+        .nav-link:before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(to right, var(--primary-gold), var(--primary-rose));
+            transition: var(--transition-medium);
+        }
+        
+        .nav-link:hover:before, .nav-link.active:before {
+            width: 100%;
+        }
+        
+        .nav-link:hover, .nav-link.active {
+            color: var(--primary-gold-dark);
+        }
+        
+        .header-cta {
+            background: linear-gradient(135deg, var(--primary-gold) 0%, var(--primary-gold-dark) 100%);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-soft);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+        }
+        
+        .header-cta:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-medium);
+        }
+        
+        /* هیرو با اسلایدر تصاویر بهینه */
+        .exquisite-hero {
+            height: 65vh;
+            min-height: 500px;
+            position: relative;
+            margin-top: 100px;
+            border-radius: 0 0 var(--radius-xl) var(--radius-xl);
+            overflow: hidden;
+            transition: margin-top 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+        }
+        
+        /* تنظیم margin-top هیرو هنگام کوچک شدن هدر */
+        .exquisite-header.scrolled + .exquisite-hero {
+            margin-top: 80px;
+        }
+        
+        .hero-slider {
+            height: 100%;
+            width: 100%;
+        }
+        
+        .swiper {
+            width: 100%;
+            height: 100%;
+        }
+        
+        .swiper-slide {
+            position: relative;
+        }
+        
+        .slide-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: brightness(0.8);
+        }
+        
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background: linear-gradient(to right, rgba(58, 44, 53, 0.85) 0%, rgba(199, 128, 162, 0.5) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0 30px;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            color: white;
+            z-index: 10;
+        }
+        
+        .hero-title {
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            animation: fadeInUp 1s ease;
+            line-height: 1.2;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+            font-weight: 300;
+            animation: fadeInUp 1s ease 0.3s both;
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+        
+        .hero-cta {
+            background: transparent;
+            color: white;
+            border: 2px solid var(--primary-gold);
+            padding: 15px 35px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition-medium);
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+        
+        .hero-cta:hover {
+            background: var(--primary-gold);
+            color: var(--dark-text);
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-medium);
+        }
+        
+        /* گالری تصاویر بهینه */
+        .gallery-section {
+            padding: 80px 0;
+            background: var(--white);
+            position: relative;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-title {
+            font-size: 2.8rem;
+            color: var(--dark-text);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -12px;
+            right: 50%;
+            transform: translateX(50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(to right, var(--primary-gold), var(--primary-rose));
+            border-radius: 3px;
+        }
+        
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: var(--medium-text);
+            max-width: 700px;
+            margin: 25px auto 0;
+        }
+        
+        .gallery-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 50px;
+        }
+        
+        @media (max-width: 768px) {
+            .gallery-container {
+                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+                gap: 20px;
+            }
+        }
+        
+        .gallery-item {
+            position: relative;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            height: 280px;
+            cursor: pointer;
+            transition: var(--transition-medium);
+        }
+        
+        .gallery-item:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-strong);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition-slow);
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+        
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            left: 0;
+            background: linear-gradient(to top, rgba(58, 44, 53, 0.9), transparent);
+            color: white;
+            padding: 20px;
+            transform: translateY(15px);
+            opacity: 0;
+            transition: var(--transition-medium);
+        }
+        
+        .gallery-item:hover .gallery-overlay {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        
+        .gallery-title {
+            font-size: 1.3rem;
+            margin-bottom: 8px;
+        }
+        
+        .gallery-description {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+        
+        /* بخش رزرو بهینه */
+        .exquisite-booking {
+            padding: 80px 0;
+            background: var(--primary-cream);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .exquisite-booking:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, var(--primary-rose-light) 0%, transparent 70%);
+            border-radius: 50%;
+            opacity: 0.5;
+            z-index: 0;
+        }
+        
+        .exquisite-booking:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 250px;
+            height: 250px;
+            background: radial-gradient(circle, var(--primary-gold-light) 0%, transparent 70%);
+            border-radius: 50%;
+            opacity: 0.3;
+            z-index: 0;
+        }
+        
+        .booking-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        @media (max-width: 1100px) {
+            .booking-container {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* فرم بهینه */
+        .exquisite-form {
+            background: var(--white);
+            border-radius: var(--radius-xl);
+            padding: 40px;
+            box-shadow: var(--shadow-soft);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(212, 175, 55, 0.1);
+        }
+        
+        .form-decorative-border {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 6px;
+            background: linear-gradient(to right, var(--primary-gold), var(--primary-rose), var(--primary-gold));
+        }
+        
+        .form-section-exquisite {
+            margin-bottom: 40px;
+            position: relative;
+        }
+        
+        .section-header-small {
+            font-size: 1.8rem;
+            color: var(--dark-text);
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .section-header-small:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(to right, var(--primary-gold), var(--primary-rose));
+            border-radius: 3px;
+        }
+        
+        .section-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary-gold) 0%, var(--primary-gold-dark) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 20px;
+            box-shadow: var(--shadow-soft);
+        }
+        
+        /* خدمات با تصاویر بهینه */
+        .services-grid-exquisite {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        @media (max-width: 768px) {
+            .services-grid-exquisite {
+                grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            }
+        }
+        
+        .service-card-exquisite {
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            cursor: pointer;
+            transition: var(--transition-medium);
+            position: relative;
+            border: 1px solid rgba(212, 175, 55, 0.1);
+            background: var(--white);
+            height: 320px;
+        }
+        
+        .service-card-exquisite:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-medium);
+        }
+        
+        .service-card-exquisite.selected {
+            border: 2px solid var(--primary-gold);
+            box-shadow: var(--shadow-medium);
+        }
+        
+        .service-image {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            transition: var(--transition-medium);
+        }
+        
+        .service-card-exquisite:hover .service-image {
+            transform: scale(1.05);
+        }
+        
+        .service-content {
+            padding: 20px;
+        }
+        
+        .service-title {
+            font-size: 1.1rem;
+            color: var(--dark-text);
+            margin-bottom: 8px;
+            height: 40px;
+            overflow: hidden;
+        }
+        
+        .service-duration {
+            font-size: 0.85rem;
+            color: var(--medium-text);
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        
+        .service-price {
+            font-weight: 700;
+            color: var(--primary-gold-dark);
+            font-size: 1.2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .service-check {
+            width: 26px;
+            height: 26px;
+            background: var(--primary-gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 12px;
+            opacity: 0;
+            transition: var(--transition-fast);
+        }
+        
+        .service-card-exquisite.selected .service-check {
+            opacity: 1;
+        }
+        
+        /* تقویم بهینه */
+        .date-time-exquisite {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+        }
+        
+        @media (max-width: 768px) {
+            .date-time-exquisite {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .calendar-exquisite, .time-exquisite {
+            background: var(--primary-cream);
+            border-radius: var(--radius-lg);
+            padding: 20px;
+            border: 1px solid rgba(212, 175, 55, 0.1);
+        }
+        
+        .time-slots-exquisite {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+            gap: 12px;
+            margin-top: 20px;
+        }
+        
+        .time-slot-exquisite {
+            padding: 14px 8px;
+            text-align: center;
+            background: var(--white);
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            transition: var(--transition-fast);
+            border: 2px solid rgba(212, 175, 55, 0.2);
+            font-weight: 500;
+            font-size: 0.9rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .time-slot-exquisite:hover {
+            border-color: var(--primary-gold);
+            transform: translateY(-3px);
+        }
+        
+        .time-slot-exquisite.selected {
+            background: linear-gradient(135deg, var(--primary-gold) 0%, var(--primary-gold-dark) 100%);
+            color: white;
+            border-color: transparent;
+            box-shadow: var(--shadow-soft);
+        }
+        
+        /* خلاصه رزرو بهینه */
+        .exquisite-summary {
+            background: var(--white);
+            border-radius: var(--radius-xl);
+            padding: 40px;
+            box-shadow: var(--shadow-soft);
+            position: sticky;
+            top: 120px;
+            border: 1px solid rgba(212, 175, 55, 0.1);
+            overflow: hidden;
+        }
+        
+        .summary-header-exquisite {
+            text-align: center;
+            margin-bottom: 35px;
+            position: relative;
+        }
+        
+        .summary-header-exquisite:after {
+            content: '';
+            position: absolute;
+            bottom: -20px;
+            right: 50%;
+            transform: translateX(50%);
+            width: 120px;
+            height: 2px;
+            background: linear-gradient(to right, var(--primary-gold), var(--primary-rose));
+        }
+        
+        .summary-header-exquisite h2 {
+            font-size: 2rem;
+            color: var(--dark-text);
+            margin-bottom: 12px;
+        }
+        
+        .summary-details-exquisite {
+            margin-bottom: 35px;
+        }
+        
+        .summary-item-exquisite {
+            display: flex;
+            justify-content: space-between;
+            padding: 18px 0;
+            border-bottom: 1px dashed rgba(212, 175, 55, 0.3);
+            transition: var(--transition-fast);
+        }
+        
+        .summary-item-exquisite:hover {
+            background: var(--primary-cream);
+            padding-right: 15px;
+            padding-left: 15px;
+            margin: 0 -15px;
+            border-radius: var(--radius-md);
+        }
+        
+        .summary-total-exquisite {
+            display: flex;
+            justify-content: space-between;
+            padding: 22px 0;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--dark-text);
+            border-top: 2px solid var(--primary-gold);
+            margin-top: 15px;
+        }
+        
+        .exquisite-btn {
+            display: block;
+            width: 100%;
+            padding: 18px;
+            background: linear-gradient(135deg, var(--primary-gold) 0%, var(--primary-gold-dark) 100%);
+            color: white;
+            border: none;
+            border-radius: var(--radius-lg);
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition-medium);
+            box-shadow: var(--shadow-soft);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .exquisite-btn:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: var(--transition-medium);
+        }
+        
+        .exquisite-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-medium);
+        }
+        
+        .exquisite-btn:hover:before {
+            right: 100%;
+        }
+        
+        /* گالری کوچک در خلاصه */
+        .mini-gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-top: 30px;
+        }
+        
+        .mini-gallery-item {
+            height: 80px;
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            cursor: pointer;
+            transition: var(--transition-fast);
+        }
+        
+        .mini-gallery-item:hover {
+            transform: scale(1.05);
+            box-shadow: var(--shadow-soft);
+        }
+        
+        .mini-gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        /* مودال نمایش تصویر بزرگ */
+        .image-modal {
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background: rgba(26, 26, 26, 0.95);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 3000;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition-medium);
+            backdrop-filter: blur(10px);
+        }
+        
+        .image-modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .modal-image-container {
+            max-width: 90%;
+            max-height: 90%;
+            position: relative;
+        }
+        
+        .modal-image {
+            max-width: 100%;
+            max-height: 85vh;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-strong);
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: var(--primary-gold);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            cursor: pointer;
+            transition: var(--transition-fast);
+            z-index: 10;
+        }
+        
+        .close-modal:hover {
+            background: var(--primary-gold-dark);
+            transform: rotate(90deg);
+        }
+        
+        /* انیمیشن‌ها */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* منوی موبایل */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--primary-gold-dark);
+            font-size: 24px;
+            cursor: pointer;
+            padding: 5px;
+            transition: var(--transition-fast);
+        }
+        
+        .mobile-menu-btn:hover {
+            color: var(--primary-gold);
+        }
+        
+        /* فوتر بهینه */
+        .exquisite-footer {
+            background: var(--dark-text);
+            color: var(--white);
+            padding: 70px 0 30px;
+            position: relative;
+        }
+        
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 12px;
+            color: var(--primary-gold);
+        }
+        
+        .footer-column h3:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--primary-gold);
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 15px;
+        }
+        
+        .footer-column a {
+            color: #ddd;
+            text-decoration: none;
+            transition: var(--transition-fast);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .footer-column a:hover {
+            color: var(--primary-gold);
+            padding-right: 8px;
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 25px;
+        }
+        
+        .social-icon {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: rgba(212, 175, 55, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-gold);
+            font-size: 18px;
+            transition: var(--transition-fast);
+        }
+        
+        .social-icon:hover {
+            background: var(--primary-gold);
+            color: var(--dark-text);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #aaa;
+            font-size: 0.85rem;
+        }
+        
+        /* ریسپانسیو */
+        @media (max-width: 1200px) {
+            .container {
+                padding: 0 25px;
+            }
+            
+            .hero-title {
+                font-size: 3rem;
+            }
+            
+            .exquisite-form, .exquisite-summary {
+                padding: 35px;
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .exquisite-nav ul {
+                gap: 20px;
+            }
+            
+            .logo-text {
+                font-size: 1.8rem;
+            }
+            
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .section-title {
+                font-size: 2.2rem;
+            }
+            
+            .exquisite-form, .exquisite-summary {
+                padding: 30px;
+            }
+            
+            /* منوی موبایل */
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .exquisite-nav {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 80%;
+                max-width: 400px;
+                height: 100vh;
+                background: rgba(250, 243, 224, 0.98);
+                backdrop-filter: blur(20px);
+                padding: 100px 40px 40px;
+                transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+                box-shadow: -10px 0 30px rgba(0, 0, 0, 0.1);
+                z-index: 1999;
+                overflow-y: auto;
+            }
+            
+            .exquisite-nav.active {
+                right: 0;
+            }
+            
+            .exquisite-nav ul {
+                flex-direction: column;
+                gap: 25px;
+                align-items: flex-start;
+            }
+            
+            .nav-link {
+                font-size: 1.1rem;
+                padding: 10px 0;
+            }
+            
+            .header-cta {
+                display: none;
+            }
+            
+            /* آیکون بستن منوی موبایل */
+            .close-menu {
+                position: absolute;
+                top: 30px;
+                left: 30px;
+                background: var(--primary-gold);
+                color: white;
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 20px;
+                cursor: pointer;
+                transition: var(--transition-fast);
+            }
+            
+            .close-menu:hover {
+                background: var(--primary-gold-dark);
+                transform: rotate(90deg);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: row;
+                justify-content: space-between;
+                gap: 0;
+            }
+            
+            .exquisite-nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
+            }
+            
+            .hero-title {
+                font-size: 2.2rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .gallery-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .services-grid-exquisite {
+                grid-template-columns: 1fr;
+            }
+            
+            .exquisite-hero {
+                height: 50vh;
+                min-height: 400px;
+            }
+            
+            /* تنظیمات هدر اسکرول شده در موبایل */
+            .exquisite-header.scrolled .logo-icon {
+                width: 40px;
+                height: 40px;
+                font-size: 16px;
+            }
+            
+            .exquisite-header.scrolled .logo-text {
+                font-size: 1.5rem;
+            }
+            
+            .exquisite-header.scrolled + .exquisite-hero {
+                margin-top: 70px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 20px;
+            }
+            
+            .exquisite-form, .exquisite-summary {
+                padding: 25px;
+            }
+            
+            .section-header-small {
+                font-size: 1.5rem;
+            }
+            
+            .exquisite-header {
+                padding: 15px 0;
+            }
+            
+            .exquisite-header.scrolled {
+                padding: 8px 0;
+            }
+            
+            .exquisite-header.scrolled .logo-icon {
+                width: 35px;
+                height: 35px;
+                font-size: 14px;
+            }
+            
+            .exquisite-header.scrolled .logo-text {
+                font-size: 1.3rem;
+            }
+            
+            .exquisite-header.scrolled + .exquisite-hero {
+                margin-top: 65px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- هدر ریسپانسیو با انیمیشن اسکرول -->
+    <header class="exquisite-header">
+        <div class="container header-container">
+            <div class="logo-section">
+                <div class="logo-icon">
+                    <i class="fas fa-crown"></i>
+                </div>
+                <div>
+                    <div class="logo-text">لوکس بانو</div>
+                    <div class="logo-subtitle">GALERIE DE BEAUTÉ</div>
+                </div>
+            </div>
+            
+            <button class="mobile-menu-btn" id="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <nav class="exquisite-nav" id="main-nav">
+                <div class="close-menu" id="close-menu">
+                    <i class="fas fa-times"></i>
+                </div>
+                <ul>
+                    <li class="nav-item"><a href="#" class="nav-link">خانه</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link active">رزرو نوبت</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">خدمات</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">گالری</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">تماس</a></li>
+                </ul>
+            </nav>
+            
+            <button class="header-cta">
+                <i class="fas fa-phone-alt"></i>
+                ۰۲۱-۱۲۳۴۵۶۷۸
+            </button>
+        </div>
+    </header>
+
+    <!-- هیرو با اسلایدر تصاویر بهینه -->
+    <section class="exquisite-hero">
+        <div class="hero-slider">
+            <div class="swiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="آرایشگاه لوکس" class="slide-image" loading="lazy">
+                        <div class="hero-overlay">
+                            <div class="hero-content">
+                                <h1 class="hero-title">زیبایی تو، هنر ماست</h1>
+                                <p class="hero-subtitle">در گالری زیبایی لوکس بانو، هر مراجعه کننده یک شاهکار هنری است. خدمات اختصاصی در محیطی لوکس و رویایی.</p>
+                                <button class="hero-cta" id="scroll-to-booking">
+                                    <i class="fas fa-gem"></i>
+                                    رزرو نوبت اختصاصی
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="https://images.unsplash.com/photo-1522338242990-f8a6ccd0efb1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="آرایش عروس" class="slide-image" loading="lazy">
+                        <div class="hero-overlay">
+                            <div class="hero-content">
+                                <h1 class="hero-title">روز عروسی تو، افسانه‌ای می‌شود</h1>
+                                <p class="hero-subtitle">آرایش عروس اختصاصی با بهترین مواد و تکنیک‌های روز دنیا توسط متخصصین بین‌المللی</p>
+                                <button class="hero-cta" id="scroll-to-booking">
+                                    <i class="fas fa-heart"></i>
+                                    آرایش عروس ایده‌آل
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="https://images.unsplash.com/photo-1562322140-8baeececf3df?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="سالن زیبایی" class="slide-image" loading="lazy">
+                        <div class="hero-overlay">
+                            <div class="hero-content">
+                                <h1 class="hero-title">محیطی رویایی برای زیباتر شدن</h1>
+                                <p class="hero-subtitle">سالنی با طراحی اختصاصی و امکانات مدرن برای ارائه بهترین خدمات زیبایی و آرایشی</p>
+                                <button class="hero-cta" id="scroll-to-booking">
+                                    <i class="fas fa-spa"></i>
+                                    گالری تصاویر
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- گالری تصاویر بهینه -->
+    <section class="gallery-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">گالری زیبایی لوکس بانو</h2>
+                <p class="section-subtitle">زیبایی را در فضایی اشرافی و با طراحی منحصر به فرد تجربه کنید. تصاویر زیر گوشه‌ای از فضای آرایشگاه و خدمات ما را نشان می‌دهد.</p>
+            </div>
+            
+            <div class="gallery-container">
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="سالن انتظار" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">سالن انتظار VIP</h3>
+                        <p class="gallery-description">محیطی دلنشین با طراحی مدرن و امکانات رفاهی کامل</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="آرایشگاه" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">محیط اصلی آرایشگاه</h3>
+                        <p class="gallery-description">طراحی اروپایی با بالاترین استانداردهای بهداشتی</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1605497788044-5a32c7078486?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="خدمات مو" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">بخش تخصصی مو</h3>
+                        <p class="gallery-description">کوتاهی، رنگ، هایلایت و درمان مو با پیشرفته‌ترین روش‌ها</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="آرایش صورت" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">آرایش صورت تخصصی</h3>
+                        <p class="gallery-description">استفاده از برندهای معتبر جهانی و تکنیک‌های حرفه‌ای</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="ناخن و مانیکور" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">بخش ناخن و مانیکور</h3>
+                        <p class="gallery-description">محیطی استریل با ابزار یکبار مصرف و مواد باکیفیت</p>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1596703923338-48f1c07e4f2e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="محصولات مراقبتی" loading="lazy">
+                    <div class="gallery-overlay">
+                        <h3 class="gallery-title">محصولات اختصاصی</h3>
+                        <p class="gallery-description">استفاده از بهترین برندهای مراقبت پوست و مو</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- بخش رزرو بهینه -->
+    <section class="exquisite-booking" id="booking-section">
+        <div class="container booking-container">
+            <!-- فرم رزرو -->
+            <div class="exquisite-form">
+                <div class="form-decorative-border"></div>
+                
+                <!-- انتخاب خدمات با تصاویر -->
+                <div class="form-section-exquisite">
+                    <div class="section-header-small">
+                        <div class="section-icon">
+                            <i class="fas fa-spa"></i>
+                        </div>
+                        <span>خدمات اختصاصی</span>
+                    </div>
+                    <div class="services-grid-exquisite" id="exquisite-services">
+                        <!-- خدمات از طریق جاوااسکریپت اضافه می‌شوند -->
+                    </div>
+                </div>
+
+                <!-- انتخاب تاریخ و زمان -->
+                <div class="form-section-exquisite">
+                    <div class="section-header-small">
+                        <div class="section-icon">
+                            <i class="far fa-calendar-alt"></i>
+                        </div>
+                        <span>زمان مدنظر</span>
+                    </div>
+                    <div class="date-time-exquisite">
+                        <div class="calendar-exquisite">
+                            <label for="exquisite-date" style="display: block; margin-bottom: 10px; font-weight: 500;">تاریخ مراجعه:</label>
+                            <input type="text" id="exquisite-date" class="form-control" placeholder="روز مورد نظر را انتخاب کنید" style="width: 100%; padding: 14px; border: 2px solid rgba(212, 175, 55, 0.2); border-radius: var(--radius-md); font-size: 1rem; background: var(--white);">
+                        </div>
+                        <div class="time-exquisite">
+                            <label style="display: block; margin-bottom: 10px; font-weight: 500;">ساعت مراجعه:</label>
+                            <div class="time-slots-exquisite" id="exquisite-time-slots">
+                                <!-- زمان‌ها از طریق جاوااسکریپت اضافه می‌شوند -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- اطلاعات کاربر -->
+                <div class="form-section-exquisite">
+                    <div class="section-header-small">
+                        <div class="section-icon">
+                            <i class="far fa-user-circle"></i>
+                        </div>
+                        <span>اطلاعات شخصی</span>
+                    </div>
+                    <div class="form-group" style="margin-bottom: 25px;">
+                        <label for="exquisite-name" style="display: block; margin-bottom: 8px; font-weight: 500;">نام و نام خانوادگی *</label>
+                        <input type="text" id="exquisite-name" class="form-control" placeholder="نام کامل خود را وارد کنید" style="width: 100%; padding: 14px; border: 2px solid rgba(212, 175, 55, 0.2); border-radius: var(--radius-md); font-size: 1rem; background: var(--white); transition: var(--transition-fast);">
+                    </div>
+                    <div class="form-group" style="margin-bottom: 25px;">
+                        <label for="exquisite-phone" style="display: block; margin-bottom: 8px; font-weight: 500;">شماره تلفن *</label>
+                        <input type="tel" id="exquisite-phone" class="form-control" placeholder="۰۹۱۲۳۴۵۶۷۸۹" style="width: 100%; padding: 14px; border: 2px solid rgba(212, 175, 55, 0.2); border-radius: var(--radius-md); font-size: 1rem; background: var(--white);">
+                    </div>
+                    <div class="form-group">
+                        <label for="exquisite-email" style="display: block; margin-bottom: 8px; font-weight: 500;">ایمیل (اختیاری)</label>
+                        <input type="email" id="exquisite-email" class="form-control" placeholder="email@example.com" style="width: 100%; padding: 14px; border: 2px solid rgba(212, 175, 55, 0.2); border-radius: var(--radius-md); font-size: 1rem; background: var(--white);">
+                    </div>
+                </div>
+
+                <button class="exquisite-btn" id="exquisite-confirm">
+                    <i class="fas fa-gem"></i>
+                    رزرو نوبت اختصاصی
+                </button>
+            </div>
+
+            <!-- خلاصه رزرو بهینه -->
+            <div class="exquisite-summary">
+                <div class="form-decorative-border"></div>
+                <div class="summary-header-exquisite">
+                    <h2>خلاصه رزرو</h2>
+                    <p style="color: var(--medium-text); font-size: 0.95rem;">اطلاعات رزرو خود را بررسی و تأیید کنید</p>
+                </div>
+                
+                <div class="summary-details-exquisite">
+                    <div class="summary-item-exquisite">
+                        <span>تاریخ:</span>
+                        <span id="exquisite-summary-date">--/--/----</span>
+                    </div>
+                    <div class="summary-item-exquisite">
+                        <span>ساعت:</span>
+                        <span id="exquisite-summary-time">--:--</span>
+                    </div>
+                    <div class="summary-item-exquisite">
+                        <span>تعداد خدمات:</span>
+                        <span id="exquisite-services-count">۰ مورد</span>
+                    </div>
+                    <div id="exquisite-selected-services">
+                        <!-- خدمات انتخاب شده اینجا نمایش داده می‌شوند -->
+                    </div>
+                </div>
+                
+                <div class="summary-total-exquisite">
+                    <span>مبلغ کل:</span>
+                    <span id="exquisite-total-price">۰ تومان</span>
+                </div>
+                
+                <button class="exquisite-btn" id="exquisite-payment" style="margin-top: 30px;">
+                    <i class="fas fa-lock"></i>
+                    پرداخت امن
+                </button>
+                
+                <div style="margin-top: 30px; padding: 20px; background: var(--primary-cream); border-radius: var(--radius-md); border-right: 3px solid var(--primary-gold);">
+                    <h3 style="color: var(--primary-dark); margin-bottom: 10px; font-size: 1.1rem; display: flex; align-items: center; gap: 10px;">
+                        <i class="fas fa-gift"></i>
+                        مزایای رزرو آنلاین
+                    </h3>
+                    <ul style="list-style: none; color: var(--medium-text); font-size: 0.9rem;">
+                        <li style="margin-bottom: 8px; padding-right: 8px;">
+                            <i class="fas fa-check" style="color: var(--primary-gold); margin-left: 5px; font-size: 0.8rem;"></i>
+                            دریافت ۱۵٪ تخفیف اولین رزرو
+                        </li>
+                        <li style="margin-bottom: 8px; padding-right: 8px;">
+                            <i class="fas fa-check" style="color: var(--primary-gold); margin-left: 5px; font-size: 0.8rem;"></i>
+                            هدیه ویژه لوکس بانو
+                        </li>
+                        <li style="padding-right: 8px;">
+                            <i class="fas fa-check" style="color: var(--primary-gold); margin-left: 5px; font-size: 0.8rem;"></i>
+                            رزرو فوری بدون معطلی
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="mini-gallery">
+                    <div class="mini-gallery-item">
+                        <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&q=80" alt="سالن انتظار" loading="lazy">
+                    </div>
+                    <div class="mini-gallery-item">
+                        <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&q=80" alt="آرایشگاه" loading="lazy">
+                    </div>
+                    <div class="mini-gallery-item">
+                        <img src="https://images.unsplash.com/photo-1605497788044-5a32c7078486?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&q=80" alt="خدمات مو" loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- مودال نمایش تصویر بزرگ -->
+    <div class="image-modal" id="image-modal">
+        <div class="close-modal" id="close-modal">
+            <i class="fas fa-times"></i>
+        </div>
+        <div class="modal-image-container">
+            <img id="modal-image" class="modal-image" src="" alt="تصویر بزرگ">
+        </div>
+    </div>
+
+    <!-- فوتر بهینه -->
+    <footer class="exquisite-footer">
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-column">
+                    <h3>گالری زیبایی لوکس بانو</h3>
+                    <p style="margin-bottom: 25px; color: #ddd; line-height: 1.7; font-size: 0.95rem;">ارائه بهترین خدمات زیبایی و آرایشی در محیطی اشرافی با کادری مجرب و آموزش دیده بین‌المللی. میزبان زیبایی شما در قلب تهران.</p>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-telegram"></i>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>دسترسی سریع</h3>
+                    <ul>
+                        <li><a href="#"><i class="fas fa-chevron-left"></i> خانه</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-left"></i> رزرو نوبت</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-left"></i> خدمات اختصاصی</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-left"></i> گالری تصاویر</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-left"></i> متخصصین</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>تماس با ما</h3>
+                    <ul>
+                        <li><a href="#"><i class="fas fa-map-marker-alt"></i> تهران، خیابان ولیعصر، پلاک ۱۲۳۴</a></li>
+                        <li><a href="#"><i class="fas fa-phone"></i> ۰۲۱-۱۲۳۴۵۶۷۸</a></li>
+                        <li><a href="#"><i class="fas fa-mobile-alt"></i> ۰۹۱۲۳۴۵۶۷۸۹</a></li>
+                        <li><a href="#"><i class="fas fa-envelope"></i> info@luxebano.com</a></li>
+                        <li><a href="#"><i class="far fa-clock"></i> همه روزه ۹ صبح تا ۱۰ شب</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>© کلیه حقوق برای گالری زیبایی لوکس بانو محفوظ است. طراحی و توسعه با ❤️ | ۱۴۰۳</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- اسکریپت‌ها -->
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/fa.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script>
+        // داده‌های خدمات با تصاویر بهینه
+        const exquisiteServices = [
+            { 
+                id: 1, 
+                name: "آرایش صورت عروس VIP", 
+                duration: "۲.۵ ساعت", 
+                price: 3200000, 
+                category: "آرایش", 
+                icon: "fas fa-heart",
+                image: "https://images.unsplash.com/photo-1515377905703-c4788e51af15?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80"
+            },
+            { 
+                id: 2, 
+                name: "آرایش صورت ویژه", 
+                duration: "۲ ساعت", 
+                price: 850000, 
+                category: "آرایش", 
+                icon: "fas fa-palette",
+                image: "https://images.unsplash.com/photo-1522338242990-e1b4e47bf6e3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80"
+            },
+            { 
+                id: 3, 
+                name: "کوتاهی و استایل مو", 
+                duration: "۱.۵ ساعت", 
+                price: 350000, 
+                category: "مو", 
+                icon: "fas fa-cut",
+                image: "https://images.unsplash.com/photo-1605497788044-5a32c7078486?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80"
+            },
+            { 
+                id: 4, 
+                name: "رنگ موی لوکس", 
+                duration: "۳ ساعت", 
+                price: 1250000, 
+                category: "مو", 
+                icon: "fas fa-fill-drip",
+                image: "https://images.unsplash.com/photo-1560851248-7a2a48efb433?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80"
+            },
+            { 
+                id: 5, 
+                name: "هایلایت و بلیژ", 
+                duration: "۳.۵ ساعت", 
+                price: 1550000, 
+                category: "مو", 
+                icon: "fas fa-sun",
+                image: "https://images.unsplash.com/photo-1562322140-8baeececf3df?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80"
+            },
+            { 
+                id: 6, 
+                name: "میکاپ دائمی ابرو", 
+                duration: "۲.۵ ساعت", 
+                price: 2800000, 
+                category: "میکاپ دائمی", 
+                icon: "fas fa-eye",
+                image: "https://images.unsplash.com/photo-1591085686350-798c0f9faa7f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80"
+            }
+        ];
+
+        // زمان‌های لوکس
+        const exquisiteTimes = ["09:00", "10:30", "12:00", "14:00", "15:30", "17:00", "18:30", "20:00"];
+        
+        // متغیرهای حالت
+        let selectedExquisiteServices = [];
+        let selectedExquisiteDate = null;
+        let selectedExquisiteTime = null;
+        
+        // DOM Elements
+        const servicesContainer = document.getElementById('exquisite-services');
+        const timeSlotsContainer = document.getElementById('exquisite-time-slots');
+        const selectedServicesContainer = document.getElementById('exquisite-selected-services');
+        const summaryDateElement = document.getElementById('exquisite-summary-date');
+        const summaryTimeElement = document.getElementById('exquisite-summary-time');
+        const summaryServicesCountElement = document.getElementById('exquisite-services-count');
+        const totalPriceElement = document.getElementById('exquisite-total-price');
+        const confirmExquisiteBtn = document.getElementById('exquisite-confirm');
+        const paymentBtn = document.getElementById('exquisite-payment');
+        const imageModal = document.getElementById('image-modal');
+        const modalImage = document.getElementById('modal-image');
+        const closeModalBtn = document.getElementById('close-modal');
+        const header = document.querySelector('.exquisite-header');
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mainNav = document.getElementById('main-nav');
+        const closeMenuBtn = document.getElementById('close-menu');
+        const scrollToBookingBtns = document.querySelectorAll('#scroll-to-booking');
+        
+        // مقداردهی اولیه
+        document.addEventListener('DOMContentLoaded', function() {
+            // نمایش خدمات با تصاویر
+            renderExquisiteServices();
+            
+            // نمایش زمان‌های لوکس
+            renderExquisiteTimeSlots();
+            
+            // تنظیم تقویم فارسی
+            flatpickr("#exquisite-date", {
+                locale: "fa",
+                minDate: "today",
+                maxDate: new Date().fp_incr(30),
+                disable: [
+                    function(date) {
+                        // غیرفعال کردن دوشنبه‌ها
+                        return date.getDay() === 1;
+                    }
+                ],
+                onChange: function(selectedDates, dateStr, instance) {
+                    selectedExquisiteDate = dateStr;
+                    updateExquisiteSummary();
+                }
+            });
+            
+            // اضافه کردن رویداد برای دکمه تأیید رزرو
+            confirmExquisiteBtn.addEventListener('click', function() {
+                if (validateExquisiteBooking()) {
+                    showExquisiteConfirmation();
+                }
+            });
+            
+            // اضافه کردن رویداد برای دکمه پرداخت
+            paymentBtn.addEventListener('click', function() {
+                if (validateExquisiteBooking()) {
+                    showPaymentModal();
+                }
+            });
+            
+            // رویداد بستن مودال تصویر
+            closeModalBtn.addEventListener('click', function() {
+                imageModal.classList.remove('active');
+            });
+            
+            // کلیک خارج از تصویر برای بستن مودال
+            imageModal.addEventListener('click', function(e) {
+                if (e.target === imageModal) {
+                    imageModal.classList.remove('active');
+                }
+            });
+            
+            // به روز رسانی اولیه خلاصه
+            updateExquisiteSummary();
+            
+            // مقداردهی اسلایدر
+            initSwiper();
+            
+            // اضافه کردن رویداد به تصاویر گالری
+            document.querySelectorAll('.gallery-item img, .mini-gallery-item img').forEach(img => {
+                img.addEventListener('click', function() {
+                    // دریافت تصویر با کیفیت متوسط برای نمایش در مودال
+                    let originalSrc = this.src;
+                    // اگر تصویر کوچک است، سعی می‌کنیم نسخه بزرگتر آن را دریافت کنیم
+                    if (originalSrc.includes('w=300') || originalSrc.includes('w=600')) {
+                        modalImage.src = originalSrc.replace(/w=\d+/, 'w=800');
+                    } else {
+                        modalImage.src = originalSrc;
+                    }
+                    imageModal.classList.add('active');
+                });
+            });
+            
+            // افزودن event listener برای اسکرول
+            window.addEventListener('scroll', handleScroll);
+            
+            // دکمه منوی موبایل
+            mobileMenuBtn.addEventListener('click', function() {
+                mainNav.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+            
+            // دکمه بستن منوی موبایل
+            closeMenuBtn.addEventListener('click', function() {
+                mainNav.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+            
+            // بستن منوی موبایل با کلیک روی لینک
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.addEventListener('click', function() {
+                    mainNav.classList.remove('active');
+                    document.body.style.overflow = '';
+                });
+            });
+            
+            // اسکرول به بخش رزرو
+            scrollToBookingBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    document.getElementById('booking-section').scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+            
+            // مقداردهی اولیه وضعیت هدر
+            handleScroll();
+        });
+        
+        // نمایش خدمات با تصاویر
+        function renderExquisiteServices() {
+            servicesContainer.innerHTML = '';
+            
+            exquisiteServices.forEach(service => {
+                const serviceElement = document.createElement('div');
+                serviceElement.className = 'service-card-exquisite';
+                serviceElement.innerHTML = `
+                    <img src="${service.image}" alt="${service.name}" class="service-image" loading="lazy">
+                    <div class="service-content">
+                        <h3 class="service-title">${service.name}</h3>
+                        <div class="service-duration">
+                            <i class="far fa-clock"></i>
+                            ${service.duration}
+                        </div>
+                        <div class="service-price">
+                            <span>${service.price.toLocaleString()} تومان</span>
+                            <div class="service-check">
+                                <i class="fas fa-check"></i>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                
+                serviceElement.addEventListener('click', () => {
+                    toggleExquisiteServiceSelection(service);
+                    serviceElement.classList.toggle('selected');
+                    
+                    // انیمیشن انتخاب
+                    if (serviceElement.classList.contains('selected')) {
+                        serviceElement.style.animation = 'pulse 0.5s';
+                        setTimeout(() => {
+                            serviceElement.style.animation = '';
+                        }, 500);
+                    }
+                });
+                
+                servicesContainer.appendChild(serviceElement);
+            });
+        }
+        
+        // نمایش زمان‌های لوکس
+        function renderExquisiteTimeSlots() {
+            timeSlotsContainer.innerHTML = '';
+            
+            exquisiteTimes.forEach(time => {
+                // به صورت تصادفی برخی زمان‌ها را غیرقابل دسترس می‌کنیم
+                const isUnavailable = Math.random() > 0.7;
+                
+                const timeSlotElement = document.createElement('div');
+                timeSlotElement.className = `time-slot-exquisite ${isUnavailable ? 'unavailable' : ''}`;
+                timeSlotElement.textContent = time;
+                
+                if (!isUnavailable) {
+                    timeSlotElement.addEventListener('click', () => {
+                        // حذف انتخاب قبلی
+                        document.querySelectorAll('.time-slot-exquisite:not(.unavailable)').forEach(el => {
+                            el.classList.remove('selected');
+                        });
+                        
+                        // انتخاب جدید
+                        timeSlotElement.classList.add('selected');
+                        selectedExquisiteTime = time;
+                        updateExquisiteSummary();
+                    });
+                }
+                
+                timeSlotsContainer.appendChild(timeSlotElement);
+            });
+        }
+        
+        // انتخاب/لغو انتخاب سرویس
+        function toggleExquisiteServiceSelection(service) {
+            const index = selectedExquisiteServices.findIndex(s => s.id === service.id);
+            
+            if (index === -1) {
+                selectedExquisiteServices.push(service);
+            } else {
+                selectedExquisiteServices.splice(index, 1);
+            }
+            
+            updateExquisiteSummary();
+        }
+        
+        // به روزرسانی خلاصه رزرو
+        function updateExquisiteSummary() {
+            // تاریخ
+            if (selectedExquisiteDate) {
+                summaryDateElement.textContent = selectedExquisiteDate;
+            } else {
+                summaryDateElement.textContent = '--/--/----';
+            }
+            
+            // زمان
+            if (selectedExquisiteTime) {
+                summaryTimeElement.textContent = selectedExquisiteTime;
+            } else {
+                summaryTimeElement.textContent = '--:--';
+            }
+            
+            // خدمات
+            summaryServicesCountElement.textContent = `${selectedExquisiteServices.length} مورد`;
+            
+            // لیست خدمات و قیمت کل
+            selectedServicesContainer.innerHTML = '';
+            let total = 0;
+            
+            selectedExquisiteServices.forEach(service => {
+                const item = document.createElement('div');
+                item.className = 'summary-item-exquisite';
+                item.innerHTML = `
+                    <span>${service.name}</span>
+                    <span>${service.price.toLocaleString()} تومان</span>
+                `;
+                selectedServicesContainer.appendChild(item);
+                total += service.price;
+            });
+            
+            // اضافه کردن تخفیف ویژه
+            let discount = 0;
+            if (selectedExquisiteServices.length > 0) {
+                discount = Math.floor(total * 0.15); // 15% تخفیف ویژه
+                total -= discount;
+                
+                if (discount > 0) {
+                    const discountItem = document.createElement('div');
+                    discountItem.className = 'summary-item-exquisite';
+                    discountItem.innerHTML = `
+                        <span><i class="fas fa-gift" style="color: var(--primary-gold); margin-left: 5px;"></i> تخفیف ویژه ۱۵٪</span>
+                        <span style="color: #4CAF50;">-${discount.toLocaleString()} تومان</span>
+                    `;
+                    selectedServicesContainer.appendChild(discountItem);
+                }
+            }
+            
+            // قیمت کل
+            totalPriceElement.textContent = `${total.toLocaleString()} تومان`;
+        }
+        
+        // اعتبارسنجی رزرو
+        function validateExquisiteBooking() {
+            const fullName = document.getElementById('exquisite-name').value.trim();
+            const phone = document.getElementById('exquisite-phone').value.trim();
+            
+            if (selectedExquisiteServices.length === 0) {
+                showMessage('لطفاً حداقل یک خدمت را انتخاب کنید.', 'error');
+                return false;
+            }
+            
+            if (!selectedExquisiteDate) {
+                showMessage('لطفاً تاریخ مراجعه را انتخاب کنید.', 'error');
+                return false;
+            }
+            
+            if (!selectedExquisiteTime) {
+                showMessage('لطفاً زمان مراجعه را انتخاب کنید.', 'error');
+                return false;
+            }
+            
+            if (!fullName) {
+                showMessage('لطفاً نام و نام خانوادگی خود را وارد کنید.', 'error');
+                return false;
+            }
+            
+            if (!phone || phone.length !== 11 || !phone.startsWith('09')) {
+                showMessage('لطفاً شماره تلفن معتبر وارد کنید.', 'error');
+                return false;
+            }
+            
+            return true;
+        }
+        
+        // نمایش پیام
+        function showMessage(message, type) {
+            const messageDiv = document.createElement('div');
+            messageDiv.style.cssText = `
+                position: fixed;
+                top: 120px;
+                right: 20px;
+                background: ${type === 'error' ? '#f44336' : '#4CAF50'};
+                color: white;
+                padding: 18px;
+                border-radius: var(--radius-md);
+                box-shadow: var(--shadow-medium);
+                z-index: 3000;
+                max-width: 350px;
+                animation: fadeInUp 0.4s ease;
+                border-right: 4px solid ${type === 'error' ? '#d32f2f' : '#388E3C'};
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                font-size: 0.95rem;
+            `;
+            messageDiv.innerHTML = `
+                <i class="fas fa-${type === 'error' ? 'exclamation-circle' : 'check-circle'}" style="font-size: 20px;"></i>
+                <span>${message}</span>
+            `;
+            
+            document.body.appendChild(messageDiv);
+            
+            setTimeout(() => {
+                messageDiv.style.animation = 'fadeInUp 0.4s ease reverse';
+                setTimeout(() => {
+                    document.body.removeChild(messageDiv);
+                }, 400);
+            }, 3500);
+        }
+        
+        // نمایش تأیید رزرو
+        function showExquisiteConfirmation() {
+            const fullName = document.getElementById('exquisite-name').value.trim();
+            const phone = document.getElementById('exquisite-phone').value.trim();
+            const total = selectedExquisiteServices.reduce((sum, s) => sum + s.price, 0);
+            const discount = Math.floor(total * 0.15);
+            const finalTotal = total - discount;
+            
+            const message = `
+                رزرو لوکس شما با موفقیت ثبت شد!
+                
+                <div style="text-align: right; margin-top: 15px; background: rgba(212, 175, 55, 0.1); padding: 15px; border-radius: var(--radius-md); font-size: 0.95rem;">
+                    <p><strong>نام:</strong> ${fullName}</p>
+                    <p><strong>تلفن:</strong> ${phone}</p>
+                    <p><strong>تاریخ:</strong> ${selectedExquisiteDate}</p>
+                    <p><strong>ساعت:</strong> ${selectedExquisiteTime}</p>
+                    <p><strong>خدمات:</strong> ${selectedExquisiteServices.map(s => s.name).join(', ')}</p>
+                    <p><strong>مبلغ کل:</strong> ${finalTotal.toLocaleString()} تومان</p>
+                    <p style="color: var(--primary-gold); margin-top: 8px; font-weight: 600; font-size: 0.9rem;">
+                        <i class="fas fa-gem"></i>
+                        شامل ۱۵٪ تخفیف ویژه و هدیه لوکس بانو
+                    </p>
+                </div>
+                
+                <p style="margin-top: 15px; font-size: 0.9rem;">
+                    پیام تأیید به شماره ${phone} ارسال خواهد شد.
+                    لطفاً ۲۰ دقیقه قبل از زمان مقرر در آرایشگاه حاضر شوید.
+                </p>
+            `;
+            
+            showMessage('رزرو شما با موفقیت ثبت شد! لطفاً برای پرداخت اقدام کنید.', 'success');
+            
+            // شبیه‌سازی ارسال به سرور
+            console.log('Exquisite booking submitted:', {
+                fullName,
+                phone,
+                email: document.getElementById('exquisite-email').value.trim(),
+                date: selectedExquisiteDate,
+                time: selectedExquisiteTime,
+                services: selectedExquisiteServices,
+                total: finalTotal
+            });
+        }
+        
+        // نمایش مودال پرداخت
+        function showPaymentModal() {
+            const paymentModal = document.createElement('div');
+            paymentModal.style.cssText = `
+                position: fixed;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                background: rgba(26, 26, 26, 0.95);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                z-index: 4000;
+                animation: fadeInUp 0.4s ease;
+            `;
+            
+            paymentModal.innerHTML = `
+                <div style="background: white; border-radius: var(--radius-xl); padding: 40px; max-width: 450px; width: 90%; text-align: center; position: relative;">
+                    <div style="position: absolute; top: 0; right: 0; width: 100%; height: 6px; background: linear-gradient(to right, var(--primary-gold), var(--primary-rose), var(--primary-gold));"></div>
+                    <div style="width: 70px; height: 70px; background: linear-gradient(135deg, var(--primary-gold) 0%, var(--primary-gold-dark) 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 28px; margin: 0 auto 25px; box-shadow: var(--shadow-soft);">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <h2 style="font-size: 1.8rem; color: var(--dark-text); margin-bottom: 15px;">پرداخت امن</h2>
+                    <p style="color: var(--medium-text); margin-bottom: 25px; font-size: 0.95rem;">مبلغ قابل پرداخت: <strong style="color: var(--primary-gold-dark); font-size: 1.2rem;">${document.getElementById('exquisite-total-price').textContent}</strong></p>
+                    
+                    <div style="display: flex; gap: 12px; margin-bottom: 30px;">
+                        <div style="flex: 1; padding: 18px; border: 2px solid rgba(212, 175, 55, 0.3); border-radius: var(--radius-md); cursor: pointer; transition: var(--transition-fast);">
+                            <i class="fas fa-credit-card" style="font-size: 22px; color: var(--primary-gold); margin-bottom: 8px;"></i>
+                            <div style="font-size: 0.9rem;">کارت به کارت</div>
+                        </div>
+                        <div style="flex: 1; padding: 18px; border: 2px solid rgba(212, 175, 55, 0.3); border-radius: var(--radius-md); cursor: pointer; transition: var(--transition-fast);">
+                            <i class="fab fa-paypal" style="font-size: 22px; color: var(--primary-gold); margin-bottom: 8px;"></i>
+                            <div style="font-size: 0.9rem;">درگاه پرداخت</div>
+                        </div>
+                    </div>
+                    
+                    <button class="exquisite-btn" id="complete-payment" style="max-width: 250px; margin: 0 auto; padding: 16px; font-size: 1rem;">
+                        <i class="fas fa-check-circle"></i>
+                        تکمیل پرداخت
+                    </button>
+                    
+                    <div style="margin-top: 25px; cursor: pointer; color: var(--medium-text); font-size: 0.9rem;" id="close-payment">
+                        <i class="fas fa-times"></i>
+                        بستن
+                    </div>
+                </div>
+            `;
+            
+            document.body.appendChild(paymentModal);
+            
+            // رویداد تکمیل پرداخت
+            document.getElementById('complete-payment').addEventListener('click', function() {
+                showExquisiteConfirmation();
+                document.body.removeChild(paymentModal);
+            });
+            
+            // رویداد بستن مودال پرداخت
+            document.getElementById('close-payment').addEventListener('click', function() {
+                document.body.removeChild(paymentModal);
+            });
+            
+            // کلیک خارج از مودال برای بستن
+            paymentModal.addEventListener('click', function(e) {
+                if (e.target === paymentModal) {
+                    document.body.removeChild(paymentModal);
+                }
+            });
+        }
+        
+        // مقداردهی اسلایدر
+        function initSwiper() {
+            const swiper = new Swiper('.swiper', {
+                direction: 'horizontal',
+                loop: true,
+                speed: 800,
+                autoplay: {
+                    delay: 5000,
+                    disableOnInteraction: false,
+                },
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                },
+                effect: 'fade',
+                fadeEffect: {
+                    crossFade: true
+                },
+            });
+        }
+        
+        // تابع کنترل اسکرول
+        function handleScroll() {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        }
+    </script>
+</body>
+</html>
