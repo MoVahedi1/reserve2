@@ -74,7 +74,6 @@
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
         }
         
-        /* حالت کوچک شده هدر هنگام اسکرول */
         .exquisite-header.scrolled {
             padding: 10px 0;
             background: rgba(250, 243, 224, 0.98);
@@ -229,7 +228,6 @@
             transition: margin-top 0.5s cubic-bezier(0.19, 1, 0.22, 1);
         }
         
-        /* تنظیم margin-top هیرو هنگام کوچک شدن هدر */
         .exquisite-header.scrolled + .exquisite-hero {
             margin-top: 80px;
         }
@@ -530,17 +528,52 @@
             box-shadow: var(--shadow-soft);
         }
         
-        /* خدمات با تصاویر بهینه */
+        /* خدمات دسکتاپ - به صورت grid */
         .services-grid-exquisite {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
             gap: 20px;
         }
         
-        @media (max-width: 768px) {
-            .services-grid-exquisite {
-                grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-            }
+        /* خدمات موبایل - به صورت اسلایدر */
+        .services-swiper-container {
+            display: none;
+            margin-bottom: 30px;
+        }
+        
+        .services-swiper {
+            width: 100%;
+            height: 380px;
+            margin-bottom: 20px;
+        }
+        
+        .service-swiper-slide {
+            height: 350px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .view-all-services-btn {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, var(--primary-gold) 0%, var(--primary-gold-dark) 100%);
+            color: white;
+            border: none;
+            border-radius: var(--radius-md);
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition-medium);
+            box-shadow: var(--shadow-soft);
+            text-align: center;
+            margin-top: 10px;
+        }
+        
+        .view-all-services-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-medium);
         }
         
         .service-card-exquisite {
@@ -552,6 +585,7 @@
             border: 1px solid rgba(212, 175, 55, 0.1);
             background: var(--white);
             height: 320px;
+            width: 100%;
         }
         
         .service-card-exquisite:hover {
@@ -1080,6 +1114,30 @@
                 background: var(--primary-gold-dark);
                 transform: rotate(90deg);
             }
+            
+            /* خدمات موبایل - نمایش اسلایدر و مخفی کردن grid */
+            .services-grid-exquisite {
+                display: none;
+            }
+            
+            .services-swiper-container {
+                display: block;
+            }
+            
+            /* تنظیمات هدر اسکرول شده در موبایل */
+            .exquisite-header.scrolled .logo-icon {
+                width: 40px;
+                height: 40px;
+                font-size: 16px;
+            }
+            
+            .exquisite-header.scrolled .logo-text {
+                font-size: 1.5rem;
+            }
+            
+            .exquisite-header.scrolled + .exquisite-hero {
+                margin-top: 70px;
+            }
         }
         
         @media (max-width: 768px) {
@@ -1130,6 +1188,15 @@
             .exquisite-header.scrolled + .exquisite-hero {
                 margin-top: 70px;
             }
+            
+            /* اسلایدر خدمات در موبایل */
+            .services-swiper {
+                height: 360px;
+            }
+            
+            .service-swiper-slide {
+                height: 330px;
+            }
         }
         
         @media (max-width: 480px) {
@@ -1165,6 +1232,19 @@
             
             .exquisite-header.scrolled + .exquisite-hero {
                 margin-top: 65px;
+            }
+            
+            /* اسلایدر خدمات در موبایل کوچک */
+            .services-swiper {
+                height: 340px;
+            }
+            
+            .service-swiper-slide {
+                height: 310px;
+            }
+            
+            .service-card-exquisite {
+                height: 300px;
             }
         }
     </style>
@@ -1213,7 +1293,8 @@
             <div class="swiper">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide">
-                        <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="آرایشگاه لوکس" class="slide-image" loading="lazy">
+                        <!-- تصویر آنلاین با کیفیت متوسط -->
+                        <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="آرایشگاه لوکس" class="slide-image" loading="lazy">
                         <div class="hero-overlay">
                             <div class="hero-content">
                                 <h1 class="hero-title">زیبایی تو، هنر ماست</h1>
@@ -1226,7 +1307,7 @@
                         </div>
                     </div>
                     <div class="swiper-slide">
-                        <img src="https://images.unsplash.com/photo-1522338242990-f8a6ccd0efb1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="آرایش عروس" class="slide-image" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1522338242990-f8a6ccd0efb1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="آرایش عروس" class="slide-image" loading="lazy">
                         <div class="hero-overlay">
                             <div class="hero-content">
                                 <h1 class="hero-title">روز عروسی تو، افسانه‌ای می‌شود</h1>
@@ -1239,7 +1320,7 @@
                         </div>
                     </div>
                     <div class="swiper-slide">
-                        <img src="https://images.unsplash.com/photo-1562322140-8baeececf3df?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="سالن زیبایی" class="slide-image" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1562322140-8baeececf3df?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="سالن زیبایی" class="slide-image" loading="lazy">
                         <div class="hero-overlay">
                             <div class="hero-content">
                                 <h1 class="hero-title">محیطی رویایی برای زیباتر شدن</h1>
@@ -1267,7 +1348,7 @@
             
             <div class="gallery-container">
                 <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="سالن انتظار" loading="lazy">
+                    <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="سالن انتظار" loading="lazy">
                     <div class="gallery-overlay">
                         <h3 class="gallery-title">سالن انتظار VIP</h3>
                         <p class="gallery-description">محیطی دلنشین با طراحی مدرن و امکانات رفاهی کامل</p>
@@ -1275,7 +1356,7 @@
                 </div>
                 
                 <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="آرایشگاه" loading="lazy">
+                    <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="آرایشگاه" loading="lazy">
                     <div class="gallery-overlay">
                         <h3 class="gallery-title">محیط اصلی آرایشگاه</h3>
                         <p class="gallery-description">طراحی اروپایی با بالاترین استانداردهای بهداشتی</p>
@@ -1283,7 +1364,7 @@
                 </div>
                 
                 <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1605497788044-5a32c7078486?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="خدمات مو" loading="lazy">
+                    <img src="https://images.unsplash.com/photo-1605497788044-5a32c7078486?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="خدمات مو" loading="lazy">
                     <div class="gallery-overlay">
                         <h3 class="gallery-title">بخش تخصصی مو</h3>
                         <p class="gallery-description">کوتاهی، رنگ، هایلایت و درمان مو با پیشرفته‌ترین روش‌ها</p>
@@ -1291,7 +1372,7 @@
                 </div>
                 
                 <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="آرایش صورت" loading="lazy">
+                    <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="آرایش صورت" loading="lazy">
                     <div class="gallery-overlay">
                         <h3 class="gallery-title">آرایش صورت تخصصی</h3>
                         <p class="gallery-description">استفاده از برندهای معتبر جهانی و تکنیک‌های حرفه‌ای</p>
@@ -1299,7 +1380,7 @@
                 </div>
                 
                 <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="ناخن و مانیکور" loading="lazy">
+                    <img src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="ناخن و مانیکور" loading="lazy">
                     <div class="gallery-overlay">
                         <h3 class="gallery-title">بخش ناخن و مانیکور</h3>
                         <p class="gallery-description">محیطی استریل با ابزار یکبار مصرف و مواد باکیفیت</p>
@@ -1307,7 +1388,7 @@
                 </div>
                 
                 <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1596703923338-48f1c07e4f2e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="محصولات مراقبتی" loading="lazy">
+                    <img src="https://images.unsplash.com/photo-1596703923338-48f1c07e4f2e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="محصولات مراقبتی" loading="lazy">
                     <div class="gallery-overlay">
                         <h3 class="gallery-title">محصولات اختصاصی</h3>
                         <p class="gallery-description">استفاده از بهترین برندهای مراقبت پوست و مو</p>
@@ -1332,8 +1413,24 @@
                         </div>
                         <span>خدمات اختصاصی</span>
                     </div>
-                    <div class="services-grid-exquisite" id="exquisite-services">
+                    
+                    <!-- خدمات دسکتاپ (Grid) -->
+                    <div class="services-grid-exquisite" id="exquisite-services-desktop">
                         <!-- خدمات از طریق جاوااسکریپت اضافه می‌شوند -->
+                    </div>
+                    
+                    <!-- خدمات موبایل (Swiper) -->
+                    <div class="services-swiper-container" id="services-swiper-container">
+                        <div class="swiper services-swiper" id="services-swiper">
+                            <div class="swiper-wrapper" id="exquisite-services-swiper">
+                                <!-- خدمات از طریق جاوااسکریپت اضافه می‌شوند -->
+                            </div>
+                            <div class="swiper-pagination"></div>
+                        </div>
+                        <button class="view-all-services-btn" id="view-all-services">
+                            <i class="fas fa-eye"></i>
+                            مشاهده همه خدمات
+                        </button>
                     </div>
                 </div>
 
@@ -1446,13 +1543,13 @@
                 
                 <div class="mini-gallery">
                     <div class="mini-gallery-item">
-                        <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&q=80" alt="سالن انتظار" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="سالن انتظار" loading="lazy">
                     </div>
                     <div class="mini-gallery-item">
-                        <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&q=80" alt="آرایشگاه" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="آرایشگاه" loading="lazy">
                     </div>
                     <div class="mini-gallery-item">
-                        <img src="https://images.unsplash.com/photo-1605497788044-5a32c7078486?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=300&q=80" alt="خدمات مو" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1605497788044-5a32c7078486?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="خدمات مو" loading="lazy">
                     </div>
                 </div>
             </div>
@@ -1523,7 +1620,7 @@
     <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/fa.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
     <script>
-        // داده‌های خدمات با تصاویر بهینه
+        // داده‌های خدمات با تصاویر آنلاین
         const exquisiteServices = [
             { 
                 id: 1, 
@@ -1532,7 +1629,7 @@
                 price: 3200000, 
                 category: "آرایش", 
                 icon: "fas fa-heart",
-                image: "https://images.unsplash.com/photo-1515377905703-c4788e51af15?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80"
+                image: "https://images.unsplash.com/photo-1515377905703-c4788e51af15?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
             },
             { 
                 id: 2, 
@@ -1541,7 +1638,7 @@
                 price: 850000, 
                 category: "آرایش", 
                 icon: "fas fa-palette",
-                image: "https://images.unsplash.com/photo-1522338242990-e1b4e47bf6e3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80"
+                image: "https://images.unsplash.com/photo-1522338242990-e1b4e47bf6e3?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
             },
             { 
                 id: 3, 
@@ -1550,7 +1647,7 @@
                 price: 350000, 
                 category: "مو", 
                 icon: "fas fa-cut",
-                image: "https://images.unsplash.com/photo-1605497788044-5a32c7078486?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80"
+                image: "https://images.unsplash.com/photo-1605497788044-5a32c7078486?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
             },
             { 
                 id: 4, 
@@ -1559,7 +1656,7 @@
                 price: 1250000, 
                 category: "مو", 
                 icon: "fas fa-fill-drip",
-                image: "https://images.unsplash.com/photo-1560851248-7a2a48efb433?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80"
+                image: "https://images.unsplash.com/photo-1560851248-7a2a48efb433?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
             },
             { 
                 id: 5, 
@@ -1568,7 +1665,7 @@
                 price: 1550000, 
                 category: "مو", 
                 icon: "fas fa-sun",
-                image: "https://images.unsplash.com/photo-1562322140-8baeececf3df?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80"
+                image: "https://images.unsplash.com/photo-1562322140-8baeececf3df?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
             },
             { 
                 id: 6, 
@@ -1577,7 +1674,25 @@
                 price: 2800000, 
                 category: "میکاپ دائمی", 
                 icon: "fas fa-eye",
-                image: "https://images.unsplash.com/photo-1591085686350-798c0f9faa7f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80"
+                image: "https://images.unsplash.com/photo-1591085686350-798c0f9faa7f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+            },
+            { 
+                id: 7, 
+                name: "مژه ۳D حجمی", 
+                duration: "۱.۵ ساعت", 
+                price: 750000, 
+                category: "مژه و ابرو", 
+                icon: "fas fa-eye-lash",
+                image: "https://images.unsplash.com/photo-1596703923338-48f1c07e4f2e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+            },
+            { 
+                id: 8, 
+                name: "ناخن ژلیش", 
+                duration: "۱ ساعت", 
+                price: 450000, 
+                category: "ناخن", 
+                icon: "fas fa-hand-sparkles",
+                image: "https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
             }
         ];
 
@@ -1590,7 +1705,8 @@
         let selectedExquisiteTime = null;
         
         // DOM Elements
-        const servicesContainer = document.getElementById('exquisite-services');
+        const servicesContainerDesktop = document.getElementById('exquisite-services-desktop');
+        const servicesContainerSwiper = document.getElementById('exquisite-services-swiper');
         const timeSlotsContainer = document.getElementById('exquisite-time-slots');
         const selectedServicesContainer = document.getElementById('exquisite-selected-services');
         const summaryDateElement = document.getElementById('exquisite-summary-date');
@@ -1607,11 +1723,19 @@
         const mainNav = document.getElementById('main-nav');
         const closeMenuBtn = document.getElementById('close-menu');
         const scrollToBookingBtns = document.querySelectorAll('#scroll-to-booking');
+        const viewAllServicesBtn = document.getElementById('view-all-services');
+        
+        // Swiper instances
+        let heroSwiper = null;
+        let servicesSwiper = null;
         
         // مقداردهی اولیه
         document.addEventListener('DOMContentLoaded', function() {
-            // نمایش خدمات با تصاویر
-            renderExquisiteServices();
+            // نمایش خدمات با تصاویر - دسکتاپ
+            renderExquisiteServicesDesktop();
+            
+            // نمایش خدمات با تصاویر - موبایل (Swiper)
+            renderExquisiteServicesSwiper();
             
             // نمایش زمان‌های لوکس
             renderExquisiteTimeSlots();
@@ -1662,8 +1786,8 @@
             // به روز رسانی اولیه خلاصه
             updateExquisiteSummary();
             
-            // مقداردهی اسلایدر
-            initSwiper();
+            // مقداردهی اسلایدرها
+            initSwipers();
             
             // اضافه کردن رویداد به تصاویر گالری
             document.querySelectorAll('.gallery-item img, .mini-gallery-item img').forEach(img => {
@@ -1712,49 +1836,75 @@
                 });
             });
             
+            // دکمه مشاهده همه خدمات
+            viewAllServicesBtn.addEventListener('click', function() {
+                // نمایش تمام خدمات در یک مودال
+                showAllServicesModal();
+            });
+            
             // مقداردهی اولیه وضعیت هدر
             handleScroll();
         });
         
-        // نمایش خدمات با تصاویر
-        function renderExquisiteServices() {
-            servicesContainer.innerHTML = '';
+        // نمایش خدمات در دسکتاپ (Grid)
+        function renderExquisiteServicesDesktop() {
+            servicesContainerDesktop.innerHTML = '';
             
             exquisiteServices.forEach(service => {
-                const serviceElement = document.createElement('div');
-                serviceElement.className = 'service-card-exquisite';
-                serviceElement.innerHTML = `
-                    <img src="${service.image}" alt="${service.name}" class="service-image" loading="lazy">
-                    <div class="service-content">
-                        <h3 class="service-title">${service.name}</h3>
-                        <div class="service-duration">
-                            <i class="far fa-clock"></i>
-                            ${service.duration}
-                        </div>
-                        <div class="service-price">
-                            <span>${service.price.toLocaleString()} تومان</span>
-                            <div class="service-check">
-                                <i class="fas fa-check"></i>
-                            </div>
+                const serviceElement = createServiceCard(service);
+                servicesContainerDesktop.appendChild(serviceElement);
+            });
+        }
+        
+        // نمایش خدمات در موبایل (Swiper)
+        function renderExquisiteServicesSwiper() {
+            servicesContainerSwiper.innerHTML = '';
+            
+            exquisiteServices.forEach(service => {
+                const slideElement = document.createElement('div');
+                slideElement.className = 'swiper-slide service-swiper-slide';
+                
+                const serviceElement = createServiceCard(service);
+                slideElement.appendChild(serviceElement);
+                servicesContainerSwiper.appendChild(slideElement);
+            });
+        }
+        
+        // ایجاد کارت خدمات
+        function createServiceCard(service) {
+            const serviceElement = document.createElement('div');
+            serviceElement.className = 'service-card-exquisite';
+            serviceElement.innerHTML = `
+                <img src="${service.image}" alt="${service.name}" class="service-image" loading="lazy">
+                <div class="service-content">
+                    <h3 class="service-title">${service.name}</h3>
+                    <div class="service-duration">
+                        <i class="far fa-clock"></i>
+                        ${service.duration}
+                    </div>
+                    <div class="service-price">
+                        <span>${service.price.toLocaleString()} تومان</span>
+                        <div class="service-check">
+                            <i class="fas fa-check"></i>
                         </div>
                     </div>
-                `;
+                </div>
+            `;
+            
+            serviceElement.addEventListener('click', () => {
+                toggleExquisiteServiceSelection(service);
+                serviceElement.classList.toggle('selected');
                 
-                serviceElement.addEventListener('click', () => {
-                    toggleExquisiteServiceSelection(service);
-                    serviceElement.classList.toggle('selected');
-                    
-                    // انیمیشن انتخاب
-                    if (serviceElement.classList.contains('selected')) {
-                        serviceElement.style.animation = 'pulse 0.5s';
-                        setTimeout(() => {
-                            serviceElement.style.animation = '';
-                        }, 500);
-                    }
-                });
-                
-                servicesContainer.appendChild(serviceElement);
+                // انیمیشن انتخاب
+                if (serviceElement.classList.contains('selected')) {
+                    serviceElement.style.animation = 'pulse 0.5s';
+                    setTimeout(() => {
+                        serviceElement.style.animation = '';
+                    }, 500);
+                }
             });
+            
+            return serviceElement;
         }
         
         // نمایش زمان‌های لوکس
@@ -2038,12 +2188,13 @@
             });
         }
         
-        // مقداردهی اسلایدر
-        function initSwiper() {
-            const swiper = new Swiper('.swiper', {
+        // مقداردهی اسلایدرها
+        function initSwipers() {
+            // اسلایدر هیرو
+            heroSwiper = new Swiper('.hero-slider .swiper', {
                 direction: 'horizontal',
                 loop: true,
-                speed: 800,
+                speed: 500, // سرعت استاندارد 500ms
                 autoplay: {
                     delay: 5000,
                     disableOnInteraction: false,
@@ -2056,6 +2207,157 @@
                 fadeEffect: {
                     crossFade: true
                 },
+            });
+            
+            // اسلایدر خدمات (فقط در موبایل فعال می‌شود)
+            if (window.innerWidth <= 992) {
+                initServicesSwiper();
+            }
+            
+            // تغییر اندازه پنجره - اگر به موبایل تغییر کرد، اسلایدر خدمات را فعال کن
+            window.addEventListener('resize', function() {
+                if (window.innerWidth <= 992 && !servicesSwiper) {
+                    initServicesSwiper();
+                } else if (window.innerWidth > 992 && servicesSwiper) {
+                    servicesSwiper.destroy();
+                    servicesSwiper = null;
+                }
+            });
+        }
+        
+        // مقداردهی اسلایدر خدمات
+        function initServicesSwiper() {
+            servicesSwiper = new Swiper('#services-swiper', {
+                direction: 'horizontal',
+                loop: false,
+                speed: 400, // سرعت استاندارد 400ms برای تغییر اسلاید
+                slidesPerView: 1.2, // نمایش 1.2 اسلاید برای نشان دادن بخشی از اسلاید بعدی
+                spaceBetween: 20,
+                centeredSlides: false,
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                },
+                breakpoints: {
+                    480: {
+                        slidesPerView: 1.5,
+                        spaceBetween: 20
+                    },
+                    640: {
+                        slidesPerView: 2,
+                        spaceBetween: 20
+                    },
+                    768: {
+                        slidesPerView: 2.2,
+                        spaceBetween: 25
+                    }
+                }
+            });
+        }
+        
+        // نمایش مودال تمام خدمات
+        function showAllServicesModal() {
+            const allServicesModal = document.createElement('div');
+            allServicesModal.style.cssText = `
+                position: fixed;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                background: rgba(26, 26, 26, 0.95);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                z-index: 4000;
+                animation: fadeInUp 0.4s ease;
+                padding: 20px;
+                overflow-y: auto;
+            `;
+            
+            let servicesHTML = '';
+            exquisiteServices.forEach(service => {
+                const isSelected = selectedExquisiteServices.some(s => s.id === service.id);
+                servicesHTML += `
+                    <div class="service-card-exquisite" style="margin-bottom: 20px; ${isSelected ? 'border: 2px solid var(--primary-gold);' : ''}" data-service-id="${service.id}">
+                        <img src="${service.image}" alt="${service.name}" class="service-image" loading="lazy">
+                        <div class="service-content">
+                            <h3 class="service-title">${service.name}</h3>
+                            <div class="service-duration">
+                                <i class="far fa-clock"></i>
+                                ${service.duration}
+                            </div>
+                            <div class="service-price">
+                                <span>${service.price.toLocaleString()} تومان</span>
+                                <div class="service-check" style="${isSelected ? 'opacity: 1;' : 'opacity: 0;'}">
+                                    <i class="fas fa-check"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+            
+            allServicesModal.innerHTML = `
+                <div style="background: white; border-radius: var(--radius-xl); padding: 40px; max-width: 800px; width: 100%; position: relative; max-height: 90vh; overflow-y: auto;">
+                    <div style="position: absolute; top: 0; right: 0; width: 100%; height: 6px; background: linear-gradient(to right, var(--primary-gold), var(--primary-rose), var(--primary-gold));"></div>
+                    
+                    <div style="position: absolute; top: 20px; left: 20px; background: var(--primary-gold); color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 20px; cursor: pointer; transition: var(--transition-fast);" id="close-all-services">
+                        <i class="fas fa-times"></i>
+                    </div>
+                    
+                    <div style="text-align: center; margin-bottom: 30px;">
+                        <h2 style="font-size: 2rem; color: var(--dark-text); margin-bottom: 10px;">همه خدمات لوکس بانو</h2>
+                        <p style="color: var(--medium-text);">انتخاب کنید و به سبد خرید اضافه کنید</p>
+                    </div>
+                    
+                    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 20px;">
+                        ${servicesHTML}
+                    </div>
+                    
+                    <button class="exquisite-btn" id="confirm-selected-services" style="margin-top: 30px;">
+                        <i class="fas fa-check-circle"></i>
+                        تأیید انتخاب خدمات
+                    </button>
+                </div>
+            `;
+            
+            document.body.appendChild(allServicesModal);
+            
+            // رویداد بستن مودال
+            document.getElementById('close-all-services').addEventListener('click', function() {
+                document.body.removeChild(allServicesModal);
+            });
+            
+            // کلیک خارج از مودال برای بستن
+            allServicesModal.addEventListener('click', function(e) {
+                if (e.target === allServicesModal) {
+                    document.body.removeChild(allServicesModal);
+                }
+            });
+            
+            // انتخاب خدمات در مودال
+            document.querySelectorAll('.service-card-exquisite[data-service-id]').forEach(card => {
+                card.addEventListener('click', function() {
+                    const serviceId = parseInt(this.getAttribute('data-service-id'));
+                    const service = exquisiteServices.find(s => s.id === serviceId);
+                    
+                    if (service) {
+                        toggleExquisiteServiceSelection(service);
+                        this.classList.toggle('selected');
+                        
+                        const checkIcon = this.querySelector('.service-check');
+                        if (checkIcon) {
+                            checkIcon.style.opacity = this.classList.contains('selected') ? '1' : '0';
+                        }
+                    }
+                });
+            });
+            
+            // تأیید انتخاب خدمات
+            document.getElementById('confirm-selected-services').addEventListener('click', function() {
+                document.body.removeChild(allServicesModal);
+                updateExquisiteSummary();
+                showMessage('خدمات انتخاب شده به سبد خرید اضافه شدند.', 'success');
             });
         }
         
