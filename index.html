@@ -10,22 +10,28 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css">
     <style>
         :root {
-            --primary-gold: #D4AF37;
-            --primary-gold-light: #F4E4A6;
-            --primary-gold-dark: #B8860B;
-            --primary-rose: #E8B4B8;
-            --primary-rose-light: #F9E5E6;
-            --primary-rose-dark: #C780A2;
-            --primary-cream: #FAF3E0;
-            --primary-champagne: #F7E7CE;
-            --dark-text: #3A2C35;
-            --medium-text: #6D5D6B;
-            --light-text: #9E8BA5;
+            /* پالت رنگ‌های جدید زیبا و لوکس */
+            --primary-gold: #E6B325;
+            --primary-gold-light: #F7E4A8;
+            --primary-gold-dark: #C19A1E;
+            --primary-rose: #F5B5C8;
+            --primary-rose-light: #FCE8EE;
+            --primary-rose-dark: #D98FA8;
+            --primary-cream: #FFF9F0;
+            --primary-champagne: #FCF3E4;
+            --secondary-lavender: #D8C3E8;
+            --secondary-mint: #B5E6D8;
+            --secondary-peach: #FFD8C9;
+            --secondary-sky: #A8D8EA;
+            --secondary-lilac: #E6CFFF;
+            --dark-text: #4A3C34;
+            --medium-text: #7D6E65;
+            --light-text: #A89A91;
             --white: #FFFFFF;
-            --black: #1A1A1A;
-            --shadow-soft: 0 10px 25px rgba(0, 0, 0, 0.05);
-            --shadow-medium: 0 15px 35px rgba(0, 0, 0, 0.08);
-            --shadow-strong: 0 20px 40px rgba(0, 0, 0, 0.12);
+            --black: #2A2A2A;
+            --shadow-soft: 0 10px 25px rgba(74, 60, 52, 0.08);
+            --shadow-medium: 0 15px 35px rgba(74, 60, 52, 0.12);
+            --shadow-strong: 0 20px 40px rgba(74, 60, 52, 0.15);
             --radius-xl: 24px;
             --radius-lg: 16px;
             --radius-md: 10px;
@@ -46,7 +52,10 @@
             color: var(--dark-text);
             background-color: var(--primary-cream);
             overflow-x: hidden;
-            line-height: 1.7;
+            line-height: 1.6;
+            background-image: 
+                radial-gradient(circle at 5% 10%, var(--primary-rose-light) 0%, transparent 20%),
+                radial-gradient(circle at 95% 90%, var(--primary-gold-light) 0%, transparent 20%);
         }
         
         h1, h2, h3, h4, .logo-text {
@@ -60,51 +69,51 @@
             padding: 0 30px;
         }
         
-        /* هدر ریسپانسیو با انیمیشن اسکرول */
+        /* هدر با رنگ‌های جدید */
         .exquisite-header {
             position: fixed;
             top: 0;
             width: 100%;
             z-index: 2000;
-            background: rgba(250, 243, 224, 0.97);
+            background: linear-gradient(135deg, rgba(255, 249, 240, 0.98) 0%, rgba(252, 243, 228, 0.98) 100%);
             backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+            border-bottom: 1px solid rgba(230, 179, 37, 0.15);
             transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
-            padding: 20px 0;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            padding: 18px 0;
+            box-shadow: 0 4px 20px rgba(74, 60, 52, 0.08);
         }
         
         .exquisite-header.scrolled {
             padding: 10px 0;
-            background: rgba(250, 243, 224, 0.98);
+            background: linear-gradient(135deg, rgba(255, 249, 240, 0.99) 0%, rgba(252, 243, 228, 0.99) 100%);
             backdrop-filter: blur(15px);
-            box-shadow: 0 6px 25px rgba(0, 0, 0, 0.1);
-            border-bottom: 1px solid rgba(212, 175, 55, 0.15);
+            box-shadow: 0 6px 25px rgba(74, 60, 52, 0.12);
+            border-bottom: 1px solid rgba(230, 179, 37, 0.2);
         }
         
         .exquisite-header.scrolled .logo-icon {
-            width: 45px;
-            height: 45px;
-            font-size: 18px;
+            width: 40px;
+            height: 40px;
+            font-size: 16px;
         }
         
         .exquisite-header.scrolled .logo-text {
-            font-size: 1.8rem;
+            font-size: 1.6rem;
         }
         
         .exquisite-header.scrolled .logo-subtitle {
-            font-size: 0.7rem;
+            font-size: 0.65rem;
             letter-spacing: 1.5px;
         }
         
         .exquisite-header.scrolled .nav-link {
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             padding: 6px 0;
         }
         
         .exquisite-header.scrolled .header-cta {
-            padding: 10px 20px;
-            font-size: 0.9rem;
+            padding: 10px 18px;
+            font-size: 0.85rem;
         }
         
         .header-container {
@@ -117,27 +126,27 @@
         .logo-section {
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: 12px;
             transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
         }
         
         .logo-icon {
-            width: 55px;
-            height: 55px;
-            background: linear-gradient(135deg, var(--primary-gold) 0%, var(--primary-gold-dark) 100%);
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary-gold) 0%, var(--secondary-peach) 50%, var(--primary-rose) 100%);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
-            font-size: 22px;
+            font-size: 20px;
             box-shadow: var(--shadow-soft);
             transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
         }
         
         .logo-text {
-            font-size: 2.2rem;
-            background: linear-gradient(to right, var(--primary-gold), var(--primary-rose-dark));
+            font-size: 2rem;
+            background: linear-gradient(to right, var(--primary-gold), var(--primary-rose-dark), var(--secondary-lavender));
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
@@ -147,7 +156,7 @@
         
         .logo-subtitle {
             font-family: 'Marcellus', serif;
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             color: var(--medium-text);
             letter-spacing: 2px;
             margin-top: -3px;
@@ -157,7 +166,7 @@
         .exquisite-nav ul {
             display: flex;
             list-style: none;
-            gap: 35px;
+            gap: 30px;
             transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
         }
         
@@ -169,7 +178,7 @@
             text-decoration: none;
             color: var(--dark-text);
             font-weight: 500;
-            font-size: 1rem;
+            font-size: 0.95rem;
             padding: 8px 0;
             transition: all 0.3s ease;
             position: relative;
@@ -183,7 +192,7 @@
             right: 0;
             width: 0;
             height: 2px;
-            background: linear-gradient(to right, var(--primary-gold), var(--primary-rose));
+            background: linear-gradient(to right, var(--primary-gold), var(--secondary-lavender));
             transition: var(--transition-medium);
         }
         
@@ -199,16 +208,16 @@
             background: linear-gradient(135deg, var(--primary-gold) 0%, var(--primary-gold-dark) 100%);
             color: white;
             border: none;
-            padding: 12px 25px;
+            padding: 10px 22px;
             border-radius: 50px;
             font-weight: 600;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             cursor: pointer;
             transition: all 0.3s ease;
             box-shadow: var(--shadow-soft);
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
             transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
         }
         
@@ -217,19 +226,19 @@
             box-shadow: var(--shadow-medium);
         }
         
-        /* هیرو با اسلایدر تصاویر بهینه */
+        /* هیرو با رنگ‌های جدید */
         .exquisite-hero {
-            height: 65vh;
-            min-height: 500px;
+            height: 60vh;
+            min-height: 450px;
             position: relative;
-            margin-top: 100px;
+            margin-top: 90px;
             border-radius: 0 0 var(--radius-xl) var(--radius-xl);
             overflow: hidden;
             transition: margin-top 0.5s cubic-bezier(0.19, 1, 0.22, 1);
         }
         
         .exquisite-header.scrolled + .exquisite-hero {
-            margin-top: 80px;
+            margin-top: 70px;
         }
         
         .hero-slider {
@@ -250,7 +259,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            filter: brightness(0.8);
+            filter: brightness(0.85);
         }
         
         .hero-overlay {
@@ -259,7 +268,7 @@
             right: 0;
             bottom: 0;
             left: 0;
-            background: linear-gradient(to right, rgba(58, 44, 53, 0.85) 0%, rgba(199, 128, 162, 0.5) 100%);
+            background: linear-gradient(135deg, rgba(74, 60, 52, 0.85) 0%, rgba(217, 143, 168, 0.6) 100%);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -274,7 +283,7 @@
         }
         
         .hero-title {
-            font-size: 3.5rem;
+            font-size: 3rem;
             margin-bottom: 15px;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
             animation: fadeInUp 1s ease;
@@ -282,28 +291,28 @@
         }
         
         .hero-subtitle {
-            font-size: 1.2rem;
-            margin-bottom: 30px;
+            font-size: 1.1rem;
+            margin-bottom: 25px;
             opacity: 0.9;
             font-weight: 300;
             animation: fadeInUp 1s ease 0.3s both;
             max-width: 600px;
-            margin: 0 auto 30px;
+            margin: 0 auto 25px;
         }
         
         .hero-cta {
             background: transparent;
             color: white;
             border: 2px solid var(--primary-gold);
-            padding: 15px 35px;
+            padding: 12px 30px;
             border-radius: 50px;
-            font-size: 1.1rem;
+            font-size: 1rem;
             font-weight: 600;
             cursor: pointer;
             transition: var(--transition-medium);
             display: inline-flex;
             align-items: center;
-            gap: 12px;
+            gap: 10px;
             animation: fadeInUp 1s ease 0.6s both;
         }
         
@@ -314,20 +323,20 @@
             box-shadow: var(--shadow-medium);
         }
         
-        /* گالری تصاویر بهینه */
+        /* گالری تصاویر با رنگ‌های جدید */
         .gallery-section {
-            padding: 80px 0;
+            padding: 70px 0;
             background: var(--white);
             position: relative;
         }
         
         .section-header {
             text-align: center;
-            margin-bottom: 60px;
+            margin-bottom: 50px;
         }
         
         .section-title {
-            font-size: 2.8rem;
+            font-size: 2.5rem;
             color: var(--dark-text);
             margin-bottom: 15px;
             position: relative;
@@ -337,33 +346,56 @@
         .section-title:after {
             content: '';
             position: absolute;
-            bottom: -12px;
+            bottom: -10px;
             right: 50%;
             transform: translateX(50%);
-            width: 100px;
+            width: 90px;
             height: 3px;
-            background: linear-gradient(to right, var(--primary-gold), var(--primary-rose));
+            background: linear-gradient(to right, var(--primary-gold), var(--secondary-lavender));
             border-radius: 3px;
         }
         
         .section-subtitle {
-            font-size: 1.1rem;
+            font-size: 1rem;
             color: var(--medium-text);
             max-width: 700px;
-            margin: 25px auto 0;
+            margin: 20px auto 0;
+            line-height: 1.6;
         }
         
+        /* گالری دسکتاپ (Grid) */
         .gallery-container {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 25px;
-            margin-top: 50px;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 22px;
+            margin-top: 40px;
+        }
+        
+        /* گالری موبایل (Swiper) */
+        .gallery-swiper-container {
+            display: none;
+            margin-top: 40px;
+            padding: 0 10px;
+        }
+        
+        .gallery-swiper {
+            width: 100%;
+            height: 320px;
+            padding: 10px 0;
+        }
+        
+        .gallery-swiper-slide {
+            height: 300px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 5px;
         }
         
         @media (max-width: 768px) {
             .gallery-container {
-                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-                gap: 20px;
+                grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+                gap: 18px;
             }
         }
         
@@ -371,14 +403,18 @@
             position: relative;
             border-radius: var(--radius-lg);
             overflow: hidden;
-            height: 280px;
+            height: 260px;
             cursor: pointer;
             transition: var(--transition-medium);
+            background: linear-gradient(135deg, var(--primary-rose-light) 0%, var(--primary-cream) 100%);
+            border: 1px solid rgba(230, 179, 37, 0.1);
+            width: 100%;
         }
         
         .gallery-item:hover {
-            transform: translateY(-10px);
+            transform: translateY(-8px);
             box-shadow: var(--shadow-strong);
+            border-color: var(--primary-gold);
         }
         
         .gallery-item img {
@@ -397,9 +433,9 @@
             bottom: 0;
             right: 0;
             left: 0;
-            background: linear-gradient(to top, rgba(58, 44, 53, 0.9), transparent);
+            background: linear-gradient(to top, rgba(74, 60, 52, 0.9), transparent);
             color: white;
-            padding: 20px;
+            padding: 18px;
             transform: translateY(15px);
             opacity: 0;
             transition: var(--transition-medium);
@@ -411,72 +447,271 @@
         }
         
         .gallery-title {
-            font-size: 1.3rem;
-            margin-bottom: 8px;
+            font-size: 1.2rem;
+            margin-bottom: 6px;
         }
         
         .gallery-description {
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             opacity: 0.9;
         }
         
-        /* بخش رزرو بهینه */
-        .exquisite-booking {
-            padding: 80px 0;
-            background: var(--primary-cream);
+        /* بخش خدمات اختصاصی */
+        .services-section {
+            padding: 70px 0;
+            background: linear-gradient(135deg, var(--primary-cream) 0%, var(--primary-champagne) 100%);
             position: relative;
-            overflow: hidden;
         }
         
-        .exquisite-booking:before {
+        .services-section:before {
             content: '';
             position: absolute;
             top: 0;
             right: 0;
-            width: 300px;
-            height: 300px;
+            width: 250px;
+            height: 250px;
             background: radial-gradient(circle, var(--primary-rose-light) 0%, transparent 70%);
             border-radius: 50%;
             opacity: 0.5;
             z-index: 0;
         }
         
-        .exquisite-booking:after {
+        .services-section:after {
             content: '';
             position: absolute;
             bottom: 0;
             left: 0;
-            width: 250px;
-            height: 250px;
+            width: 200px;
+            height: 200px;
             background: radial-gradient(circle, var(--primary-gold-light) 0%, transparent 70%);
             border-radius: 50%;
             opacity: 0.3;
             z-index: 0;
         }
         
-        .booking-container {
+        .services-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 25px;
             position: relative;
             z-index: 1;
         }
         
-        @media (max-width: 1100px) {
-            .booking-container {
+        @media (max-width: 768px) {
+            .services-grid {
                 grid-template-columns: 1fr;
+                gap: 20px;
             }
         }
         
-        /* فرم بهینه */
-        .exquisite-form {
+        /* خدمات موبایل (Swiper) */
+        .services-swiper-container {
+            display: none;
+            position: relative;
+            z-index: 1;
+            padding: 0 10px;
+        }
+        
+        .services-swiper {
+            width: 100%;
+            height: auto;
+            margin-bottom: 20px;
+            padding: 10px 0;
+        }
+        
+        .service-swiper-slide {
+            height: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 5px;
+        }
+        
+        /* کارت خدمات جدید با جزئیات کامل - بهبود یافته */
+        .service-card-detailed {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            transition: var(--transition-medium);
+            position: relative;
+            border: 1px solid rgba(230, 179, 37, 0.1);
+            box-shadow: var(--shadow-soft);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            min-height: 580px;
+            width: 100%;
+        }
+        
+        .service-card-detailed:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-medium);
+            border-color: var(--primary-gold);
+        }
+        
+        .service-card-header {
+            position: relative;
+            height: 170px;
+            overflow: hidden;
+        }
+        
+        .service-card-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition-slow);
+        }
+        
+        .service-card-detailed:hover .service-card-image {
+            transform: scale(1.05);
+        }
+        
+        .service-card-category {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--primary-gold);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 16px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            box-shadow: var(--shadow-soft);
+        }
+        
+        .service-card-content {
+            padding: 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+        
+        .service-card-title {
+            font-size: 1.3rem;
+            color: var(--dark-text);
+            margin-bottom: 8px;
+            line-height: 1.3;
+            height: 65px;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+        }
+        
+        .service-card-duration {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--medium-text);
+            font-size: 0.85rem;
+            margin-bottom: 12px;
+            flex-shrink: 0;
+        }
+        
+        .service-card-description {
+            color: var(--medium-text);
+            margin-bottom: 16px;
+            line-height: 1.5;
+            font-size: 0.9rem;
+            flex-grow: 1;
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-line-clamp: 4;
+            -webkit-box-orient: vertical;
+            text-overflow: ellipsis;
+        }
+        
+        .service-card-details {
+            margin-bottom: 16px;
+            padding: 12px;
+            background: linear-gradient(135deg, var(--primary-rose-light) 0%, var(--primary-cream) 100%);
+            border-radius: var(--radius-md);
+            border-right: 3px solid var(--primary-gold);
+            flex-shrink: 0;
+        }
+        
+        .service-detail-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 6px 0;
+            border-bottom: 1px dashed rgba(230, 179, 37, 0.2);
+            font-size: 0.85rem;
+        }
+        
+        .service-detail-item:last-child {
+            border-bottom: none;
+        }
+        
+        .service-detail-label {
+            color: var(--dark-text);
+            font-weight: 500;
+        }
+        
+        .service-detail-value {
+            color: var(--medium-text);
+        }
+        
+        .service-card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: auto;
+            padding-top: 15px;
+            border-top: 1px solid rgba(230, 179, 37, 0.1);
+            flex-shrink: 0;
+        }
+        
+        .service-card-price {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-gold-dark);
+        }
+        
+        .service-book-btn {
+            background: linear-gradient(135deg, var(--primary-gold) 0%, var(--primary-gold-dark) 100%);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: var(--radius-md);
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: var(--transition-medium);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            box-shadow: var(--shadow-soft);
+        }
+        
+        .service-book-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-medium);
+            background: linear-gradient(135deg, var(--primary-gold-dark) 0%, var(--primary-gold) 100%);
+        }
+        
+        /* بخش رزرو */
+        .booking-section {
+            padding: 70px 0;
+            background: var(--white);
+            position: relative;
+        }
+        
+        .booking-container {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* فرم رزرو */
+        .booking-form {
             background: var(--white);
             border-radius: var(--radius-xl);
-            padding: 40px;
+            padding: 35px;
             box-shadow: var(--shadow-soft);
             position: relative;
             overflow: hidden;
-            border: 1px solid rgba(212, 175, 55, 0.1);
+            border: 1px solid rgba(230, 179, 37, 0.1);
         }
         
         .form-decorative-border {
@@ -484,24 +719,53 @@
             top: 0;
             right: 0;
             width: 100%;
-            height: 6px;
-            background: linear-gradient(to right, var(--primary-gold), var(--primary-rose), var(--primary-gold));
+            height: 5px;
+            background: linear-gradient(to right, var(--primary-gold), var(--secondary-lavender), var(--primary-gold));
         }
         
-        .form-section-exquisite {
-            margin-bottom: 40px;
+        .booking-service-info {
+            background: linear-gradient(135deg, var(--primary-rose-light) 0%, var(--primary-cream) 100%);
+            border-radius: var(--radius-lg);
+            padding: 18px;
+            margin-bottom: 25px;
+            border: 1px solid rgba(230, 179, 37, 0.2);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .booking-service-details h3 {
+            font-size: 1.2rem;
+            color: var(--dark-text);
+            margin-bottom: 5px;
+        }
+        
+        .booking-service-details p {
+            font-size: 0.9rem;
+            color: var(--medium-text);
+            line-height: 1.4;
+        }
+        
+        .booking-service-price {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-gold-dark);
+        }
+        
+        .form-section {
+            margin-bottom: 30px;
             position: relative;
         }
         
         .section-header-small {
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             color: var(--dark-text);
-            margin-bottom: 25px;
+            margin-bottom: 20px;
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: 12px;
             position: relative;
-            padding-bottom: 15px;
+            padding-bottom: 12px;
         }
         
         .section-header-small:after {
@@ -509,282 +773,88 @@
             position: absolute;
             bottom: 0;
             right: 0;
-            width: 80px;
-            height: 3px;
-            background: linear-gradient(to right, var(--primary-gold), var(--primary-rose));
-            border-radius: 3px;
+            width: 60px;
+            height: 2px;
+            background: linear-gradient(to right, var(--primary-gold), var(--secondary-lavender));
+            border-radius: 2px;
         }
         
         .section-icon {
-            width: 50px;
-            height: 50px;
-            background: linear-gradient(135deg, var(--primary-gold) 0%, var(--primary-gold-dark) 100%);
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, var(--primary-gold) 0%, var(--secondary-peach) 100%);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
-            font-size: 20px;
+            font-size: 18px;
             box-shadow: var(--shadow-soft);
         }
         
-        /* خدمات دسکتاپ - به صورت grid */
-        .services-grid-exquisite {
+        /* تقویم */
+        .date-time-section {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            grid-template-columns: 1fr 1fr;
             gap: 20px;
         }
         
-        /* خدمات موبایل - به صورت اسلایدر */
-        .services-swiper-container {
-            display: none;
-            margin-bottom: 30px;
-        }
-        
-        .services-swiper {
-            width: 100%;
-            height: 380px;
-            margin-bottom: 20px;
-        }
-        
-        .service-swiper-slide {
-            height: 350px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        
-        .view-all-services-btn {
-            display: block;
-            width: 100%;
-            padding: 15px;
-            background: linear-gradient(135deg, var(--primary-gold) 0%, var(--primary-gold-dark) 100%);
-            color: white;
-            border: none;
-            border-radius: var(--radius-md);
-            font-size: 1.1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: var(--transition-medium);
-            box-shadow: var(--shadow-soft);
-            text-align: center;
-            margin-top: 10px;
-        }
-        
-        .view-all-services-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-medium);
-        }
-        
-        .service-card-exquisite {
-            border-radius: var(--radius-lg);
-            overflow: hidden;
-            cursor: pointer;
-            transition: var(--transition-medium);
-            position: relative;
-            border: 1px solid rgba(212, 175, 55, 0.1);
-            background: var(--white);
-            height: 320px;
-            width: 100%;
-        }
-        
-        .service-card-exquisite:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-medium);
-        }
-        
-        .service-card-exquisite.selected {
-            border: 2px solid var(--primary-gold);
-            box-shadow: var(--shadow-medium);
-        }
-        
-        .service-image {
-            width: 100%;
-            height: 180px;
-            object-fit: cover;
-            transition: var(--transition-medium);
-        }
-        
-        .service-card-exquisite:hover .service-image {
-            transform: scale(1.05);
-        }
-        
-        .service-content {
-            padding: 20px;
-        }
-        
-        .service-title {
-            font-size: 1.1rem;
-            color: var(--dark-text);
-            margin-bottom: 8px;
-            height: 40px;
-            overflow: hidden;
-        }
-        
-        .service-duration {
-            font-size: 0.85rem;
-            color: var(--medium-text);
-            margin-bottom: 12px;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-        
-        .service-price {
-            font-weight: 700;
-            color: var(--primary-gold-dark);
-            font-size: 1.2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .service-check {
-            width: 26px;
-            height: 26px;
-            background: var(--primary-gold);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 12px;
-            opacity: 0;
-            transition: var(--transition-fast);
-        }
-        
-        .service-card-exquisite.selected .service-check {
-            opacity: 1;
-        }
-        
-        /* تقویم بهینه */
-        .date-time-exquisite {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 25px;
-        }
-        
         @media (max-width: 768px) {
-            .date-time-exquisite {
+            .date-time-section {
                 grid-template-columns: 1fr;
             }
         }
         
-        .calendar-exquisite, .time-exquisite {
-            background: var(--primary-cream);
+        .calendar-section, .time-section {
+            background: linear-gradient(135deg, var(--primary-rose-light) 0%, var(--primary-cream) 100%);
             border-radius: var(--radius-lg);
-            padding: 20px;
-            border: 1px solid rgba(212, 175, 55, 0.1);
+            padding: 18px;
+            border: 1px solid rgba(230, 179, 37, 0.1);
         }
         
-        .time-slots-exquisite {
+        .time-slots {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
-            gap: 12px;
-            margin-top: 20px;
+            grid-template-columns: repeat(auto-fill, minmax(85px, 1fr));
+            gap: 10px;
+            margin-top: 15px;
         }
         
-        .time-slot-exquisite {
-            padding: 14px 8px;
+        .time-slot {
+            padding: 12px 6px;
             text-align: center;
             background: var(--white);
             border-radius: var(--radius-md);
             cursor: pointer;
             transition: var(--transition-fast);
-            border: 2px solid rgba(212, 175, 55, 0.2);
+            border: 2px solid rgba(230, 179, 37, 0.2);
             font-weight: 500;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             position: relative;
             overflow: hidden;
         }
         
-        .time-slot-exquisite:hover {
+        .time-slot:hover {
             border-color: var(--primary-gold);
-            transform: translateY(-3px);
+            transform: translateY(-2px);
+            background: linear-gradient(135deg, var(--primary-cream) 0%, var(--white) 100%);
         }
         
-        .time-slot-exquisite.selected {
+        .time-slot.selected {
             background: linear-gradient(135deg, var(--primary-gold) 0%, var(--primary-gold-dark) 100%);
             color: white;
             border-color: transparent;
             box-shadow: var(--shadow-soft);
         }
         
-        /* خلاصه رزرو بهینه */
-        .exquisite-summary {
-            background: var(--white);
-            border-radius: var(--radius-xl);
-            padding: 40px;
-            box-shadow: var(--shadow-soft);
-            position: sticky;
-            top: 120px;
-            border: 1px solid rgba(212, 175, 55, 0.1);
-            overflow: hidden;
-        }
-        
-        .summary-header-exquisite {
-            text-align: center;
-            margin-bottom: 35px;
-            position: relative;
-        }
-        
-        .summary-header-exquisite:after {
-            content: '';
-            position: absolute;
-            bottom: -20px;
-            right: 50%;
-            transform: translateX(50%);
-            width: 120px;
-            height: 2px;
-            background: linear-gradient(to right, var(--primary-gold), var(--primary-rose));
-        }
-        
-        .summary-header-exquisite h2 {
-            font-size: 2rem;
-            color: var(--dark-text);
-            margin-bottom: 12px;
-        }
-        
-        .summary-details-exquisite {
-            margin-bottom: 35px;
-        }
-        
-        .summary-item-exquisite {
-            display: flex;
-            justify-content: space-between;
-            padding: 18px 0;
-            border-bottom: 1px dashed rgba(212, 175, 55, 0.3);
-            transition: var(--transition-fast);
-        }
-        
-        .summary-item-exquisite:hover {
-            background: var(--primary-cream);
-            padding-right: 15px;
-            padding-left: 15px;
-            margin: 0 -15px;
-            border-radius: var(--radius-md);
-        }
-        
-        .summary-total-exquisite {
-            display: flex;
-            justify-content: space-between;
-            padding: 22px 0;
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--dark-text);
-            border-top: 2px solid var(--primary-gold);
-            margin-top: 15px;
-        }
-        
-        .exquisite-btn {
+        .booking-btn {
             display: block;
             width: 100%;
-            padding: 18px;
+            padding: 16px;
             background: linear-gradient(135deg, var(--primary-gold) 0%, var(--primary-gold-dark) 100%);
             color: white;
             border: none;
             border-radius: var(--radius-lg);
-            font-size: 1.1rem;
+            font-size: 1rem;
             font-weight: 600;
             cursor: pointer;
             transition: var(--transition-medium);
@@ -792,9 +862,10 @@
             text-align: center;
             position: relative;
             overflow: hidden;
+            margin-top: 25px;
         }
         
-        .exquisite-btn:before {
+        .booking-btn:before {
             content: '';
             position: absolute;
             top: 0;
@@ -805,50 +876,24 @@
             transition: var(--transition-medium);
         }
         
-        .exquisite-btn:hover {
-            transform: translateY(-5px);
+        .booking-btn:hover {
+            transform: translateY(-3px);
             box-shadow: var(--shadow-medium);
+            background: linear-gradient(135deg, var(--primary-gold-dark) 0%, var(--primary-gold) 100%);
         }
         
-        .exquisite-btn:hover:before {
+        .booking-btn:hover:before {
             right: 100%;
         }
         
-        /* گالری کوچک در خلاصه */
-        .mini-gallery {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 12px;
-            margin-top: 30px;
-        }
-        
-        .mini-gallery-item {
-            height: 80px;
-            border-radius: var(--radius-md);
-            overflow: hidden;
-            cursor: pointer;
-            transition: var(--transition-fast);
-        }
-        
-        .mini-gallery-item:hover {
-            transform: scale(1.05);
-            box-shadow: var(--shadow-soft);
-        }
-        
-        .mini-gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        
-        /* مودال نمایش تصویر بزرگ */
+        /* مودال نمایش تصویر */
         .image-modal {
             position: fixed;
             top: 0;
             right: 0;
             bottom: 0;
             left: 0;
-            background: rgba(26, 26, 26, 0.95);
+            background: rgba(42, 42, 42, 0.95);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -912,6 +957,18 @@
             }
         }
         
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(230, 179, 37, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 10px rgba(230, 179, 37, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(230, 179, 37, 0);
+            }
+        }
+        
         /* منوی موبایل */
         .mobile-menu-btn {
             display: none;
@@ -928,26 +985,26 @@
             color: var(--primary-gold);
         }
         
-        /* فوتر بهینه */
+        /* فوتر */
         .exquisite-footer {
-            background: var(--dark-text);
+            background: linear-gradient(135deg, var(--dark-text) 0%, #3A2E28 100%);
             color: var(--white);
-            padding: 70px 0 30px;
+            padding: 60px 0 25px;
             position: relative;
         }
         
         .footer-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            margin-bottom: 50px;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 35px;
+            margin-bottom: 40px;
         }
         
         .footer-column h3 {
-            font-size: 1.5rem;
-            margin-bottom: 25px;
+            font-size: 1.4rem;
+            margin-bottom: 22px;
             position: relative;
-            padding-bottom: 12px;
+            padding-bottom: 10px;
             color: var(--primary-gold);
         }
         
@@ -956,7 +1013,7 @@
             position: absolute;
             bottom: 0;
             right: 0;
-            width: 50px;
+            width: 45px;
             height: 2px;
             background: var(--primary-gold);
         }
@@ -966,16 +1023,17 @@
         }
         
         .footer-column ul li {
-            margin-bottom: 15px;
+            margin-bottom: 12px;
         }
         
         .footer-column a {
-            color: #ddd;
+            color: #E8D8C9;
             text-decoration: none;
             transition: var(--transition-fast);
             display: flex;
             align-items: center;
             gap: 8px;
+            font-size: 0.9rem;
         }
         
         .footer-column a:hover {
@@ -985,20 +1043,20 @@
         
         .social-icons {
             display: flex;
-            gap: 15px;
-            margin-top: 25px;
+            gap: 12px;
+            margin-top: 22px;
         }
         
         .social-icon {
-            width: 45px;
-            height: 45px;
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
-            background: rgba(212, 175, 55, 0.1);
+            background: rgba(230, 179, 37, 0.1);
             display: flex;
             align-items: center;
             justify-content: center;
             color: var(--primary-gold);
-            font-size: 18px;
+            font-size: 16px;
             transition: var(--transition-fast);
         }
         
@@ -1010,10 +1068,10 @@
         
         .copyright {
             text-align: center;
-            padding-top: 30px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: #aaa;
-            font-size: 0.85rem;
+            padding-top: 25px;
+            border-top: 1px solid rgba(232, 216, 201, 0.1);
+            color: #B8A89A;
+            font-size: 0.8rem;
         }
         
         /* ریسپانسیو */
@@ -1023,33 +1081,33 @@
             }
             
             .hero-title {
-                font-size: 3rem;
+                font-size: 2.8rem;
             }
             
-            .exquisite-form, .exquisite-summary {
-                padding: 35px;
+            .booking-form {
+                padding: 30px;
             }
         }
         
         @media (max-width: 992px) {
             .exquisite-nav ul {
-                gap: 20px;
+                gap: 18px;
             }
             
             .logo-text {
-                font-size: 1.8rem;
+                font-size: 1.7rem;
             }
             
             .hero-title {
-                font-size: 2.5rem;
+                font-size: 2.3rem;
             }
             
             .section-title {
-                font-size: 2.2rem;
+                font-size: 2rem;
             }
             
-            .exquisite-form, .exquisite-summary {
-                padding: 30px;
+            .booking-form {
+                padding: 25px;
             }
             
             /* منوی موبایل */
@@ -1062,13 +1120,13 @@
                 top: 0;
                 right: -100%;
                 width: 80%;
-                max-width: 400px;
+                max-width: 380px;
                 height: 100vh;
-                background: rgba(250, 243, 224, 0.98);
+                background: linear-gradient(135deg, rgba(255, 249, 240, 0.98) 0%, rgba(252, 243, 228, 0.98) 100%);
                 backdrop-filter: blur(20px);
-                padding: 100px 40px 40px;
+                padding: 90px 35px 35px;
                 transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
-                box-shadow: -10px 0 30px rgba(0, 0, 0, 0.1);
+                box-shadow: -10px 0 30px rgba(74, 60, 52, 0.1);
                 z-index: 1999;
                 overflow-y: auto;
             }
@@ -1079,13 +1137,13 @@
             
             .exquisite-nav ul {
                 flex-direction: column;
-                gap: 25px;
+                gap: 22px;
                 align-items: flex-start;
             }
             
             .nav-link {
-                font-size: 1.1rem;
-                padding: 10px 0;
+                font-size: 1rem;
+                padding: 8px 0;
             }
             
             .header-cta {
@@ -1095,17 +1153,17 @@
             /* آیکون بستن منوی موبایل */
             .close-menu {
                 position: absolute;
-                top: 30px;
-                left: 30px;
+                top: 25px;
+                left: 25px;
                 background: var(--primary-gold);
                 color: white;
-                width: 40px;
-                height: 40px;
+                width: 38px;
+                height: 38px;
                 border-radius: 50%;
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                font-size: 20px;
+                font-size: 18px;
                 cursor: pointer;
                 transition: var(--transition-fast);
             }
@@ -1115,8 +1173,8 @@
                 transform: rotate(90deg);
             }
             
-            /* خدمات موبایل - نمایش اسلایدر و مخفی کردن grid */
-            .services-grid-exquisite {
+            /* خدمات موبایل */
+            .services-grid {
                 display: none;
             }
             
@@ -1124,19 +1182,41 @@
                 display: block;
             }
             
-            /* تنظیمات هدر اسکرول شده در موبایل */
+            /* برای موبایل - تنظیمات خاص */
+            .service-card-detailed {
+                min-height: 500px;
+            }
+            
+            .service-card-title {
+                height: 55px;
+                font-size: 1.2rem;
+            }
+            
+            .service-card-description {
+                -webkit-line-clamp: 3;
+            }
+            
+            /* گالری موبایل */
+            .gallery-container {
+                display: none;
+            }
+            
+            .gallery-swiper-container {
+                display: block;
+            }
+            
             .exquisite-header.scrolled .logo-icon {
-                width: 40px;
-                height: 40px;
-                font-size: 16px;
+                width: 38px;
+                height: 38px;
+                font-size: 15px;
             }
             
             .exquisite-header.scrolled .logo-text {
-                font-size: 1.5rem;
+                font-size: 1.4rem;
             }
             
             .exquisite-header.scrolled + .exquisite-hero {
-                margin-top: 70px;
+                margin-top: 65px;
             }
         }
         
@@ -1147,69 +1227,77 @@
                 gap: 0;
             }
             
-            .exquisite-nav ul {
-                flex-wrap: wrap;
-                justify-content: center;
-                gap: 15px;
-            }
-            
             .hero-title {
-                font-size: 2.2rem;
+                font-size: 2rem;
             }
             
             .section-title {
-                font-size: 1.8rem;
-            }
-            
-            .gallery-container {
-                grid-template-columns: 1fr;
-            }
-            
-            .services-grid-exquisite {
-                grid-template-columns: 1fr;
+                font-size: 1.7rem;
             }
             
             .exquisite-hero {
                 height: 50vh;
-                min-height: 400px;
+                min-height: 380px;
             }
             
-            /* تنظیمات هدر اسکرول شده در موبایل */
-            .exquisite-header.scrolled .logo-icon {
-                width: 40px;
-                height: 40px;
-                font-size: 16px;
+            .hero-subtitle {
+                font-size: 1rem;
             }
             
-            .exquisite-header.scrolled .logo-text {
-                font-size: 1.5rem;
-            }
-            
-            .exquisite-header.scrolled + .exquisite-hero {
-                margin-top: 70px;
-            }
-            
-            /* اسلایدر خدمات در موبایل */
             .services-swiper {
-                height: 360px;
+                height: auto;
             }
             
             .service-swiper-slide {
-                height: 330px;
+                height: auto;
+            }
+            
+            .service-card-detailed {
+                min-height: 480px;
+            }
+            
+            .service-card-title {
+                height: 50px;
+                font-size: 1.15rem;
+            }
+            
+            .service-card-description {
+                font-size: 0.9rem;
+            }
+            
+            .service-card-price {
+                font-size: 1.4rem;
+            }
+            
+            .service-book-btn {
+                padding: 8px 16px;
+                font-size: 0.85rem;
+            }
+            
+            .gallery-swiper {
+                height: 300px;
+            }
+            
+            .gallery-swiper-slide {
+                height: 280px;
+            }
+            
+            .gallery-item {
+                height: 240px;
             }
         }
         
         @media (max-width: 480px) {
             .container {
-                padding: 0 20px;
+                padding: 0 18px;
             }
             
-            .exquisite-form, .exquisite-summary {
-                padding: 25px;
+            .booking-form {
+                padding: 20px;
             }
             
             .section-header-small {
-                font-size: 1.5rem;
+                font-size: 1.3rem;
             }
             
             .exquisite-header {
@@ -1227,30 +1315,82 @@
             }
             
             .exquisite-header.scrolled .logo-text {
-                font-size: 1.3rem;
+                font-size: 1.2rem;
             }
             
             .exquisite-header.scrolled + .exquisite-hero {
-                margin-top: 65px;
+                margin-top: 60px;
             }
             
-            /* اسلایدر خدمات در موبایل کوچک */
-            .services-swiper {
-                height: 340px;
+            .service-card-detailed {
+                min-height: 450px;
             }
             
-            .service-swiper-slide {
-                height: 310px;
+            .service-card-title {
+                height: 45px;
+                font-size: 1.1rem;
             }
             
-            .service-card-exquisite {
-                height: 300px;
+            .service-card-content {
+                padding: 16px;
+            }
+            
+            .service-card-footer {
+                flex-direction: column;
+                gap: 12px;
+                align-items: stretch;
+            }
+            
+            .service-card-price {
+                text-align: center;
+            }
+            
+            .service-book-btn {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .booking-service-info {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 12px;
+            }
+            
+            .booking-service-details h3 {
+                font-size: 1.1rem;
+            }
+            
+            .booking-service-price {
+                font-size: 1.3rem;
+            }
+            
+            .time-slots {
+                grid-template-columns: repeat(auto-fill, minmax(75px, 1fr));
+                gap: 8px;
+            }
+            
+            .time-slot {
+                padding: 10px 4px;
+                font-size: 0.8rem;
+            }
+            
+            .footer-container {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .gallery-swiper {
+                height: 280px;
+            }
+            
+            .gallery-swiper-slide {
+                height: 260px;
             }
         }
     </style>
 </head>
 <body>
-    <!-- هدر ریسپانسیو با انیمیشن اسکرول -->
+    <!-- هدر با رنگ‌های جدید -->
     <header class="exquisite-header">
         <div class="container header-container">
             <div class="logo-section">
@@ -1273,9 +1413,9 @@
                 </div>
                 <ul>
                     <li class="nav-item"><a href="#" class="nav-link">خانه</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link active">رزرو نوبت</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link">خدمات</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link active">خدمات</a></li>
                     <li class="nav-item"><a href="#" class="nav-link">گالری</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">متخصصین</a></li>
                     <li class="nav-item"><a href="#" class="nav-link">تماس</a></li>
                 </ul>
             </nav>
@@ -1287,32 +1427,32 @@
         </div>
     </header>
 
-    <!-- هیرو با اسلایدر تصاویر بهینه -->
+    <!-- هیرو با تصویر پیش‌فرض -->
     <section class="exquisite-hero">
         <div class="hero-slider">
             <div class="swiper">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide">
-                        <!-- تصویر آنلاین با کیفیت متوسط -->
-                        <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="آرایشگاه لوکس" class="slide-image" loading="lazy">
+                        <!-- تصویر پیش‌فرض -->
+                        <img src="defaultph.jpeg" alt="آرایشگاه لوکس" class="slide-image" loading="lazy">
                         <div class="hero-overlay">
                             <div class="hero-content">
                                 <h1 class="hero-title">زیبایی تو، هنر ماست</h1>
                                 <p class="hero-subtitle">در گالری زیبایی لوکس بانو، هر مراجعه کننده یک شاهکار هنری است. خدمات اختصاصی در محیطی لوکس و رویایی.</p>
-                                <button class="hero-cta" id="scroll-to-booking">
-                                    <i class="fas fa-gem"></i>
-                                    رزرو نوبت اختصاصی
+                                <button class="hero-cta" id="scroll-to-services">
+                                    <i class="fas fa-spa"></i>
+                                    مشاهده خدمات
                                 </button>
                             </div>
                         </div>
                     </div>
                     <div class="swiper-slide">
-                        <img src="https://images.unsplash.com/photo-1522338242990-f8a6ccd0efb1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="آرایش عروس" class="slide-image" loading="lazy">
+                        <img src="defaultph.jpeg" alt="آرایش عروس" class="slide-image" loading="lazy">
                         <div class="hero-overlay">
                             <div class="hero-content">
                                 <h1 class="hero-title">روز عروسی تو، افسانه‌ای می‌شود</h1>
                                 <p class="hero-subtitle">آرایش عروس اختصاصی با بهترین مواد و تکنیک‌های روز دنیا توسط متخصصین بین‌المللی</p>
-                                <button class="hero-cta" id="scroll-to-booking">
+                                <button class="hero-cta" id="scroll-to-services">
                                     <i class="fas fa-heart"></i>
                                     آرایش عروس ایده‌آل
                                 </button>
@@ -1320,14 +1460,14 @@
                         </div>
                     </div>
                     <div class="swiper-slide">
-                        <img src="https://images.unsplash.com/photo-1562322140-8baeececf3df?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="سالن زیبایی" class="slide-image" loading="lazy">
+                        <img src="defaultph.jpeg" alt="سالن زیبایی" class="slide-image" loading="lazy">
                         <div class="hero-overlay">
                             <div class="hero-content">
                                 <h1 class="hero-title">محیطی رویایی برای زیباتر شدن</h1>
                                 <p class="hero-subtitle">سالنی با طراحی اختصاصی و امکانات مدرن برای ارائه بهترین خدمات زیبایی و آرایشی</p>
-                                <button class="hero-cta" id="scroll-to-booking">
-                                    <i class="fas fa-spa"></i>
-                                    گالری تصاویر
+                                <button class="hero-cta" id="scroll-to-services">
+                                    <i class="fas fa-gem"></i>
+                                    خدمات اختصاصی
                                 </button>
                             </div>
                         </div>
@@ -1338,7 +1478,7 @@
         </div>
     </section>
 
-    <!-- گالری تصاویر بهینه -->
+    <!-- گالری تصاویر با تصویر پیش‌فرض -->
     <section class="gallery-section">
         <div class="container">
             <div class="section-header">
@@ -1346,9 +1486,10 @@
                 <p class="section-subtitle">زیبایی را در فضایی اشرافی و با طراحی منحصر به فرد تجربه کنید. تصاویر زیر گوشه‌ای از فضای آرایشگاه و خدمات ما را نشان می‌دهد.</p>
             </div>
             
-            <div class="gallery-container">
+            <!-- گالری دسکتاپ (Grid) -->
+            <div class="gallery-container" id="gallery-desktop">
                 <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="سالن انتظار" loading="lazy">
+                    <img src="defaultph.jpeg" alt="سالن انتظار" loading="lazy">
                     <div class="gallery-overlay">
                         <h3 class="gallery-title">سالن انتظار VIP</h3>
                         <p class="gallery-description">محیطی دلنشین با طراحی مدرن و امکانات رفاهی کامل</p>
@@ -1356,7 +1497,7 @@
                 </div>
                 
                 <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="آرایشگاه" loading="lazy">
+                    <img src="defaultph.jpeg" alt="محیط اصلی آرایشگاه" loading="lazy">
                     <div class="gallery-overlay">
                         <h3 class="gallery-title">محیط اصلی آرایشگاه</h3>
                         <p class="gallery-description">طراحی اروپایی با بالاترین استانداردهای بهداشتی</p>
@@ -1364,7 +1505,7 @@
                 </div>
                 
                 <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1605497788044-5a32c7078486?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="خدمات مو" loading="lazy">
+                    <img src="defaultph.jpeg" alt="بخش تخصصی مو" loading="lazy">
                     <div class="gallery-overlay">
                         <h3 class="gallery-title">بخش تخصصی مو</h3>
                         <p class="gallery-description">کوتاهی، رنگ، هایلایت و درمان مو با پیشرفته‌ترین روش‌ها</p>
@@ -1372,7 +1513,7 @@
                 </div>
                 
                 <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="آرایش صورت" loading="lazy">
+                    <img src="defaultph.jpeg" alt="آرایش صورت تخصصی" loading="lazy">
                     <div class="gallery-overlay">
                         <h3 class="gallery-title">آرایش صورت تخصصی</h3>
                         <p class="gallery-description">استفاده از برندهای معتبر جهانی و تکنیک‌های حرفه‌ای</p>
@@ -1380,7 +1521,7 @@
                 </div>
                 
                 <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="ناخن و مانیکور" loading="lazy">
+                    <img src="defaultph.jpeg" alt="بخش ناخن و مانیکور" loading="lazy">
                     <div class="gallery-overlay">
                         <h3 class="gallery-title">بخش ناخن و مانیکور</h3>
                         <p class="gallery-description">محیطی استریل با ابزار یکبار مصرف و مواد باکیفیت</p>
@@ -1388,68 +1529,87 @@
                 </div>
                 
                 <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1596703923338-48f1c07e4f2e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="محصولات مراقبتی" loading="lazy">
+                    <img src="defaultph.jpeg" alt="محصولات اختصاصی" loading="lazy">
                     <div class="gallery-overlay">
                         <h3 class="gallery-title">محصولات اختصاصی</h3>
                         <p class="gallery-description">استفاده از بهترین برندهای مراقبت پوست و مو</p>
                     </div>
                 </div>
             </div>
+            
+            <!-- گالری موبایل (Swiper) -->
+            <div class="gallery-swiper-container" id="gallery-swiper-container">
+                <div class="swiper gallery-swiper" id="gallery-swiper">
+                    <div class="swiper-wrapper" id="gallery-swiper-wrapper">
+                        <!-- آیتم‌های گالری از طریق جاوااسکریپت اضافه می‌شوند -->
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- بخش رزرو بهینه -->
-    <section class="exquisite-booking" id="booking-section">
-        <div class="container booking-container">
-            <!-- فرم رزرو -->
-            <div class="exquisite-form">
-                <div class="form-decorative-border"></div>
-                
-                <!-- انتخاب خدمات با تصاویر -->
-                <div class="form-section-exquisite">
-                    <div class="section-header-small">
-                        <div class="section-icon">
-                            <i class="fas fa-spa"></i>
-                        </div>
-                        <span>خدمات اختصاصی</span>
-                    </div>
-                    
-                    <!-- خدمات دسکتاپ (Grid) -->
-                    <div class="services-grid-exquisite" id="exquisite-services-desktop">
+    <!-- بخش خدمات اختصاصی -->
+    <section class="services-section" id="services-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">خدمات اختصاصی لوکس بانو</h2>
+                <p class="section-subtitle">هر خدمت در لوکس بانو با دقت و ظرافت خاصی ارائه می‌شود. جزئیات هر خدمت را مشاهده و برای رزرو مستقیم اقدام کنید.</p>
+            </div>
+            
+            <!-- خدمات دسکتاپ (Grid) -->
+            <div class="services-grid" id="services-desktop">
+                <!-- خدمات از طریق جاوااسکریپت اضافه می‌شوند -->
+            </div>
+            
+            <!-- خدمات موبایل (Swiper) -->
+            <div class="services-swiper-container" id="services-swiper-container">
+                <div class="swiper services-swiper" id="services-swiper">
+                    <div class="swiper-wrapper" id="services-swiper-wrapper">
                         <!-- خدمات از طریق جاوااسکریپت اضافه می‌شوند -->
                     </div>
-                    
-                    <!-- خدمات موبایل (Swiper) -->
-                    <div class="services-swiper-container" id="services-swiper-container">
-                        <div class="swiper services-swiper" id="services-swiper">
-                            <div class="swiper-wrapper" id="exquisite-services-swiper">
-                                <!-- خدمات از طریق جاوااسکریپت اضافه می‌شوند -->
-                            </div>
-                            <div class="swiper-pagination"></div>
-                        </div>
-                        <button class="view-all-services-btn" id="view-all-services">
-                            <i class="fas fa-eye"></i>
-                            مشاهده همه خدمات
-                        </button>
+                    <div class="swiper-pagination"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- بخش رزرو -->
+    <section class="booking-section" id="booking-section">
+        <div class="container booking-container">
+            <div class="booking-form" id="booking-form">
+                <div class="form-decorative-border"></div>
+                
+                <div class="section-header">
+                    <h2 class="section-title">رزرو نوبت</h2>
+                    <p class="section-subtitle">فرم زیر را تکمیل کنید تا نوبت شما رزرو شود. همکاران ما در اسرع وقت با شما تماس خواهند گرفت.</p>
+                </div>
+                
+                <div class="booking-service-info" id="booking-service-info">
+                    <!-- اطلاعات خدمت انتخاب شده اینجا نمایش داده می‌شود -->
+                    <div class="booking-service-details">
+                        <h3 id="selected-service-title">لطفاً یک خدمت را انتخاب کنید</h3>
+                        <p id="selected-service-description">برای مشاهده جزئیات و رزرو، روی دکمه "رزرو این خدمت" در کارت خدمات کلیک کنید.</p>
                     </div>
+                    <div class="booking-service-price" id="selected-service-price">--</div>
                 </div>
 
                 <!-- انتخاب تاریخ و زمان -->
-                <div class="form-section-exquisite">
+                <div class="form-section">
                     <div class="section-header-small">
                         <div class="section-icon">
                             <i class="far fa-calendar-alt"></i>
                         </div>
                         <span>زمان مدنظر</span>
                     </div>
-                    <div class="date-time-exquisite">
-                        <div class="calendar-exquisite">
-                            <label for="exquisite-date" style="display: block; margin-bottom: 10px; font-weight: 500;">تاریخ مراجعه:</label>
-                            <input type="text" id="exquisite-date" class="form-control" placeholder="روز مورد نظر را انتخاب کنید" style="width: 100%; padding: 14px; border: 2px solid rgba(212, 175, 55, 0.2); border-radius: var(--radius-md); font-size: 1rem; background: var(--white);">
+                    <div class="date-time-section">
+                        <div class="calendar-section">
+                            <label for="booking-date" style="display: block; margin-bottom: 10px; font-weight: 500;">تاریخ مراجعه:</label>
+                            <input type="text" id="booking-date" class="form-control" placeholder="روز مورد نظر را انتخاب کنید" style="width: 100%; padding: 14px; border: 2px solid rgba(230, 179, 37, 0.2); border-radius: var(--radius-md); font-size: 1rem; background: var(--white);">
                         </div>
-                        <div class="time-exquisite">
+                        <div class="time-section">
                             <label style="display: block; margin-bottom: 10px; font-weight: 500;">ساعت مراجعه:</label>
-                            <div class="time-slots-exquisite" id="exquisite-time-slots">
+                            <div class="time-slots" id="time-slots">
                                 <!-- زمان‌ها از طریق جاوااسکریپت اضافه می‌شوند -->
                             </div>
                         </div>
@@ -1457,7 +1617,7 @@
                 </div>
 
                 <!-- اطلاعات کاربر -->
-                <div class="form-section-exquisite">
+                <div class="form-section">
                     <div class="section-header-small">
                         <div class="section-icon">
                             <i class="far fa-user-circle"></i>
@@ -1465,63 +1625,26 @@
                         <span>اطلاعات شخصی</span>
                     </div>
                     <div class="form-group" style="margin-bottom: 25px;">
-                        <label for="exquisite-name" style="display: block; margin-bottom: 8px; font-weight: 500;">نام و نام خانوادگی *</label>
-                        <input type="text" id="exquisite-name" class="form-control" placeholder="نام کامل خود را وارد کنید" style="width: 100%; padding: 14px; border: 2px solid rgba(212, 175, 55, 0.2); border-radius: var(--radius-md); font-size: 1rem; background: var(--white); transition: var(--transition-fast);">
+                        <label for="booking-name" style="display: block; margin-bottom: 8px; font-weight: 500;">نام و نام خانوادگی *</label>
+                        <input type="text" id="booking-name" class="form-control" placeholder="نام کامل خود را وارد کنید" style="width: 100%; padding: 14px; border: 2px solid rgba(230, 179, 37, 0.2); border-radius: var(--radius-md); font-size: 1rem; background: var(--white); transition: var(--transition-fast);">
                     </div>
                     <div class="form-group" style="margin-bottom: 25px;">
-                        <label for="exquisite-phone" style="display: block; margin-bottom: 8px; font-weight: 500;">شماره تلفن *</label>
-                        <input type="tel" id="exquisite-phone" class="form-control" placeholder="۰۹۱۲۳۴۵۶۷۸۹" style="width: 100%; padding: 14px; border: 2px solid rgba(212, 175, 55, 0.2); border-radius: var(--radius-md); font-size: 1rem; background: var(--white);">
+                        <label for="booking-phone" style="display: block; margin-bottom: 8px; font-weight: 500;">شماره تلفن *</label>
+                        <input type="tel" id="booking-phone" class="form-control" placeholder="۰۹۱۲۳۴۵۶۷۸۹" style="width: 100%; padding: 14px; border: 2px solid rgba(230, 179, 37, 0.2); border-radius: var(--radius-md); font-size: 1rem; background: var(--white);">
                     </div>
                     <div class="form-group">
-                        <label for="exquisite-email" style="display: block; margin-bottom: 8px; font-weight: 500;">ایمیل (اختیاری)</label>
-                        <input type="email" id="exquisite-email" class="form-control" placeholder="email@example.com" style="width: 100%; padding: 14px; border: 2px solid rgba(212, 175, 55, 0.2); border-radius: var(--radius-md); font-size: 1rem; background: var(--white);">
+                        <label for="booking-email" style="display: block; margin-bottom: 8px; font-weight: 500;">ایمیل (اختیاری)</label>
+                        <input type="email" id="booking-email" class="form-control" placeholder="email@example.com" style="width: 100%; padding: 14px; border: 2px solid rgba(230, 179, 37, 0.2); border-radius: var(--radius-md); font-size: 1rem; background: var(--white);">
                     </div>
                 </div>
 
-                <button class="exquisite-btn" id="exquisite-confirm">
+                <button class="booking-btn" id="booking-confirm">
                     <i class="fas fa-gem"></i>
-                    رزرو نوبت اختصاصی
-                </button>
-            </div>
-
-            <!-- خلاصه رزرو بهینه -->
-            <div class="exquisite-summary">
-                <div class="form-decorative-border"></div>
-                <div class="summary-header-exquisite">
-                    <h2>خلاصه رزرو</h2>
-                    <p style="color: var(--medium-text); font-size: 0.95rem;">اطلاعات رزرو خود را بررسی و تأیید کنید</p>
-                </div>
-                
-                <div class="summary-details-exquisite">
-                    <div class="summary-item-exquisite">
-                        <span>تاریخ:</span>
-                        <span id="exquisite-summary-date">--/--/----</span>
-                    </div>
-                    <div class="summary-item-exquisite">
-                        <span>ساعت:</span>
-                        <span id="exquisite-summary-time">--:--</span>
-                    </div>
-                    <div class="summary-item-exquisite">
-                        <span>تعداد خدمات:</span>
-                        <span id="exquisite-services-count">۰ مورد</span>
-                    </div>
-                    <div id="exquisite-selected-services">
-                        <!-- خدمات انتخاب شده اینجا نمایش داده می‌شوند -->
-                    </div>
-                </div>
-                
-                <div class="summary-total-exquisite">
-                    <span>مبلغ کل:</span>
-                    <span id="exquisite-total-price">۰ تومان</span>
-                </div>
-                
-                <button class="exquisite-btn" id="exquisite-payment" style="margin-top: 30px;">
-                    <i class="fas fa-lock"></i>
-                    پرداخت امن
+                    رزرو نوبت
                 </button>
                 
-                <div style="margin-top: 30px; padding: 20px; background: var(--primary-cream); border-radius: var(--radius-md); border-right: 3px solid var(--primary-gold);">
-                    <h3 style="color: var(--primary-dark); margin-bottom: 10px; font-size: 1.1rem; display: flex; align-items: center; gap: 10px;">
+                <div style="margin-top: 25px; padding: 18px; background: linear-gradient(135deg, var(--primary-rose-light) 0%, var(--primary-cream) 100%); border-radius: var(--radius-md); border-right: 3px solid var(--primary-gold);">
+                    <h3 style="color: var(--primary-dark); margin-bottom: 8px; font-size: 1.1rem; display: flex; align-items: center; gap: 8px;">
                         <i class="fas fa-gift"></i>
                         مزایای رزرو آنلاین
                     </h3>
@@ -1540,23 +1663,11 @@
                         </li>
                     </ul>
                 </div>
-                
-                <div class="mini-gallery">
-                    <div class="mini-gallery-item">
-                        <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="سالن انتظار" loading="lazy">
-                    </div>
-                    <div class="mini-gallery-item">
-                        <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="آرایشگاه" loading="lazy">
-                    </div>
-                    <div class="mini-gallery-item">
-                        <img src="https://images.unsplash.com/photo-1605497788044-5a32c7078486?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" alt="خدمات مو" loading="lazy">
-                    </div>
-                </div>
             </div>
         </div>
     </section>
 
-    <!-- مودال نمایش تصویر بزرگ -->
+    <!-- مودال نمایش تصویر -->
     <div class="image-modal" id="image-modal">
         <div class="close-modal" id="close-modal">
             <i class="fas fa-times"></i>
@@ -1566,13 +1677,13 @@
         </div>
     </div>
 
-    <!-- فوتر بهینه -->
+    <!-- فوتر -->
     <footer class="exquisite-footer">
         <div class="container">
             <div class="footer-container">
                 <div class="footer-column">
                     <h3>گالری زیبایی لوکس بانو</h3>
-                    <p style="margin-bottom: 25px; color: #ddd; line-height: 1.7; font-size: 0.95rem;">ارائه بهترین خدمات زیبایی و آرایشی در محیطی اشرافی با کادری مجرب و آموزش دیده بین‌المللی. میزبان زیبایی شما در قلب تهران.</p>
+                    <p style="margin-bottom: 22px; color: #E8D8C9; line-height: 1.6; font-size: 0.9rem;">ارائه بهترین خدمات زیبایی و آرایشی در محیطی اشرافی با کادری مجرب و آموزش دیده بین‌المللی. میزبان زیبایی شما در قلب تهران.</p>
                     <div class="social-icons">
                         <a href="#" class="social-icon">
                             <i class="fab fa-instagram"></i>
@@ -1590,10 +1701,10 @@
                     <h3>دسترسی سریع</h3>
                     <ul>
                         <li><a href="#"><i class="fas fa-chevron-left"></i> خانه</a></li>
-                        <li><a href="#"><i class="fas fa-chevron-left"></i> رزرو نوبت</a></li>
                         <li><a href="#"><i class="fas fa-chevron-left"></i> خدمات اختصاصی</a></li>
                         <li><a href="#"><i class="fas fa-chevron-left"></i> گالری تصاویر</a></li>
                         <li><a href="#"><i class="fas fa-chevron-left"></i> متخصصین</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-left"></i> تماس با ما</a></li>
                     </ul>
                 </div>
                 
@@ -1620,52 +1731,87 @@
     <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/fa.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
     <script>
-        // داده‌های خدمات با تصاویر آنلاین
-        const exquisiteServices = [
+        // داده‌های خدمات با تصویر پیش‌فرض (کوتاه شده)
+        const detailedServices = [
             { 
                 id: 1, 
                 name: "آرایش صورت عروس VIP", 
                 duration: "۲.۵ ساعت", 
                 price: 3200000, 
-                category: "آرایش", 
+                category: "آرایش عروس", 
                 icon: "fas fa-heart",
-                image: "https://images.unsplash.com/photo-1515377905703-c4788e51af15?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                image: "defaultph.jpeg",
+                description: "آرایش صورت عروس با بهترین مواد و تکنیک‌های روز دنیا توسط متخصصین بین‌المللی.",
+                details: [
+                    { label: "سختی کار", value: "متوسط" },
+                    { label: "مواد", value: "برندهای لوکس" },
+                    { label: "مناسب", value: "مراسم عروسی" },
+                    { label: "گارانتی", value: "۲۴ ساعته" }
+                ]
             },
             { 
                 id: 2, 
                 name: "آرایش صورت ویژه", 
                 duration: "۲ ساعت", 
                 price: 850000, 
-                category: "آرایش", 
+                category: "آرایش صورت", 
                 icon: "fas fa-palette",
-                image: "https://images.unsplash.com/photo-1522338242990-e1b4e47bf6e3?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                image: "defaultph.jpeg",
+                description: "آرایش صورت حرفه‌ای با تاکید بر زیبایی طبیعی و ماندگاری بالا.",
+                details: [
+                    { label: "سختی کار", value: "آسان" },
+                    { label: "مواد", value: "هایپوآلرژیک" },
+                    { label: "مناسب", value: "مهمانی" },
+                    { label: "گارانتی", value: "۱۲ ساعته" }
+                ]
             },
             { 
                 id: 3, 
                 name: "کوتاهی و استایل مو", 
                 duration: "۱.۵ ساعت", 
                 price: 350000, 
-                category: "مو", 
+                category: "مراقبت مو", 
                 icon: "fas fa-cut",
-                image: "https://images.unsplash.com/photo-1605497788044-5a32c7078486?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                image: "defaultph.jpeg",
+                description: "کوتاهی حرفه‌ای مو با جدیدترین استایل‌های روز دنیا.",
+                details: [
+                    { label: "سختی کار", value: "متوسط" },
+                    { label: "ابزار", value: "حرفه‌ای" },
+                    { label: "مناسب", value: "همه سنین" },
+                    { label: "مشاوره", value: "رایگان" }
+                ]
             },
             { 
                 id: 4, 
                 name: "رنگ موی لوکس", 
                 duration: "۳ ساعت", 
                 price: 1250000, 
-                category: "مو", 
+                category: "رنگ مو", 
                 icon: "fas fa-fill-drip",
-                image: "https://images.unsplash.com/photo-1560851248-7a2a48efb433?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                image: "defaultph.jpeg",
+                description: "رنگ موی با کیفیت و بدون آسیب با رنگ‌های اروپایی.",
+                details: [
+                    { label: "سختی کار", value: "سخت" },
+                    { label: "رنگ", value: "اروپایی" },
+                    { label: "مناسب", value: "موهای آسیب دیده" },
+                    { label: "گارانتی", value: "۱ ماهه" }
+                ]
             },
             { 
                 id: 5, 
                 name: "هایلایت و بلیژ", 
                 duration: "۳.۵ ساعت", 
                 price: 1550000, 
-                category: "مو", 
+                category: "رنگ مو", 
                 icon: "fas fa-sun",
-                image: "https://images.unsplash.com/photo-1562322140-8baeececf3df?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                image: "defaultph.jpeg",
+                description: "هایلایت و بلیژ حرفه‌ای با ایجاد سایه‌روشن طبیعی.",
+                details: [
+                    { label: "سختی کار", value: "پیچیده" },
+                    { label: "تکنیک", value: "فرآی، بالیاژ" },
+                    { label: "مناسب", value: "ایجاد حجم" },
+                    { label: "گارانتی", value: "۲ ماهه" }
+                ]
             },
             { 
                 id: 6, 
@@ -1674,7 +1820,14 @@
                 price: 2800000, 
                 category: "میکاپ دائمی", 
                 icon: "fas fa-eye",
-                image: "https://images.unsplash.com/photo-1591085686350-798c0f9faa7f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                image: "defaultph.jpeg",
+                description: "میکاپ دائمی ابرو با روش میکروبلیدینگ برای ابروهای طبیعی.",
+                details: [
+                    { label: "سختی کار", value: "تخصصی" },
+                    { label: "روش", value: "میکروبلیدینگ" },
+                    { label: "مناسب", value: "ابروهای کم پشت" },
+                    { label: "گارانتی", value: "۱ ساله" }
+                ]
             },
             { 
                 id: 7, 
@@ -1683,7 +1836,14 @@
                 price: 750000, 
                 category: "مژه و ابرو", 
                 icon: "fas fa-eye-lash",
-                image: "https://images.unsplash.com/photo-1596703923338-48f1c07e4f2e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                image: "defaultph.jpeg",
+                description: "اکستنشن مژه ۳D حجمی با مژه‌های ابریشمی طبیعی.",
+                details: [
+                    { label: "سختی کار", value: "ظریف" },
+                    { label: "جنس مژه", value: "ابریشم طبیعی" },
+                    { label: "مناسب", value: "نگاه دراماتیک" },
+                    { label: "ماندگاری", value: "۳-۴ هفته" }
+                ]
             },
             { 
                 id: 8, 
@@ -1692,29 +1852,69 @@
                 price: 450000, 
                 category: "ناخن", 
                 icon: "fas fa-hand-sparkles",
-                image: "https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                image: "defaultph.jpeg",
+                description: "ژل ناخن با کیفیت عالی و طرح‌های متنوع.",
+                details: [
+                    { label: "سختی کار", value: "آسان" },
+                    { label: "جنس ژل", value: "کره‌ای باکیفیت" },
+                    { label: "مناسب", value: "ناخن‌های شکننده" },
+                    { label: "ماندگاری", value: "۳ هفته" }
+                ]
             }
         ];
 
-        // زمان‌های لوکس
-        const exquisiteTimes = ["09:00", "10:30", "12:00", "14:00", "15:30", "17:00", "18:30", "20:00"];
+        // داده‌های گالری با تصویر پیش‌فرض
+        const galleryItems = [
+            {
+                title: "سالن انتظار VIP",
+                description: "محیطی دلنشین با طراحی مدرن و امکانات رفاهی کامل",
+                image: "defaultph.jpeg"
+            },
+            {
+                title: "محیط اصلی آرایشگاه",
+                description: "طراحی اروپایی با بالاترین استانداردهای بهداشتی",
+                image: "defaultph.jpeg"
+            },
+            {
+                title: "بخش تخصصی مو",
+                description: "کوتاهی، رنگ، هایلایت و درمان مو با پیشرفته‌ترین روش‌ها",
+                image: "defaultph.jpeg"
+            },
+            {
+                title: "آرایش صورت تخصصی",
+                description: "استفاده از برندهای معتبر جهانی و تکنیک‌های حرفه‌ای",
+                image: "defaultph.jpeg"
+            },
+            {
+                title: "بخش ناخن و مانیکور",
+                description: "محیطی استریل با ابزار یکبار مصرف و مواد باکیفیت",
+                image: "defaultph.jpeg"
+            },
+            {
+                title: "محصولات اختصاصی",
+                description: "استفاده از بهترین برندهای مراقبت پوست و مو",
+                image: "defaultph.jpeg"
+            }
+        ];
+
+        // زمان‌های موجود
+        const availableTimes = ["09:00", "10:30", "12:00", "14:00", "15:30", "17:00", "18:30", "20:00"];
         
         // متغیرهای حالت
-        let selectedExquisiteServices = [];
-        let selectedExquisiteDate = null;
-        let selectedExquisiteTime = null;
+        let selectedService = null;
+        let selectedDate = null;
+        let selectedTime = null;
         
         // DOM Elements
-        const servicesContainerDesktop = document.getElementById('exquisite-services-desktop');
-        const servicesContainerSwiper = document.getElementById('exquisite-services-swiper');
-        const timeSlotsContainer = document.getElementById('exquisite-time-slots');
-        const selectedServicesContainer = document.getElementById('exquisite-selected-services');
-        const summaryDateElement = document.getElementById('exquisite-summary-date');
-        const summaryTimeElement = document.getElementById('exquisite-summary-time');
-        const summaryServicesCountElement = document.getElementById('exquisite-services-count');
-        const totalPriceElement = document.getElementById('exquisite-total-price');
-        const confirmExquisiteBtn = document.getElementById('exquisite-confirm');
-        const paymentBtn = document.getElementById('exquisite-payment');
+        const servicesContainerDesktop = document.getElementById('services-desktop');
+        const servicesContainerSwiper = document.getElementById('services-swiper-wrapper');
+        const gallerySwiperWrapper = document.getElementById('gallery-swiper-wrapper');
+        const timeSlotsContainer = document.getElementById('time-slots');
+        const bookingServiceInfo = document.getElementById('booking-service-info');
+        const selectedServiceTitle = document.getElementById('selected-service-title');
+        const selectedServiceDescription = document.getElementById('selected-service-description');
+        const selectedServicePrice = document.getElementById('selected-service-price');
+        const confirmBookingBtn = document.getElementById('booking-confirm');
         const imageModal = document.getElementById('image-modal');
         const modalImage = document.getElementById('modal-image');
         const closeModalBtn = document.getElementById('close-modal');
@@ -1722,26 +1922,29 @@
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
         const mainNav = document.getElementById('main-nav');
         const closeMenuBtn = document.getElementById('close-menu');
-        const scrollToBookingBtns = document.querySelectorAll('#scroll-to-booking');
-        const viewAllServicesBtn = document.getElementById('view-all-services');
+        const scrollToServicesBtns = document.querySelectorAll('#scroll-to-services');
         
         // Swiper instances
         let heroSwiper = null;
         let servicesSwiper = null;
+        let gallerySwiper = null;
         
         // مقداردهی اولیه
         document.addEventListener('DOMContentLoaded', function() {
-            // نمایش خدمات با تصاویر - دسکتاپ
-            renderExquisiteServicesDesktop();
+            // نمایش خدمات - دسکتاپ
+            renderServicesDesktop();
             
-            // نمایش خدمات با تصاویر - موبایل (Swiper)
-            renderExquisiteServicesSwiper();
+            // نمایش خدمات - موبایل (Swiper)
+            renderServicesSwiper();
             
-            // نمایش زمان‌های لوکس
-            renderExquisiteTimeSlots();
+            // نمایش گالری - موبایل (Swiper)
+            renderGallerySwiper();
+            
+            // نمایش زمان‌های موجود
+            renderTimeSlots();
             
             // تنظیم تقویم فارسی
-            flatpickr("#exquisite-date", {
+            flatpickr("#booking-date", {
                 locale: "fa",
                 minDate: "today",
                 maxDate: new Date().fp_incr(30),
@@ -1752,22 +1955,14 @@
                     }
                 ],
                 onChange: function(selectedDates, dateStr, instance) {
-                    selectedExquisiteDate = dateStr;
-                    updateExquisiteSummary();
+                    selectedDate = dateStr;
                 }
             });
             
             // اضافه کردن رویداد برای دکمه تأیید رزرو
-            confirmExquisiteBtn.addEventListener('click', function() {
-                if (validateExquisiteBooking()) {
-                    showExquisiteConfirmation();
-                }
-            });
-            
-            // اضافه کردن رویداد برای دکمه پرداخت
-            paymentBtn.addEventListener('click', function() {
-                if (validateExquisiteBooking()) {
-                    showPaymentModal();
+            confirmBookingBtn.addEventListener('click', function() {
+                if (validateBooking()) {
+                    showConfirmation();
                 }
             });
             
@@ -1783,23 +1978,13 @@
                 }
             });
             
-            // به روز رسانی اولیه خلاصه
-            updateExquisiteSummary();
-            
             // مقداردهی اسلایدرها
             initSwipers();
             
             // اضافه کردن رویداد به تصاویر گالری
-            document.querySelectorAll('.gallery-item img, .mini-gallery-item img').forEach(img => {
+            document.querySelectorAll('.gallery-item img').forEach(img => {
                 img.addEventListener('click', function() {
-                    // دریافت تصویر با کیفیت متوسط برای نمایش در مودال
-                    let originalSrc = this.src;
-                    // اگر تصویر کوچک است، سعی می‌کنیم نسخه بزرگتر آن را دریافت کنیم
-                    if (originalSrc.includes('w=300') || originalSrc.includes('w=600')) {
-                        modalImage.src = originalSrc.replace(/w=\d+/, 'w=800');
-                    } else {
-                        modalImage.src = originalSrc;
-                    }
+                    modalImage.src = this.src;
                     imageModal.classList.add('active');
                 });
             });
@@ -1827,40 +2012,74 @@
                 });
             });
             
-            // اسکرول به بخش رزرو
-            scrollToBookingBtns.forEach(btn => {
+            // اسکرول به بخش خدمات
+            scrollToServicesBtns.forEach(btn => {
                 btn.addEventListener('click', function() {
-                    document.getElementById('booking-section').scrollIntoView({
+                    document.getElementById('services-section').scrollIntoView({
                         behavior: 'smooth'
                     });
                 });
-            });
-            
-            // دکمه مشاهده همه خدمات
-            viewAllServicesBtn.addEventListener('click', function() {
-                // نمایش تمام خدمات در یک مودال
-                showAllServicesModal();
             });
             
             // مقداردهی اولیه وضعیت هدر
             handleScroll();
         });
         
+        // نمایش گالری در موبایل (Swiper)
+        function renderGallerySwiper() {
+            gallerySwiperWrapper.innerHTML = '';
+            
+            galleryItems.forEach(item => {
+                const slideElement = document.createElement('div');
+                slideElement.className = 'swiper-slide gallery-swiper-slide';
+                
+                const galleryElement = createGalleryCard(item);
+                slideElement.appendChild(galleryElement);
+                gallerySwiperWrapper.appendChild(slideElement);
+            });
+            
+            // مقداردهی اسلایدر گالری در صورتی که در موبایل هستیم
+            if (window.innerWidth <= 992 && !gallerySwiper) {
+                initGallerySwiper();
+            }
+        }
+        
+        // ایجاد کارت گالری
+        function createGalleryCard(item) {
+            const galleryElement = document.createElement('div');
+            galleryElement.className = 'gallery-item';
+            galleryElement.innerHTML = `
+                <img src="${item.image}" alt="${item.title}" loading="lazy">
+                <div class="gallery-overlay">
+                    <h3 class="gallery-title">${item.title}</h3>
+                    <p class="gallery-description">${item.description}</p>
+                </div>
+            `;
+            
+            // اضافه کردن رویداد کلیک برای باز کردن تصویر در مودال
+            galleryElement.querySelector('img').addEventListener('click', function() {
+                modalImage.src = this.src;
+                imageModal.classList.add('active');
+            });
+            
+            return galleryElement;
+        }
+        
         // نمایش خدمات در دسکتاپ (Grid)
-        function renderExquisiteServicesDesktop() {
+        function renderServicesDesktop() {
             servicesContainerDesktop.innerHTML = '';
             
-            exquisiteServices.forEach(service => {
+            detailedServices.forEach(service => {
                 const serviceElement = createServiceCard(service);
                 servicesContainerDesktop.appendChild(serviceElement);
             });
         }
         
         // نمایش خدمات در موبایل (Swiper)
-        function renderExquisiteServicesSwiper() {
+        function renderServicesSwiper() {
             servicesContainerSwiper.innerHTML = '';
             
-            exquisiteServices.forEach(service => {
+            detailedServices.forEach(service => {
                 const slideElement = document.createElement('div');
                 slideElement.className = 'swiper-slide service-swiper-slide';
                 
@@ -1868,68 +2087,82 @@
                 slideElement.appendChild(serviceElement);
                 servicesContainerSwiper.appendChild(slideElement);
             });
+            
+            // مقداردهی اسلایدر خدمات در صورتی که در موبایل هستیم
+            if (window.innerWidth <= 992 && !servicesSwiper) {
+                initServicesSwiper();
+            }
         }
         
-        // ایجاد کارت خدمات
+        // ایجاد کارت خدمات با جزئیات کامل
         function createServiceCard(service) {
             const serviceElement = document.createElement('div');
-            serviceElement.className = 'service-card-exquisite';
+            serviceElement.className = 'service-card-detailed';
             serviceElement.innerHTML = `
-                <img src="${service.image}" alt="${service.name}" class="service-image" loading="lazy">
-                <div class="service-content">
-                    <h3 class="service-title">${service.name}</h3>
-                    <div class="service-duration">
+                <div class="service-card-header">
+                    <img src="${service.image}" alt="${service.name}" class="service-card-image" loading="lazy">
+                    <div class="service-card-category">${service.category}</div>
+                </div>
+                <div class="service-card-content">
+                    <h3 class="service-card-title">${service.name}</h3>
+                    <div class="service-card-duration">
                         <i class="far fa-clock"></i>
                         ${service.duration}
                     </div>
-                    <div class="service-price">
-                        <span>${service.price.toLocaleString()} تومان</span>
-                        <div class="service-check">
-                            <i class="fas fa-check"></i>
-                        </div>
+                    <p class="service-card-description">${service.description}</p>
+                    <div class="service-card-details">
+                        ${service.details.map(detail => `
+                            <div class="service-detail-item">
+                                <span class="service-detail-label">${detail.label}:</span>
+                                <span class="service-detail-value">${detail.value}</span>
+                            </div>
+                        `).join('')}
+                    </div>
+                    <div class="service-card-footer">
+                        <div class="service-card-price">${service.price.toLocaleString()} تومان</div>
+                        <button class="service-book-btn" data-service-id="${service.id}">
+                            <i class="fas fa-calendar-check"></i>
+                            رزرو این خدمت
+                        </button>
                     </div>
                 </div>
             `;
             
-            serviceElement.addEventListener('click', () => {
-                toggleExquisiteServiceSelection(service);
-                serviceElement.classList.toggle('selected');
-                
-                // انیمیشن انتخاب
-                if (serviceElement.classList.contains('selected')) {
-                    serviceElement.style.animation = 'pulse 0.5s';
-                    setTimeout(() => {
-                        serviceElement.style.animation = '';
-                    }, 500);
-                }
+            // اضافه کردن رویداد کلیک برای دکمه رزرو
+            const bookBtn = serviceElement.querySelector('.service-book-btn');
+            bookBtn.addEventListener('click', () => {
+                selectServiceForBooking(service);
+                // اسکرول به بخش رزرو
+                document.getElementById('booking-section').scrollIntoView({
+                    behavior: 'smooth'
+                });
             });
             
             return serviceElement;
         }
         
-        // نمایش زمان‌های لوکس
-        function renderExquisiteTimeSlots() {
+        // نمایش زمان‌های موجود
+        function renderTimeSlots() {
             timeSlotsContainer.innerHTML = '';
             
-            exquisiteTimes.forEach(time => {
+            availableTimes.forEach(time => {
                 // به صورت تصادفی برخی زمان‌ها را غیرقابل دسترس می‌کنیم
                 const isUnavailable = Math.random() > 0.7;
                 
                 const timeSlotElement = document.createElement('div');
-                timeSlotElement.className = `time-slot-exquisite ${isUnavailable ? 'unavailable' : ''}`;
+                timeSlotElement.className = `time-slot ${isUnavailable ? 'unavailable' : ''}`;
                 timeSlotElement.textContent = time;
                 
                 if (!isUnavailable) {
                     timeSlotElement.addEventListener('click', () => {
                         // حذف انتخاب قبلی
-                        document.querySelectorAll('.time-slot-exquisite:not(.unavailable)').forEach(el => {
+                        document.querySelectorAll('.time-slot:not(.unavailable)').forEach(el => {
                             el.classList.remove('selected');
                         });
                         
                         // انتخاب جدید
                         timeSlotElement.classList.add('selected');
-                        selectedExquisiteTime = time;
-                        updateExquisiteSummary();
+                        selectedTime = time;
                     });
                 }
                 
@@ -1937,90 +2170,38 @@
             });
         }
         
-        // انتخاب/لغو انتخاب سرویس
-        function toggleExquisiteServiceSelection(service) {
-            const index = selectedExquisiteServices.findIndex(s => s.id === service.id);
+        // انتخاب خدمت برای رزرو
+        function selectServiceForBooking(service) {
+            selectedService = service;
             
-            if (index === -1) {
-                selectedExquisiteServices.push(service);
-            } else {
-                selectedExquisiteServices.splice(index, 1);
-            }
+            // به روزرسانی اطلاعات خدمت در فرم رزرو
+            selectedServiceTitle.textContent = service.name;
+            selectedServiceDescription.textContent = service.description;
+            selectedServicePrice.textContent = `${service.price.toLocaleString()} تومان`;
             
-            updateExquisiteSummary();
-        }
-        
-        // به روزرسانی خلاصه رزرو
-        function updateExquisiteSummary() {
-            // تاریخ
-            if (selectedExquisiteDate) {
-                summaryDateElement.textContent = selectedExquisiteDate;
-            } else {
-                summaryDateElement.textContent = '--/--/----';
-            }
-            
-            // زمان
-            if (selectedExquisiteTime) {
-                summaryTimeElement.textContent = selectedExquisiteTime;
-            } else {
-                summaryTimeElement.textContent = '--:--';
-            }
-            
-            // خدمات
-            summaryServicesCountElement.textContent = `${selectedExquisiteServices.length} مورد`;
-            
-            // لیست خدمات و قیمت کل
-            selectedServicesContainer.innerHTML = '';
-            let total = 0;
-            
-            selectedExquisiteServices.forEach(service => {
-                const item = document.createElement('div');
-                item.className = 'summary-item-exquisite';
-                item.innerHTML = `
-                    <span>${service.name}</span>
-                    <span>${service.price.toLocaleString()} تومان</span>
-                `;
-                selectedServicesContainer.appendChild(item);
-                total += service.price;
-            });
-            
-            // اضافه کردن تخفیف ویژه
-            let discount = 0;
-            if (selectedExquisiteServices.length > 0) {
-                discount = Math.floor(total * 0.15); // 15% تخفیف ویژه
-                total -= discount;
-                
-                if (discount > 0) {
-                    const discountItem = document.createElement('div');
-                    discountItem.className = 'summary-item-exquisite';
-                    discountItem.innerHTML = `
-                        <span><i class="fas fa-gift" style="color: var(--primary-gold); margin-left: 5px;"></i> تخفیف ویژه ۱۵٪</span>
-                        <span style="color: #4CAF50;">-${discount.toLocaleString()} تومان</span>
-                    `;
-                    selectedServicesContainer.appendChild(discountItem);
-                }
-            }
-            
-            // قیمت کل
-            totalPriceElement.textContent = `${total.toLocaleString()} تومان`;
+            // هایلایت کردن فرم رزرو
+            bookingServiceInfo.style.animation = 'pulse 0.5s';
+            setTimeout(() => {
+                bookingServiceInfo.style.animation = '';
+            }, 500);
         }
         
         // اعتبارسنجی رزرو
-        function validateExquisiteBooking() {
-            const fullName = document.getElementById('exquisite-name').value.trim();
-            const phone = document.getElementById('exquisite-phone').value.trim();
+        function validateBooking() {
+            const fullName = document.getElementById('booking-name').value.trim();
+            const phone = document.getElementById('booking-phone').value.trim();
             
-            if (selectedExquisiteServices.length === 0) {
-                showMessage('لطفاً حداقل یک خدمت را انتخاب کنید.', 'error');
+            if (!selectedService) {
+                showMessage('لطفاً ابتدا یک خدمت را انتخاب کنید.', 'error');
                 return false;
             }
             
-            if (!selectedExquisiteDate) {
+            if (!selectedDate) {
                 showMessage('لطفاً تاریخ مراجعه را انتخاب کنید.', 'error');
                 return false;
             }
             
-            if (!selectedExquisiteTime) {
+            if (!selectedTime) {
                 showMessage('لطفاً زمان مراجعه را انتخاب کنید.', 'error');
                 return false;
             }
@@ -2047,7 +2228,7 @@
                 right: 20px;
                 background: ${type === 'error' ? '#f44336' : '#4CAF50'};
                 color: white;
-                padding: 18px;
+                padding: 15px;
                 border-radius: var(--radius-md);
                 box-shadow: var(--shadow-medium);
                 z-index: 3000;
@@ -2056,11 +2237,11 @@
                 border-right: 4px solid ${type === 'error' ? '#d32f2f' : '#388E3C'};
                 display: flex;
                 align-items: center;
-                gap: 12px;
-                font-size: 0.95rem;
+                gap: 10px;
+                font-size: 0.9rem;
             `;
             messageDiv.innerHTML = `
-                <i class="fas fa-${type === 'error' ? 'exclamation-circle' : 'check-circle'}" style="font-size: 20px;"></i>
+                <i class="fas fa-${type === 'error' ? 'exclamation-circle' : 'check-circle'}" style="font-size: 18px;"></i>
                 <span>${message}</span>
             `;
             
@@ -2075,116 +2256,69 @@
         }
         
         // نمایش تأیید رزرو
-        function showExquisiteConfirmation() {
-            const fullName = document.getElementById('exquisite-name').value.trim();
-            const phone = document.getElementById('exquisite-phone').value.trim();
-            const total = selectedExquisiteServices.reduce((sum, s) => sum + s.price, 0);
-            const discount = Math.floor(total * 0.15);
-            const finalTotal = total - discount;
+        function showConfirmation() {
+            const fullName = document.getElementById('booking-name').value.trim();
+            const phone = document.getElementById('booking-phone').value.trim();
             
             const message = `
-                رزرو لوکس شما با موفقیت ثبت شد!
+                رزرو خدمت "${selectedService.name}" با موفقیت ثبت شد!
                 
-                <div style="text-align: right; margin-top: 15px; background: rgba(212, 175, 55, 0.1); padding: 15px; border-radius: var(--radius-md); font-size: 0.95rem;">
+                <div style="text-align: right; margin-top: 15px; background: rgba(230, 179, 37, 0.1); padding: 15px; border-radius: var(--radius-md); font-size: 0.9rem;">
                     <p><strong>نام:</strong> ${fullName}</p>
                     <p><strong>تلفن:</strong> ${phone}</p>
-                    <p><strong>تاریخ:</strong> ${selectedExquisiteDate}</p>
-                    <p><strong>ساعت:</strong> ${selectedExquisiteTime}</p>
-                    <p><strong>خدمات:</strong> ${selectedExquisiteServices.map(s => s.name).join(', ')}</p>
-                    <p><strong>مبلغ کل:</strong> ${finalTotal.toLocaleString()} تومان</p>
-                    <p style="color: var(--primary-gold); margin-top: 8px; font-weight: 600; font-size: 0.9rem;">
+                    <p><strong>خدمت:</strong> ${selectedService.name}</p>
+                    <p><strong>قیمت:</strong> ${selectedService.price.toLocaleString()} تومان</p>
+                    <p><strong>تاریخ:</strong> ${selectedDate}</p>
+                    <p><strong>ساعت:</strong> ${selectedTime}</p>
+                    <p style="color: var(--primary-gold); margin-top: 8px; font-weight: 600; font-size: 0.85rem;">
                         <i class="fas fa-gem"></i>
                         شامل ۱۵٪ تخفیف ویژه و هدیه لوکس بانو
                     </p>
                 </div>
                 
-                <p style="margin-top: 15px; font-size: 0.9rem;">
+                <p style="margin-top: 15px; font-size: 0.85rem;">
                     پیام تأیید به شماره ${phone} ارسال خواهد شد.
                     لطفاً ۲۰ دقیقه قبل از زمان مقرر در آرایشگاه حاضر شوید.
                 </p>
             `;
             
-            showMessage('رزرو شما با موفقیت ثبت شد! لطفاً برای پرداخت اقدام کنید.', 'success');
+            showMessage('رزرو شما با موفقیت ثبت شد! همکاران ما به زودی با شما تماس خواهند گرفت.', 'success');
             
             // شبیه‌سازی ارسال به سرور
-            console.log('Exquisite booking submitted:', {
+            console.log('Booking submitted:', {
                 fullName,
                 phone,
-                email: document.getElementById('exquisite-email').value.trim(),
-                date: selectedExquisiteDate,
-                time: selectedExquisiteTime,
-                services: selectedExquisiteServices,
-                total: finalTotal
+                email: document.getElementById('booking-email').value.trim(),
+                service: selectedService.name,
+                serviceId: selectedService.id,
+                price: selectedService.price,
+                date: selectedDate,
+                time: selectedTime
             });
+            
+            // ریست فرم
+            resetForm();
         }
         
-        // نمایش مودال پرداخت
-        function showPaymentModal() {
-            const paymentModal = document.createElement('div');
-            paymentModal.style.cssText = `
-                position: fixed;
-                top: 0;
-                right: 0;
-                bottom: 0;
-                left: 0;
-                background: rgba(26, 26, 26, 0.95);
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                z-index: 4000;
-                animation: fadeInUp 0.4s ease;
-            `;
+        // ریست فرم
+        function resetForm() {
+            document.getElementById('booking-name').value = '';
+            document.getElementById('booking-phone').value = '';
+            document.getElementById('booking-email').value = '';
+            document.getElementById('booking-date').value = '';
             
-            paymentModal.innerHTML = `
-                <div style="background: white; border-radius: var(--radius-xl); padding: 40px; max-width: 450px; width: 90%; text-align: center; position: relative;">
-                    <div style="position: absolute; top: 0; right: 0; width: 100%; height: 6px; background: linear-gradient(to right, var(--primary-gold), var(--primary-rose), var(--primary-gold));"></div>
-                    <div style="width: 70px; height: 70px; background: linear-gradient(135deg, var(--primary-gold) 0%, var(--primary-gold-dark) 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 28px; margin: 0 auto 25px; box-shadow: var(--shadow-soft);">
-                        <i class="fas fa-lock"></i>
-                    </div>
-                    <h2 style="font-size: 1.8rem; color: var(--dark-text); margin-bottom: 15px;">پرداخت امن</h2>
-                    <p style="color: var(--medium-text); margin-bottom: 25px; font-size: 0.95rem;">مبلغ قابل پرداخت: <strong style="color: var(--primary-gold-dark); font-size: 1.2rem;">${document.getElementById('exquisite-total-price').textContent}</strong></p>
-                    
-                    <div style="display: flex; gap: 12px; margin-bottom: 30px;">
-                        <div style="flex: 1; padding: 18px; border: 2px solid rgba(212, 175, 55, 0.3); border-radius: var(--radius-md); cursor: pointer; transition: var(--transition-fast);">
-                            <i class="fas fa-credit-card" style="font-size: 22px; color: var(--primary-gold); margin-bottom: 8px;"></i>
-                            <div style="font-size: 0.9rem;">کارت به کارت</div>
-                        </div>
-                        <div style="flex: 1; padding: 18px; border: 2px solid rgba(212, 175, 55, 0.3); border-radius: var(--radius-md); cursor: pointer; transition: var(--transition-fast);">
-                            <i class="fab fa-paypal" style="font-size: 22px; color: var(--primary-gold); margin-bottom: 8px;"></i>
-                            <div style="font-size: 0.9rem;">درگاه پرداخت</div>
-                        </div>
-                    </div>
-                    
-                    <button class="exquisite-btn" id="complete-payment" style="max-width: 250px; margin: 0 auto; padding: 16px; font-size: 1rem;">
-                        <i class="fas fa-check-circle"></i>
-                        تکمیل پرداخت
-                    </button>
-                    
-                    <div style="margin-top: 25px; cursor: pointer; color: var(--medium-text); font-size: 0.9rem;" id="close-payment">
-                        <i class="fas fa-times"></i>
-                        بستن
-                    </div>
-                </div>
-            `;
-            
-            document.body.appendChild(paymentModal);
-            
-            // رویداد تکمیل پرداخت
-            document.getElementById('complete-payment').addEventListener('click', function() {
-                showExquisiteConfirmation();
-                document.body.removeChild(paymentModal);
+            // ریست انتخاب زمان
+            document.querySelectorAll('.time-slot.selected').forEach(el => {
+                el.classList.remove('selected');
             });
             
-            // رویداد بستن مودال پرداخت
-            document.getElementById('close-payment').addEventListener('click', function() {
-                document.body.removeChild(paymentModal);
-            });
+            selectedDate = null;
+            selectedTime = null;
             
-            // کلیک خارج از مودال برای بستن
-            paymentModal.addEventListener('click', function(e) {
-                if (e.target === paymentModal) {
-                    document.body.removeChild(paymentModal);
-                }
+            // اسکرول به بالا
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
             });
         }
         
@@ -2194,7 +2328,7 @@
             heroSwiper = new Swiper('.hero-slider .swiper', {
                 direction: 'horizontal',
                 loop: true,
-                speed: 500, // سرعت استاندارد 500ms
+                speed: 500,
                 autoplay: {
                     delay: 5000,
                     disableOnInteraction: false,
@@ -2209,18 +2343,30 @@
                 },
             });
             
-            // اسلایدر خدمات (فقط در موبایل فعال می‌شود)
+            // اسلایدر خدمات و گالری (فقط در موبایل فعال می‌شود)
             if (window.innerWidth <= 992) {
                 initServicesSwiper();
+                initGallerySwiper();
             }
             
-            // تغییر اندازه پنجره - اگر به موبایل تغییر کرد، اسلایدر خدمات را فعال کن
+            // تغییر اندازه پنجره
             window.addEventListener('resize', function() {
-                if (window.innerWidth <= 992 && !servicesSwiper) {
-                    initServicesSwiper();
-                } else if (window.innerWidth > 992 && servicesSwiper) {
-                    servicesSwiper.destroy();
-                    servicesSwiper = null;
+                if (window.innerWidth <= 992) {
+                    if (!servicesSwiper) {
+                        initServicesSwiper();
+                    }
+                    if (!gallerySwiper) {
+                        initGallerySwiper();
+                    }
+                } else {
+                    if (servicesSwiper) {
+                        servicesSwiper.destroy();
+                        servicesSwiper = null;
+                    }
+                    if (gallerySwiper) {
+                        gallerySwiper.destroy();
+                        gallerySwiper = null;
+                    }
                 }
             });
         }
@@ -2230,134 +2376,78 @@
             servicesSwiper = new Swiper('#services-swiper', {
                 direction: 'horizontal',
                 loop: false,
-                speed: 400, // سرعت استاندارد 400ms برای تغییر اسلاید
-                slidesPerView: 1.2, // نمایش 1.2 اسلاید برای نشان دادن بخشی از اسلاید بعدی
-                spaceBetween: 20,
+                speed: 400,
+                slidesPerView: 1.2,
+                spaceBetween: 15,
                 centeredSlides: false,
                 pagination: {
                     el: '.swiper-pagination',
                     clickable: true,
                 },
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
                 breakpoints: {
+                    320: {
+                        slidesPerView: 1.1,
+                        spaceBetween: 12
+                    },
                     480: {
-                        slidesPerView: 1.5,
-                        spaceBetween: 20
+                        slidesPerView: 1.3,
+                        spaceBetween: 15
                     },
                     640: {
-                        slidesPerView: 2,
-                        spaceBetween: 20
+                        slidesPerView: 1.6,
+                        spaceBetween: 18
                     },
                     768: {
-                        slidesPerView: 2.2,
-                        spaceBetween: 25
+                        slidesPerView: 2,
+                        spaceBetween: 20
                     }
                 }
             });
         }
         
-        // نمایش مودال تمام خدمات
-        function showAllServicesModal() {
-            const allServicesModal = document.createElement('div');
-            allServicesModal.style.cssText = `
-                position: fixed;
-                top: 0;
-                right: 0;
-                bottom: 0;
-                left: 0;
-                background: rgba(26, 26, 26, 0.95);
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                z-index: 4000;
-                animation: fadeInUp 0.4s ease;
-                padding: 20px;
-                overflow-y: auto;
-            `;
-            
-            let servicesHTML = '';
-            exquisiteServices.forEach(service => {
-                const isSelected = selectedExquisiteServices.some(s => s.id === service.id);
-                servicesHTML += `
-                    <div class="service-card-exquisite" style="margin-bottom: 20px; ${isSelected ? 'border: 2px solid var(--primary-gold);' : ''}" data-service-id="${service.id}">
-                        <img src="${service.image}" alt="${service.name}" class="service-image" loading="lazy">
-                        <div class="service-content">
-                            <h3 class="service-title">${service.name}</h3>
-                            <div class="service-duration">
-                                <i class="far fa-clock"></i>
-                                ${service.duration}
-                            </div>
-                            <div class="service-price">
-                                <span>${service.price.toLocaleString()} تومان</span>
-                                <div class="service-check" style="${isSelected ? 'opacity: 1;' : 'opacity: 0;'}">
-                                    <i class="fas fa-check"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                `;
-            });
-            
-            allServicesModal.innerHTML = `
-                <div style="background: white; border-radius: var(--radius-xl); padding: 40px; max-width: 800px; width: 100%; position: relative; max-height: 90vh; overflow-y: auto;">
-                    <div style="position: absolute; top: 0; right: 0; width: 100%; height: 6px; background: linear-gradient(to right, var(--primary-gold), var(--primary-rose), var(--primary-gold));"></div>
-                    
-                    <div style="position: absolute; top: 20px; left: 20px; background: var(--primary-gold); color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 20px; cursor: pointer; transition: var(--transition-fast);" id="close-all-services">
-                        <i class="fas fa-times"></i>
-                    </div>
-                    
-                    <div style="text-align: center; margin-bottom: 30px;">
-                        <h2 style="font-size: 2rem; color: var(--dark-text); margin-bottom: 10px;">همه خدمات لوکس بانو</h2>
-                        <p style="color: var(--medium-text);">انتخاب کنید و به سبد خرید اضافه کنید</p>
-                    </div>
-                    
-                    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 20px;">
-                        ${servicesHTML}
-                    </div>
-                    
-                    <button class="exquisite-btn" id="confirm-selected-services" style="margin-top: 30px;">
-                        <i class="fas fa-check-circle"></i>
-                        تأیید انتخاب خدمات
-                    </button>
-                </div>
-            `;
-            
-            document.body.appendChild(allServicesModal);
-            
-            // رویداد بستن مودال
-            document.getElementById('close-all-services').addEventListener('click', function() {
-                document.body.removeChild(allServicesModal);
-            });
-            
-            // کلیک خارج از مودال برای بستن
-            allServicesModal.addEventListener('click', function(e) {
-                if (e.target === allServicesModal) {
-                    document.body.removeChild(allServicesModal);
-                }
-            });
-            
-            // انتخاب خدمات در مودال
-            document.querySelectorAll('.service-card-exquisite[data-service-id]').forEach(card => {
-                card.addEventListener('click', function() {
-                    const serviceId = parseInt(this.getAttribute('data-service-id'));
-                    const service = exquisiteServices.find(s => s.id === serviceId);
-                    
-                    if (service) {
-                        toggleExquisiteServiceSelection(service);
-                        this.classList.toggle('selected');
-                        
-                        const checkIcon = this.querySelector('.service-check');
-                        if (checkIcon) {
-                            checkIcon.style.opacity = this.classList.contains('selected') ? '1' : '0';
-                        }
+        // مقداردهی اسلایدر گالری
+        function initGallerySwiper() {
+            gallerySwiper = new Swiper('#gallery-swiper', {
+                direction: 'horizontal',
+                loop: true,
+                speed: 500,
+                slidesPerView: 1.2,
+                spaceBetween: 15,
+                centeredSlides: true,
+                autoplay: {
+                    delay: 3000,
+                    disableOnInteraction: false,
+                },
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                },
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+                breakpoints: {
+                    320: {
+                        slidesPerView: 1.1,
+                        spaceBetween: 12
+                    },
+                    480: {
+                        slidesPerView: 1.3,
+                        spaceBetween: 15
+                    },
+                    640: {
+                        slidesPerView: 1.6,
+                        spaceBetween: 18
+                    },
+                    768: {
+                        slidesPerView: 2,
+                        spaceBetween: 20
                     }
-                });
-            });
-            
-            // تأیید انتخاب خدمات
-            document.getElementById('confirm-selected-services').addEventListener('click', function() {
-                document.body.removeChild(allServicesModal);
-                updateExquisiteSummary();
-                showMessage('خدمات انتخاب شده به سبد خرید اضافه شدند.', 'success');
+                }
             });
         }
         
