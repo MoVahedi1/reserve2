@@ -527,7 +527,7 @@
             padding: 5px;
         }
         
-        /* کارت خدمات جدید با جزئیات کامل - بهبود یافته */
+        /* کارت خدمات جدید با جزئیات کامل - ارتفاع افزایش یافته به 1.5 برابر */
         .service-card-detailed {
             background: var(--white);
             border-radius: var(--radius-lg);
@@ -539,7 +539,7 @@
             height: 100%;
             display: flex;
             flex-direction: column;
-            min-height: 580px;
+            min-height: 261px; /* افزایش از 174px به 261px (1.5 برابر) */
             width: 100%;
         }
         
@@ -551,7 +551,7 @@
         
         .service-card-header {
             position: relative;
-            height: 170px;
+            height: 128px; /* افزایش از 85px به 128px */
             overflow: hidden;
         }
         
@@ -568,19 +568,19 @@
         
         .service-card-category {
             position: absolute;
-            top: 15px;
-            right: 15px;
+            top: 12px; /* افزایش از 10px */
+            right: 12px; /* افزایش از 10px */
             background: var(--primary-gold);
             color: white;
-            padding: 5px 12px;
-            border-radius: 16px;
-            font-size: 0.75rem;
+            padding: 4px 10px; /* افزایش از 3px 8px */
+            border-radius: 14px; /* افزایش از 12px */
+            font-size: 0.7rem; /* افزایش از 0.65rem */
             font-weight: 600;
             box-shadow: var(--shadow-soft);
         }
         
         .service-card-content {
-            padding: 20px;
+            padding: 15px; /* افزایش از 10px */
             flex-grow: 1;
             display: flex;
             flex-direction: column;
@@ -588,11 +588,11 @@
         }
         
         .service-card-title {
-            font-size: 1.3rem;
+            font-size: 1.1rem; /* افزایش از 1rem */
             color: var(--dark-text);
-            margin-bottom: 8px;
+            margin-bottom: 6px; /* افزایش از 4px */
             line-height: 1.3;
-            height: 65px;
+            height: 30px; /* افزایش از 20px */
             display: flex;
             align-items: center;
             overflow: hidden;
@@ -601,41 +601,42 @@
         .service-card-duration {
             display: flex;
             align-items: center;
-            gap: 6px;
+            gap: 6px; /* افزایش از 4px */
             color: var(--medium-text);
-            font-size: 0.85rem;
-            margin-bottom: 12px;
+            font-size: 0.8rem; /* افزایش از 0.75rem */
+            margin-bottom: 10px; /* افزایش از 8px */
             flex-shrink: 0;
         }
         
         .service-card-description {
             color: var(--medium-text);
-            margin-bottom: 16px;
-            line-height: 1.5;
-            font-size: 0.9rem;
+            margin-bottom: 12px; /* افزایش از 8px */
+            line-height: 1.4;
+            font-size: 0.85rem; /* افزایش از 0.8rem */
             flex-grow: 1;
             overflow: hidden;
             display: -webkit-box;
-            -webkit-line-clamp: 4;
+            -webkit-line-clamp: 3; /* افزایش از 2 به 3 خط */
             -webkit-box-orient: vertical;
             text-overflow: ellipsis;
         }
         
         .service-card-details {
-            margin-bottom: 16px;
-            padding: 12px;
+            margin-bottom: 10px; /* افزایش از 8px */
+            padding: 8px; /* افزایش از 6px */
             background: linear-gradient(135deg, var(--primary-rose-light) 0%, var(--primary-cream) 100%);
             border-radius: var(--radius-md);
-            border-right: 3px solid var(--primary-gold);
+            border-right: 2px solid var(--primary-gold);
             flex-shrink: 0;
+            display: none; /* همچنان مخفی به دلیل کمبود فضا */
         }
         
         .service-detail-item {
             display: flex;
             justify-content: space-between;
-            padding: 6px 0;
+            padding: 4px 0; /* افزایش از 3px 0 */
             border-bottom: 1px dashed rgba(230, 179, 37, 0.2);
-            font-size: 0.85rem;
+            font-size: 0.8rem; /* افزایش از 0.75rem */
         }
         
         .service-detail-item:last-child {
@@ -656,13 +657,13 @@
             justify-content: space-between;
             align-items: center;
             margin-top: auto;
-            padding-top: 15px;
+            padding-top: 12px; /* افزایش از 8px */
             border-top: 1px solid rgba(230, 179, 37, 0.1);
             flex-shrink: 0;
         }
         
         .service-card-price {
-            font-size: 1.5rem;
+            font-size: 1.3rem; /* افزایش از 1.2rem */
             font-weight: 700;
             color: var(--primary-gold-dark);
         }
@@ -671,15 +672,15 @@
             background: linear-gradient(135deg, var(--primary-gold) 0%, var(--primary-gold-dark) 100%);
             color: white;
             border: none;
-            padding: 10px 20px;
+            padding: 8px 16px; /* افزایش از 6px 12px */
             border-radius: var(--radius-md);
             font-weight: 600;
-            font-size: 0.9rem;
+            font-size: 0.85rem; /* افزایش از 0.8rem */
             cursor: pointer;
             transition: var(--transition-medium);
             display: flex;
             align-items: center;
-            gap: 6px;
+            gap: 5px; /* افزایش از 4px */
             box-shadow: var(--shadow-soft);
         }
         
@@ -966,11 +967,247 @@
             transform: rotate(90deg);
         }
         
+        /* مودال نمایش رسید نوبت - جدید */
+        .receipt-modal {
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background: rgba(42, 42, 42, 0.95);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 3001;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition-medium);
+            backdrop-filter: blur(10px);
+            padding: 20px;
+        }
+        
+        .receipt-modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .receipt-container {
+            background: var(--white);
+            border-radius: var(--radius-xl);
+            max-width: 600px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            box-shadow: var(--shadow-strong);
+            animation: slideUp 0.5s ease;
+        }
+        
+        .receipt-header {
+            background: linear-gradient(135deg, var(--primary-gold) 0%, var(--primary-gold-dark) 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+            border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+            position: relative;
+        }
+        
+        .receipt-header:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(to right, var(--primary-rose), var(--secondary-lavender));
+        }
+        
+        .receipt-title {
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+            font-family: 'Cormorant Garamond', serif;
+        }
+        
+        .receipt-subtitle {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+        
+        .receipt-icon {
+            width: 80px;
+            height: 80px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 36px;
+            margin: 0 auto 20px;
+            border: 3px solid white;
+        }
+        
+        .receipt-content {
+            padding: 30px;
+        }
+        
+        .receipt-details {
+            background: linear-gradient(135deg, var(--primary-rose-light) 0%, var(--primary-cream) 100%);
+            border-radius: var(--radius-lg);
+            padding: 25px;
+            margin-bottom: 25px;
+            border: 1px solid rgba(230, 179, 37, 0.2);
+        }
+        
+        .receipt-detail-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px dashed rgba(230, 179, 37, 0.3);
+            font-size: 1rem;
+        }
+        
+        .receipt-detail-item:last-child {
+            border-bottom: none;
+        }
+        
+        .receipt-detail-label {
+            color: var(--dark-text);
+            font-weight: 600;
+            min-width: 120px;
+        }
+        
+        .receipt-detail-value {
+            color: var(--medium-text);
+            text-align: left;
+            flex-grow: 1;
+        }
+        
+        .receipt-note {
+            background: linear-gradient(135deg, var(--primary-cream) 0%, #f9f5f0 100%);
+            border-radius: var(--radius-md);
+            padding: 20px;
+            margin-bottom: 25px;
+            border-right: 4px solid var(--primary-gold);
+        }
+        
+        .receipt-note h4 {
+            color: var(--primary-gold-dark);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.2rem;
+        }
+        
+        .receipt-note ul {
+            list-style: none;
+            padding-right: 5px;
+        }
+        
+        .receipt-note li {
+            margin-bottom: 8px;
+            padding-right: 8px;
+            color: var(--medium-text);
+            font-size: 0.9rem;
+        }
+        
+        .receipt-note li i {
+            color: var(--primary-gold);
+            margin-left: 5px;
+            font-size: 0.8rem;
+        }
+        
+        .receipt-footer {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+            margin-top: 25px;
+        }
+        
+        .receipt-btn {
+            flex: 1;
+            padding: 15px;
+            border-radius: var(--radius-md);
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: var(--transition-medium);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            border: none;
+        }
+        
+        .receipt-print {
+            background: linear-gradient(135deg, var(--primary-gold) 0%, var(--primary-gold-dark) 100%);
+            color: white;
+        }
+        
+        .receipt-close {
+            background: transparent;
+            color: var(--dark-text);
+            border: 2px solid var(--primary-gold);
+        }
+        
+        .receipt-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-medium);
+        }
+        
+        .receipt-print:hover {
+            background: linear-gradient(135deg, var(--primary-gold-dark) 0%, var(--primary-gold) 100%);
+        }
+        
+        .receipt-close:hover {
+            background: var(--primary-gold);
+            color: white;
+        }
+        
+        /* کد نوبت */
+        .booking-code {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: var(--radius-md);
+        }
+        
+        .code-label {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        .code-value {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: white;
+            letter-spacing: 3px;
+            background: rgba(0, 0, 0, 0.2);
+            padding: 8px 20px;
+            border-radius: var(--radius-md);
+            font-family: monospace;
+        }
+        
         /* انیمیشن‌ها */
         @keyframes fadeInUp {
             from {
                 opacity: 0;
                 transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
             }
             to {
                 opacity: 1;
@@ -1120,6 +1357,10 @@
             .booking-form {
                 padding: 30px;
             }
+            
+            .receipt-container {
+                max-width: 500px;
+            }
         }
         
         @media (max-width: 992px) {
@@ -1215,18 +1456,19 @@
                 display: block;
             }
             
-            /* برای موبایل - تنظیمات خاص */
+            /* برای موبایل - تنظیمات خاص با ارتفاع افزایش یافته به 1.5 برابر */
             .service-card-detailed {
-                min-height: 500px;
+                min-height: 225px; /* افزایش از 150px به 225px (1.5 برابر) */
             }
             
             .service-card-title {
-                height: 55px;
-                font-size: 1.2rem;
+                height: 24px; /* افزایش از 16px به 24px */
+                font-size: 0.95rem; /* افزایش از 0.9rem */
             }
             
             .service-card-description {
                 -webkit-line-clamp: 3;
+                font-size: 0.8rem; /* افزایش از 0.75rem */
             }
             
             /* گالری موبایل */
@@ -1250,6 +1492,25 @@
             
             .exquisite-header.scrolled + .exquisite-hero {
                 margin-top: 65px;
+            }
+            
+            /* رسید موبایل */
+            .receipt-footer {
+                flex-direction: column;
+            }
+            
+            .receipt-detail-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 5px;
+            }
+            
+            .receipt-detail-label {
+                min-width: auto;
+            }
+            
+            .receipt-detail-value {
+                text-align: right;
             }
         }
         
@@ -1286,25 +1547,25 @@
             }
             
             .service-card-detailed {
-                min-height: 480px;
+                min-height: 216px; /* افزایش از 144px به 216px (1.5 برابر) */
             }
             
             .service-card-title {
-                height: 50px;
-                font-size: 1.15rem;
+                height: 23px; /* افزایش از 15px به 23px */
+                font-size: 0.9rem; /* افزایش از 0.85rem */
             }
             
             .service-card-description {
-                font-size: 0.9rem;
+                font-size: 0.75rem; /* افزایش از 0.7rem */
             }
             
             .service-card-price {
-                font-size: 1.4rem;
+                font-size: 1.2rem; /* افزایش از 1.1rem */
             }
             
             .service-book-btn {
-                padding: 8px 16px;
-                font-size: 0.85rem;
+                padding: 6px 12px; /* افزایش از 5px 10px */
+                font-size: 0.8rem; /* افزایش از 0.75rem */
             }
             
             .gallery-swiper {
@@ -1317,6 +1578,19 @@
             
             .gallery-item {
                 height: 240px;
+            }
+            
+            .receipt-title {
+                font-size: 1.8rem;
+            }
+            
+            .receipt-content {
+                padding: 20px;
+            }
+            
+            .code-value {
+                font-size: 1.4rem;
+                padding: 6px 15px;
             }
         }
         
@@ -1356,31 +1630,34 @@
             }
             
             .service-card-detailed {
-                min-height: 450px;
+                min-height: 203px; /* افزایش از 135px به 203px (1.5 برابر) */
             }
             
             .service-card-title {
-                height: 45px;
-                font-size: 1.1rem;
+                height: 20px; /* افزایش از 13px به 20px */
+                font-size: 0.85rem; /* افزایش از 0.8rem */
             }
             
             .service-card-content {
-                padding: 16px;
+                padding: 12px; /* افزایش از 8px */
             }
             
             .service-card-footer {
                 flex-direction: column;
-                gap: 12px;
+                gap: 10px; /* افزایش از 8px */
                 align-items: stretch;
             }
             
             .service-card-price {
                 text-align: center;
+                font-size: 1.1rem; /* افزایش از 1rem */
             }
             
             .service-book-btn {
                 width: 100%;
                 justify-content: center;
+                padding: 5px 10px; /* افزایش از 4px 8px */
+                font-size: 0.75rem; /* افزایش از 0.7rem */
             }
             
             .booking-service-info {
@@ -1418,6 +1695,21 @@
             
             .gallery-swiper-slide {
                 height: 260px;
+            }
+            
+            .receipt-header {
+                padding: 20px;
+            }
+            
+            .receipt-icon {
+                width: 60px;
+                height: 60px;
+                font-size: 28px;
+            }
+            
+            .booking-code {
+                flex-direction: column;
+                gap: 10px;
             }
         }
     </style>
@@ -1710,6 +2002,79 @@
         </div>
     </div>
 
+    <!-- مودال نمایش رسید نوبت - جدید -->
+    <div class="receipt-modal" id="receipt-modal">
+        <div class="receipt-container" id="receipt-container">
+            <div class="receipt-header">
+                <div class="receipt-icon">
+                    <i class="fas fa-gem"></i>
+                </div>
+                <h2 class="receipt-title">رسید نوبت شما</h2>
+                <p class="receipt-subtitle">رزرو شما با موفقیت ثبت شد!</p>
+                
+                <div class="booking-code">
+                    <span class="code-label">کد پیگیری:</span>
+                    <span class="code-value" id="receipt-code">LB-2024-001</span>
+                </div>
+            </div>
+            
+            <div class="receipt-content">
+                <div class="receipt-details">
+                    <div class="receipt-detail-item">
+                        <span class="receipt-detail-label">نام و نام خانوادگی:</span>
+                        <span class="receipt-detail-value" id="receipt-name">--</span>
+                    </div>
+                    <div class="receipt-detail-item">
+                        <span class="receipt-detail-label">شماره تلفن:</span>
+                        <span class="receipt-detail-value" id="receipt-phone">--</span>
+                    </div>
+                    <div class="receipt-detail-item">
+                        <span class="receipt-detail-label">خدمت انتخاب شده:</span>
+                        <span class="receipt-detail-value" id="receipt-service">--</span>
+                    </div>
+                    <div class="receipt-detail-item">
+                        <span class="receipt-detail-label">قیمت خدمت:</span>
+                        <span class="receipt-detail-value" id="receipt-price">--</span>
+                    </div>
+                    <div class="receipt-detail-item">
+                        <span class="receipt-detail-label">تاریخ مراجعه:</span>
+                        <span class="receipt-detail-value" id="receipt-date">--</span>
+                    </div>
+                    <div class="receipt-detail-item">
+                        <span class="receipt-detail-label">ساعت مراجعه:</span>
+                        <span class="receipt-detail-value" id="receipt-time">--</span>
+                    </div>
+                    <div class="receipt-detail-item">
+                        <span class="receipt-detail-label">تاریخ رزرو:</span>
+                        <span class="receipt-detail-value" id="receipt-booking-date">--</span>
+                    </div>
+                </div>
+                
+                <div class="receipt-note">
+                    <h4><i class="fas fa-info-circle"></i> نکات مهم</h4>
+                    <ul>
+                        <li><i class="fas fa-check"></i> لطفاً ۱۵ دقیقه قبل از زمان مقرر در آرایشگاه حاضر شوید.</li>
+                        <li><i class="fas fa-check"></i> این رسید را همراه داشته باشید یا کد پیگیری را به کارشناس ما ارائه دهید.</li>
+                        <li><i class="fas fa-check"></i> در صورت تأخیر بیش از ۱۵ دقیقه، نوبت شما لغو خواهد شد.</li>
+                        <li><i class="fas fa-check"></i> برای تغییر یا لغو نوبت، حداقل ۲۴ ساعت قبل با ما تماس بگیرید.</li>
+                        <li><i class="fas fa-check"></i> این رسید شامل ۱۵٪ تخفیف ویژه اولین رزرو می‌باشد.</li>
+                    </ul>
+                </div>
+                
+                <div class="receipt-footer">
+                    <button class="receipt-btn receipt-print" id="print-receipt">
+                        <i class="fas fa-print"></i>
+                        چاپ رسید
+                    </button>
+                    <button class="receipt-btn receipt-close" id="close-receipt">
+                        <i class="fas fa-times"></i>
+                        بستن
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- فوتر -->
     <footer class="exquisite-footer">
         <div class="container">
@@ -1954,6 +2319,18 @@
         const imageModal = document.getElementById('image-modal');
         const modalImage = document.getElementById('modal-image');
         const closeModalBtn = document.getElementById('close-modal');
+        const receiptModal = document.getElementById('receipt-modal');
+        const receiptContainer = document.getElementById('receipt-container');
+        const receiptName = document.getElementById('receipt-name');
+        const receiptPhone = document.getElementById('receipt-phone');
+        const receiptService = document.getElementById('receipt-service');
+        const receiptPrice = document.getElementById('receipt-price');
+        const receiptDate = document.getElementById('receipt-date');
+        const receiptTime = document.getElementById('receipt-time');
+        const receiptBookingDate = document.getElementById('receipt-booking-date');
+        const receiptCode = document.getElementById('receipt-code');
+        const printReceiptBtn = document.getElementById('print-receipt');
+        const closeReceiptBtn = document.getElementById('close-receipt');
         const header = document.querySelector('.exquisite-header');
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
         const mainNav = document.getElementById('main-nav');
@@ -1964,6 +2341,186 @@
         let heroSwiper = null;
         let servicesSwiper = null;
         let gallerySwiper = null;
+        
+        // شمارنده برای تولید کد پیگیری منحصر به فرد
+        let bookingCounter = 1;
+        
+        // تابع تولید کد پیگیری منحصر به فرد
+        function generateBookingCode() {
+            const now = new Date();
+            const year = now.getFullYear();
+            const month = String(now.getMonth() + 1).padStart(2, '0');
+            const day = String(now.getDate()).padStart(2, '0');
+            const counter = String(bookingCounter).padStart(3, '0');
+            bookingCounter++;
+            return `LB-${year}${month}${day}-${counter}`;
+        }
+        
+        // تابع فرمت تاریخ فارسی
+        function formatPersianDate(date) {
+            const persianMonths = [
+                'فروردین', 'اردیبهشت', 'خرداد', 'تیر', 'مرداد', 'شهریور',
+                'مهر', 'آبان', 'آذر', 'دی', 'بهمن', 'اسفند'
+            ];
+            
+            const d = new Date(date);
+            const day = d.getDate();
+            const month = persianMonths[d.getMonth()];
+            const year = d.getFullYear();
+            
+            return `${day} ${month} ${year}`;
+        }
+        
+        // تابع نمایش رسید نوبت
+        function showReceipt(bookingData) {
+            // پر کردن اطلاعات رسید
+            receiptName.textContent = bookingData.fullName;
+            receiptPhone.textContent = bookingData.phone;
+            receiptService.textContent = bookingData.service;
+            receiptPrice.textContent = bookingData.price.toLocaleString() + ' تومان';
+            receiptDate.textContent = formatPersianDate(bookingData.date);
+            receiptTime.textContent = bookingData.time;
+            receiptBookingDate.textContent = formatPersianDate(new Date());
+            receiptCode.textContent = generateBookingCode();
+            
+            // نمایش مودال رسید
+            receiptModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        // تابع چاپ رسید
+        function printReceipt() {
+            const printContent = receiptContainer.innerHTML;
+            const originalContent = document.body.innerHTML;
+            
+            document.body.innerHTML = `
+                <!DOCTYPE html>
+                <html lang="fa" dir="rtl">
+                <head>
+                    <meta charset="UTF-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <title>رسید نوبت - لوکس بانو</title>
+                    <style>
+                        body {
+                            font-family: 'B Nazanin', Tahoma, sans-serif;
+                            direction: rtl;
+                            padding: 20px;
+                            color: #333;
+                        }
+                        .receipt-container {
+                            max-width: 600px;
+                            margin: 0 auto;
+                            border: 2px solid #E6B325;
+                            border-radius: 15px;
+                            overflow: hidden;
+                        }
+                        .receipt-header {
+                            background: linear-gradient(135deg, #E6B325 0%, #C19A1E 100%);
+                            color: white;
+                            padding: 25px;
+                            text-align: center;
+                        }
+                        .receipt-title {
+                            font-size: 28px;
+                            margin-bottom: 10px;
+                            font-weight: bold;
+                        }
+                        .receipt-subtitle {
+                            font-size: 16px;
+                            opacity: 0.9;
+                        }
+                        .receipt-content {
+                            padding: 25px;
+                        }
+                        .receipt-details {
+                            background: #f9f5f0;
+                            border-radius: 10px;
+                            padding: 20px;
+                            margin-bottom: 20px;
+                            border: 1px solid #E6B325;
+                        }
+                        .receipt-detail-item {
+                            display: flex;
+                            justify-content: space-between;
+                            padding: 10px 0;
+                            border-bottom: 1px dashed #E6B325;
+                        }
+                        .receipt-detail-item:last-child {
+                            border-bottom: none;
+                        }
+                        .receipt-detail-label {
+                            font-weight: bold;
+                            min-width: 140px;
+                        }
+                        .receipt-note {
+                            background: #f0f0f0;
+                            border-radius: 8px;
+                            padding: 15px;
+                            margin-bottom: 20px;
+                            border-right: 4px solid #E6B325;
+                        }
+                        .receipt-note h4 {
+                            color: #C19A1E;
+                            margin-bottom: 10px;
+                        }
+                        .receipt-note ul {
+                            list-style: none;
+                            padding-right: 15px;
+                        }
+                        .receipt-note li {
+                            margin-bottom: 8px;
+                            font-size: 14px;
+                        }
+                        .booking-code {
+                            text-align: center;
+                            margin-top: 15px;
+                            padding: 15px;
+                            background: rgba(230, 179, 37, 0.1);
+                            border-radius: 8px;
+                        }
+                        .code-value {
+                            font-size: 24px;
+                            font-weight: bold;
+                            color: #C19A1E;
+                            letter-spacing: 3px;
+                            font-family: monospace;
+                        }
+                        @media print {
+                            body {
+                                padding: 0;
+                            }
+                            .no-print {
+                                display: none !important;
+                            }
+                        }
+                    </style>
+                </head>
+                <body>
+                    ${printContent}
+                    <div style="text-align: center; margin-top: 30px; color: #666; font-size: 12px;" class="no-print">
+                        <p>این رسید به صورت خودکار چاپ شده است.</p>
+                        <p>گالری زیبایی لوکس بانو | تلفن: ۰۲۱-۱۲۳۴۵۶۷۸</p>
+                    </div>
+                    <script>
+                        window.onload = function() {
+                            window.print();
+                            setTimeout(function() {
+                                window.close();
+                            }, 1000);
+                        }
+                    <\/script>
+                </body>
+                </html>
+            `;
+            
+            window.print();
+            
+            // برگشت به صفحه اصلی پس از چاپ
+            setTimeout(() => {
+                document.body.innerHTML = originalContent;
+                location.reload();
+            }, 1000);
+        }
         
         // مقداردهی اولیه
         document.addEventListener('DOMContentLoaded', function() {
@@ -2006,12 +2563,34 @@
             // رویداد بستن مودال تصویر
             closeModalBtn.addEventListener('click', function() {
                 imageModal.classList.remove('active');
+                document.body.style.overflow = '';
             });
             
-            // کلیک خارج از تصویر برای بستن مودال
+            // رویداد بستن مودال رسید
+            closeReceiptBtn.addEventListener('click', function() {
+                receiptModal.classList.remove('active');
+                document.body.style.overflow = '';
+                resetForm();
+            });
+            
+            // رویداد چاپ رسید
+            printReceiptBtn.addEventListener('click', function() {
+                printReceipt();
+            });
+            
+            // کلیک خارج از مودال‌ها برای بستن
             imageModal.addEventListener('click', function(e) {
                 if (e.target === imageModal) {
                     imageModal.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+            });
+            
+            receiptModal.addEventListener('click', function(e) {
+                if (e.target === receiptModal) {
+                    receiptModal.classList.remove('active');
+                    document.body.style.overflow = '';
+                    resetForm();
                 }
             });
             
@@ -2023,6 +2602,7 @@
                 img.addEventListener('click', function() {
                     modalImage.src = this.src;
                     imageModal.classList.add('active');
+                    document.body.style.overflow = 'hidden';
                 });
             });
             
@@ -2097,6 +2677,7 @@
             galleryElement.querySelector('img').addEventListener('click', function() {
                 modalImage.src = this.src;
                 imageModal.classList.add('active');
+                document.body.style.overflow = 'hidden';
             });
             
             return galleryElement;
@@ -2147,7 +2728,7 @@
                         ${service.duration}
                     </div>
                     <p class="service-card-description">${service.description}</p>
-                    <div class="service-card-details">
+                    <div class="service-card-details" style="display: none;">
                         ${service.details.map(detail => `
                             <div class="service-detail-item">
                                 <span class="service-detail-label">${detail.label}:</span>
@@ -2334,49 +2915,32 @@
             }, 3500);
         }
         
-        // نمایش تأیید رزرو
+        // نمایش تأیید رزرو و نمایش رسید
         function showConfirmation() {
             const fullName = document.getElementById('booking-name').value.trim();
             const phone = document.getElementById('booking-phone').value.trim();
+            const email = document.getElementById('booking-email').value.trim();
             
-            const message = `
-                رزرو خدمت "${selectedService.name}" با موفقیت ثبت شد!
-                
-                <div style="text-align: right; margin-top: 15px; background: rgba(230, 179, 37, 0.1); padding: 15px; border-radius: var(--radius-md); font-size: 0.9rem;">
-                    <p><strong>نام:</strong> ${fullName}</p>
-                    <p><strong>تلفن:</strong> ${phone}</p>
-                    <p><strong>خدمت:</strong> ${selectedService.name}</p>
-                    <p><strong>قیمت:</strong> ${selectedService.price.toLocaleString()} تومان</p>
-                    <p><strong>تاریخ:</strong> ${selectedDate}</p>
-                    <p><strong>ساعت:</strong> ${selectedTime}</p>
-                    <p style="color: var(--primary-gold); margin-top: 8px; font-weight: 600; font-size: 0.85rem;">
-                        <i class="fas fa-gem"></i>
-                        شامل ۱۵٪ تخفیف ویژه و هدیه لوکس بانو
-                    </p>
-                </div>
-                
-                <p style="margin-top: 15px; font-size: 0.85rem;">
-                    پیام تأیید به شماره ${phone} ارسال خواهد شد.
-                    لطفاً ۲۰ دقیقه قبل از زمان مقرر در آرایشگاه حاضر شوید.
-                </p>
-            `;
-            
-            showMessage('رزرو شما با موفقیت ثبت شد! همکاران ما به زودی با شما تماس خواهند گرفت.', 'success');
-            
-            // شبیه‌سازی ارسال به سرور
-            console.log('Booking submitted:', {
+            // ایجاد داده‌های رزرو برای نمایش در رسید
+            const bookingData = {
                 fullName,
                 phone,
-                email: document.getElementById('booking-email').value.trim(),
+                email,
                 service: selectedService.name,
-                serviceId: selectedService.id,
                 price: selectedService.price,
                 date: selectedDate,
-                time: selectedTime
-            });
+                time: selectedTime,
+                serviceId: selectedService.id
+            };
             
-            // ریست فرم
-            resetForm();
+            // شبیه‌سازی ارسال به سرور
+            console.log('Booking submitted:', bookingData);
+            
+            // نمایش رسید به کاربر
+            showReceipt(bookingData);
+            
+            // نمایش پیام موفقیت
+            showMessage('رزرو شما با موفقیت ثبت شد! رسید نوبت نمایش داده می‌شود.', 'success');
         }
         
         // ریست فرم - بهبود یافته
@@ -2400,17 +2964,6 @@
             selectedServiceTitle.textContent = 'لطفاً یک خدمت را انتخاب کنید';
             selectedServiceDescription.textContent = 'برای مشاهده جزئیات و رزرو، روی دکمه "رزرو این خدمت" در کارت خدمات کلیک کنید.';
             selectedServicePrice.textContent = '--';
-            
-            // نمایش پیام
-            showMessage('فرم شما با موفقیت ریست شد. می‌توانید مجدداً رزرو کنید.', 'success');
-            
-            // اسکرول به بالا
-            setTimeout(() => {
-                window.scrollTo({
-                    top: 0,
-                    behavior: 'smooth'
-                });
-            }, 1000);
         }
         
         // مقداردهی اسلایدرها
