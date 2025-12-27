@@ -831,9 +831,10 @@
             font-size: 0.85rem;
             position: relative;
             overflow: hidden;
+            user-select: none;
         }
         
-        .time-slot:hover {
+        .time-slot:hover:not(.unavailable) {
             border-color: var(--primary-gold);
             transform: translateY(-2px);
             background: linear-gradient(135deg, var(--primary-cream) 0%, var(--white) 100%);
@@ -844,6 +845,26 @@
             color: white;
             border-color: transparent;
             box-shadow: var(--shadow-soft);
+            animation: pulseSelected 0.5s ease;
+        }
+        
+        .time-slot.unavailable {
+            background: #f5f5f5;
+            color: #ccc;
+            cursor: not-allowed;
+            border-color: #eee;
+            position: relative;
+        }
+        
+        .time-slot.unavailable:after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 10%;
+            width: 80%;
+            height: 1px;
+            background: #ccc;
+            transform: translateY(-50%) rotate(-45deg);
         }
         
         .booking-btn {
@@ -963,6 +984,18 @@
             }
             70% {
                 box-shadow: 0 0 0 10px rgba(230, 179, 37, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(230, 179, 37, 0);
+            }
+        }
+        
+        @keyframes pulseSelected {
+            0% {
+                box-shadow: 0 0 0 0 rgba(230, 179, 37, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 8px rgba(230, 179, 37, 0);
             }
             100% {
                 box-shadow: 0 0 0 0 rgba(230, 179, 37, 0);
@@ -1897,8 +1930,11 @@
             }
         ];
 
-        // زمان‌های موجود
+        // زمان‌های موجود - ثابت
         const availableTimes = ["09:00", "10:30", "12:00", "14:00", "15:30", "17:00", "18:30", "20:00"];
+        
+        // زمان‌های رزرو شده (غیرقابل انتخاب)
+        const bookedTimes = ["12:00", "15:30"];
         
         // متغیرهای حالت
         let selectedService = null;
@@ -1956,6 +1992,7 @@
                 ],
                 onChange: function(selectedDates, dateStr, instance) {
                     selectedDate = dateStr;
+                    console.log(`تاریخ انتخاب شده: ${selectedDate}`);
                 }
             });
             
@@ -2141,29 +2178,42 @@
             return serviceElement;
         }
         
-        // نمایش زمان‌های موجود
+        // نمایش زمان‌های موجود - بهبود یافته
         function renderTimeSlots() {
             timeSlotsContainer.innerHTML = '';
             
             availableTimes.forEach(time => {
-                // به صورت تصادفی برخی زمان‌ها را غیرقابل دسترس می‌کنیم
-                const isUnavailable = Math.random() > 0.7;
+                // بررسی آیا زمان قبلاً رزرو شده است
+                const isBooked = bookedTimes.includes(time);
+                const isSelected = (selectedTime === time);
                 
                 const timeSlotElement = document.createElement('div');
-                timeSlotElement.className = `time-slot ${isUnavailable ? 'unavailable' : ''}`;
+                timeSlotElement.className = `time-slot ${isBooked ? 'unavailable' : ''} ${isSelected ? 'selected' : ''}`;
                 timeSlotElement.textContent = time;
+                timeSlotElement.dataset.time = time;
                 
-                if (!isUnavailable) {
+                if (!isBooked) {
                     timeSlotElement.addEventListener('click', () => {
-                        // حذف انتخاب قبلی
-                        document.querySelectorAll('.time-slot:not(.unavailable)').forEach(el => {
+                        // حذف انتخاب قبلی از همه time slots
+                        document.querySelectorAll('.time-slot').forEach(el => {
                             el.classList.remove('selected');
                         });
                         
                         // انتخاب جدید
                         timeSlotElement.classList.add('selected');
                         selectedTime = time;
+                        
+                        // نمایش پیام تأیید در کنسول
+                        console.log(`زمان ${time} انتخاب شد`);
+                        
+                        // هایلایت کردن زمان انتخاب شده
+                        timeSlotElement.style.animation = 'pulseSelected 0.5s';
+                        setTimeout(() => {
+                            timeSlotElement.style.animation = '';
+                        }, 500);
                     });
+                } else {
+                    timeSlotElement.title = "این زمان قبلاً رزرو شده است";
                 }
                 
                 timeSlotsContainer.appendChild(timeSlotElement);
@@ -2179,6 +2229,21 @@
             selectedServiceDescription.textContent = service.description;
             selectedServicePrice.textContent = `${service.price.toLocaleString()} تومان`;
             
+            // نمایش زمان انتخاب شده اگر وجود دارد
+            if (selectedTime) {
+                console.log(`زمان انتخاب شده: ${selectedTime}`);
+                // برجسته کردن زمان انتخاب شده
+                const selectedElement = document.querySelector(`.time-slot[data-time="${selectedTime}"]`);
+                if (selectedElement && !selectedElement.classList.contains('unavailable')) {
+                    // حذف selected از همه
+                    document.querySelectorAll('.time-slot').forEach(el => {
+                        el.classList.remove('selected');
+                    });
+                    // اضافه کردن selected به زمان انتخاب شده
+                    selectedElement.classList.add('selected');
+                }
+            }
+            
             // هایلایت کردن فرم رزرو
             bookingServiceInfo.style.animation = 'pulse 0.5s';
             setTimeout(() => {
@@ -2186,33 +2251,47 @@
             }, 500);
         }
         
-        // اعتبارسنجی رزرو
+        // اعتبارسنجی رزرو - بهبود یافته
         function validateBooking() {
             const fullName = document.getElementById('booking-name').value.trim();
             const phone = document.getElementById('booking-phone').value.trim();
+            const bookingDate = document.getElementById('booking-date').value.trim();
             
             if (!selectedService) {
                 showMessage('لطفاً ابتدا یک خدمت را انتخاب کنید.', 'error');
+                // اسکرول به بخش خدمات
+                document.getElementById('services-section').scrollIntoView({
+                    behavior: 'smooth'
+                });
                 return false;
             }
             
-            if (!selectedDate) {
+            if (!bookingDate) {
                 showMessage('لطفاً تاریخ مراجعه را انتخاب کنید.', 'error');
+                // فوکوس روی فیلد تاریخ
+                document.getElementById('booking-date').focus();
                 return false;
             }
             
             if (!selectedTime) {
                 showMessage('لطفاً زمان مراجعه را انتخاب کنید.', 'error');
+                // اسکرول به بخش زمان‌بندی
+                document.getElementById('time-slots').scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'center'
+                });
                 return false;
             }
             
             if (!fullName) {
                 showMessage('لطفاً نام و نام خانوادگی خود را وارد کنید.', 'error');
+                document.getElementById('booking-name').focus();
                 return false;
             }
             
             if (!phone || phone.length !== 11 || !phone.startsWith('09')) {
-                showMessage('لطفاً شماره تلفن معتبر وارد کنید.', 'error');
+                showMessage('لطفاً شماره تلفن معتبر وارد کنید (مانند ۰۹۱۲۳۴۵۶۷۸۹).', 'error');
+                document.getElementById('booking-phone').focus();
                 return false;
             }
             
@@ -2300,26 +2379,38 @@
             resetForm();
         }
         
-        // ریست فرم
+        // ریست فرم - بهبود یافته
         function resetForm() {
             document.getElementById('booking-name').value = '';
             document.getElementById('booking-phone').value = '';
             document.getElementById('booking-email').value = '';
             document.getElementById('booking-date').value = '';
             
-            // ریست انتخاب زمان
+            // ریست انتخاب زمان - فقط selectedTime را ریست کن، اما نمایش را تغییر نده
+            selectedTime = null;
+            selectedDate = null;
+            selectedService = null;
+            
+            // فقط selected کلاس را از زمان‌ها حذف کن
             document.querySelectorAll('.time-slot.selected').forEach(el => {
                 el.classList.remove('selected');
             });
             
-            selectedDate = null;
-            selectedTime = null;
+            // به روزرسانی اطلاعات خدمت
+            selectedServiceTitle.textContent = 'لطفاً یک خدمت را انتخاب کنید';
+            selectedServiceDescription.textContent = 'برای مشاهده جزئیات و رزرو، روی دکمه "رزرو این خدمت" در کارت خدمات کلیک کنید.';
+            selectedServicePrice.textContent = '--';
+            
+            // نمایش پیام
+            showMessage('فرم شما با موفقیت ریست شد. می‌توانید مجدداً رزرو کنید.', 'success');
             
             // اسکرول به بالا
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
+            setTimeout(() => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            }, 1000);
         }
         
         // مقداردهی اسلایدرها
@@ -2384,10 +2475,6 @@
                     el: '.swiper-pagination',
                     clickable: true,
                 },
-                navigation: {
-                    nextEl: '.swiper-button-next',
-                    prevEl: '.swiper-button-prev',
-                },
                 breakpoints: {
                     320: {
                         slidesPerView: 1.1,
@@ -2425,10 +2512,6 @@
                 pagination: {
                     el: '.swiper-pagination',
                     clickable: true,
-                },
-                navigation: {
-                    nextEl: '.swiper-button-next',
-                    prevEl: '.swiper-button-prev',
                 },
                 breakpoints: {
                     320: {
